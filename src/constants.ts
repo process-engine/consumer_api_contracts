@@ -21,7 +21,7 @@ export const userTasksByCorrelationRoute: string = `${correlationRoute}${userTas
 export const userTasksByVerifiedCorrelationRoute: string = `${processModelRoute}${correlationRoute}${userTasksRoute}`;
 
 const userTaskRoute: string = `/user_tasks/:user_task_id`;
-export const finishUserTaskRoute: string = `${processModelRoute}${correlationRoute}${userTaskRoute}/trigger`;
+export const finishUserTaskRoute: string = `${processModelRoute}${correlationRoute}${userTaskRoute}/finish`;
 
 // notification-channels
 export const processModelKeyConstant: string = ':process_model_key';
