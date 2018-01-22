@@ -6,24 +6,22 @@ export const startProcessRoute: string = `${processModelRoute}/start_events/:sta
 const correlationRoute: string = `/correlations/:correlation_id`;
 
 // event-routes
-export const eventsRoute: string = `/events`;
+const eventsRoute: string = `/events`;
 export const eventsByProcessModelRoute: string = `${processModelRoute}${eventsRoute}`;
 export const eventsByCorrelationRoute: string = `${correlationRoute}${eventsRoute}`;
 export const eventsByVerifiedCorrelationRoute: string = `${processModelRoute}${correlationRoute}${eventsRoute}`;
 
 const eventRoute: string = `/events/:event_id`;
-export const triggerEventRoute: string = `${eventRoute}/trigger`;
-export const triggerVerifiedEventRoute: string = `${processModelRoute}${correlationRoute}${eventRoute}/trigger`;
+export const triggerEventRoute: string = `${processModelRoute}${correlationRoute}${eventRoute}/trigger`;
 
 // user-task-routes
-export const userTasksRoute: string = `/user_tasks`;
+const userTasksRoute: string = `/user_tasks`;
 export const userTasksByProcessModelRoute: string = `${processModelRoute}${userTasksRoute}`;
 export const userTasksByCorrelationRoute: string = `${correlationRoute}${userTasksRoute}`;
 export const userTasksByVerifiedCorrelationRoute: string = `${processModelRoute}${correlationRoute}${userTasksRoute}`;
 
 const userTaskRoute: string = `/user_tasks/:user_task_id`;
-export const finishUserTaskRoute: string = `${userTaskRoute}/finish`;
-export const finishVerifiedUserTaskRoute: string = `${processModelRoute}${correlationRoute}${userTaskRoute}/trigger`;
+export const finishUserTaskRoute: string = `${processModelRoute}${correlationRoute}${userTaskRoute}/trigger`;
 
 // notification-channels
 export const processModelKeyConstant: string = ':process_model_key';
