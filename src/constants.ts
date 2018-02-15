@@ -7,22 +7,38 @@ const eventRoute: string = `/events/:event_id`;
 const userTasksRoute: string = `/user_tasks`;
 const userTaskRoute: string = `/user_tasks/:user_task_id`;
 
-export const routes: { [routeName: string]: string; } = {
+export const routes: IRoutes = {
   // process-model-routes
-  processModelsRoute: processModelsRoute,
-  processModelRoute: processModelRoute,
-  startProcessRoute: `${processModelRoute}/start_events/:start_event_key/trigger`,
+  processModels: processModelsRoute,
+  processModel: processModelRoute,
+  startProcess: `${processModelRoute}/start_events/:start_event_key/trigger`,
   // event-routes
-  eventsByProcessModelRoute: `${processModelRoute}${eventsRoute}`,
-  eventsByCorrelationRoute: `${correlationRoute}${eventsRoute}`,
-  eventsByVerifiedCorrelationRoute: `${processModelRoute}${correlationRoute}${eventsRoute}`,
-  triggerEventRoute: `${processModelRoute}${correlationRoute}${eventRoute}/trigger`,
+  eventsByProcessModel: `${processModelRoute}${eventsRoute}`,
+  eventsByCorrelation: `${correlationRoute}${eventsRoute}`,
+  eventsByVerifiedCorrelation: `${processModelRoute}${correlationRoute}${eventsRoute}`,
+  triggerEvent: `${processModelRoute}${correlationRoute}${eventRoute}/trigger`,
   // user-task-routes
-  userTasksByProcessModelRoute: `${processModelRoute}${userTasksRoute}`,
-  userTasksByCorrelationRoute: `${correlationRoute}${userTasksRoute}`,
-  userTasksByVerifiedCorrelationRoute: `${processModelRoute}${correlationRoute}${userTasksRoute}`,
-  finishUserTaskRoute: `${processModelRoute}${correlationRoute}${userTaskRoute}/finish`,
+  userTasksByProcessModel: `${processModelRoute}${userTasksRoute}`,
+  userTasksByCorrelation: `${correlationRoute}${userTasksRoute}`,
+  userTasksByVerifiedCorrelation: `${processModelRoute}${correlationRoute}${userTasksRoute}`,
+  finishUserTask: `${processModelRoute}${correlationRoute}${userTaskRoute}/finish`,
 };
+
+export interface IRoutes {
+  processModels: string;
+  processModel: string;
+  startProcess: string;
+  eventsByProcessModel: string;
+  eventsByCorrelation: string;
+  eventsByVerifiedCorrelation: string;
+  triggerEvent: string;
+  userTasksByProcessModel: string;
+  userTasksByCorrelation: string;
+  userTasksByVerifiedCorrelation: string;
+  finishUserTask: string;
+}
+
+
 
 // Notification-channels
 const processModelKeyConstant: string = ':process_model_key';
@@ -30,7 +46,7 @@ const correlationIdConstant: string = ':correlation_id';
 const elementKeyConstant: string = ':element_key';
 const processNotificationsChannel: string = '/process_notifications';
 
-export const notificationChannels: { [channelName: string]: string } = {
+export const notificationChannels: INotificationChannels = {
   processModelKeyConstant: processModelKeyConstant,
   correlationIdConstant: correlationIdConstant,
   elementKeyConstant: elementKeyConstant,
@@ -39,3 +55,13 @@ export const notificationChannels: { [channelName: string]: string } = {
   processNotificationsByCorrelationChannel: `/correlation/${correlationIdConstant}${processNotificationsChannel}`,
   processNotificationByElementChannel: `/correlation/${correlationIdConstant}/elements/${elementKeyConstant}${processNotificationsChannel}`,
 };
+
+export interface INotificationChannels {
+  processModelKeyConstant: string;
+  correlationIdConstant: string;
+  elementKeyConstant: string;
+  processNotificationsChannel: string;
+  processNotificationsByProcessModelChannel: string;
+  processNotificationsByCorrelationChannel: string;
+  processNotificationByElementChannel: string;
+}
