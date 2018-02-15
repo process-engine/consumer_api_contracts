@@ -1,4 +1,18 @@
 // Routes
+export interface IRoutes {
+  processModels: string;
+  processModel: string;
+  startProcess: string;
+  eventsByProcessModel: string;
+  eventsByCorrelation: string;
+  eventsByVerifiedCorrelation: string;
+  triggerEvent: string;
+  userTasksByProcessModel: string;
+  userTasksByCorrelation: string;
+  userTasksByVerifiedCorrelation: string;
+  finishUserTask: string;
+}
+
 const processModelsRoute: string = '/process_models';
 const processModelRoute: string = '/process_models/:process_model_key';
 const correlationRoute: string = `/correlations/:correlation_id`;
@@ -24,23 +38,17 @@ export const routes: IRoutes = {
   finishUserTask: `${processModelRoute}${correlationRoute}${userTaskRoute}/finish`,
 };
 
-export interface IRoutes {
-  processModels: string;
-  processModel: string;
-  startProcess: string;
-  eventsByProcessModel: string;
-  eventsByCorrelation: string;
-  eventsByVerifiedCorrelation: string;
-  triggerEvent: string;
-  userTasksByProcessModel: string;
-  userTasksByCorrelation: string;
-  userTasksByVerifiedCorrelation: string;
-  finishUserTask: string;
+// Notification-channels
+export interface INotificationChannels {
+  processModelKeyConstant: string;
+  correlationIdConstant: string;
+  elementKeyConstant: string;
+  processNotificationsChannel: string;
+  processNotificationsByProcessModelChannel: string;
+  processNotificationsByCorrelationChannel: string;
+  processNotificationByElementChannel: string;
 }
 
-
-
-// Notification-channels
 const processModelKeyConstant: string = ':process_model_key';
 const correlationIdConstant: string = ':correlation_id';
 const elementKeyConstant: string = ':element_key';
@@ -55,13 +63,3 @@ export const notificationChannels: INotificationChannels = {
   processNotificationsByCorrelationChannel: `/correlation/${correlationIdConstant}${processNotificationsChannel}`,
   processNotificationByElementChannel: `/correlation/${correlationIdConstant}/elements/${elementKeyConstant}${processNotificationsChannel}`,
 };
-
-export interface INotificationChannels {
-  processModelKeyConstant: string;
-  correlationIdConstant: string;
-  elementKeyConstant: string;
-  processNotificationsChannel: string;
-  processNotificationsByProcessModelChannel: string;
-  processNotificationsByCorrelationChannel: string;
-  processNotificationByElementChannel: string;
-}
