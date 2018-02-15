@@ -3,6 +3,10 @@ export const processModelsRoute: string = '/process_models';
 export const processModelRoute: string = `/process_models/:process_model_key`;
 export const startProcessRoute: string = `${processModelRoute}/start_events/:start_event_key/trigger`;
 
+export const Routes: { [routeName: string]: string; } = {
+  processModelRoute: '`/process_models/:process_model_key`',
+};
+
 const correlationRoute: string = `/correlations/:correlation_id`;
 
 // event-routes
