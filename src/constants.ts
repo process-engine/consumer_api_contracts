@@ -3,39 +3,34 @@ export interface IRoutes {
   processModels: string;
   processModel: string;
   startProcess: string;
-  eventsByProcessModel: string;
-  eventsByCorrelation: string;
-  eventsByVerifiedCorrelation: string;
+  startProcessAndAwaitEndEvent: string;
+  processModelEvents: string;
+  processModelCorrelationEvents: string;
+  triggerProcessModelCorrelationEvent: string;
+  processModelUserTasks: string;
+  processModelCorrelationUserTasks: string;
+  finishProcessModelCorrelationUserTask: string;
+  correlationEvents: string;
+  correlationUserTasks: string;
   triggerEvent: string;
-  userTasksByProcessModel: string;
-  userTasksByCorrelation: string;
-  userTasksByVerifiedCorrelation: string;
   finishUserTask: string;
 }
 
-const processModelsRoute: string = '/process_models';
-const processModelRoute: string = '/process_models/:process_model_key';
-const correlationRoute: string = `/correlations/:correlation_id`;
-const eventsRoute: string = `/events`;
-const eventRoute: string = `/events/:event_id`;
-const userTasksRoute: string = `/user_tasks`;
-const userTaskRoute: string = `/user_tasks/:user_task_id`;
-
 export const routes: IRoutes = {
-  // process-model-routes
-  processModels: processModelsRoute,
-  processModel: processModelRoute,
-  startProcess: `${processModelRoute}/start_events/:start_event_key/trigger`,
-  // event-routes
-  eventsByProcessModel: `${processModelRoute}${eventsRoute}`,
-  eventsByCorrelation: `${correlationRoute}${eventsRoute}`,
-  eventsByVerifiedCorrelation: `${processModelRoute}${correlationRoute}${eventsRoute}`,
-  triggerEvent: `${processModelRoute}${correlationRoute}${eventRoute}/trigger`,
-  // user-task-routes
-  userTasksByProcessModel: `${processModelRoute}${userTasksRoute}`,
-  userTasksByCorrelation: `${correlationRoute}${userTasksRoute}`,
-  userTasksByVerifiedCorrelation: `${processModelRoute}${correlationRoute}${userTasksRoute}`,
-  finishUserTask: `${processModelRoute}${correlationRoute}${userTaskRoute}/finish`,
+  processModels: 'process_models',
+  processModel: 'process_models/:process_model_key',
+  startProcess: '/process_models/:process_model_key/start_events/:start_event_key/start',
+  startProcessAndAwaitEndEvent: '/process_models/:process_model_key/start_events/:start_event_key/end_event/:end_event_key/start_and_resolve_by_end_event',
+  processModelEvents: 'process_models/:process_model_key/events',
+  processModelCorrelationEvents: 'process_models/:process_model_key/correlations/:correlation_id/events',
+  triggerProcessModelCorrelationEvent: '/process_models/:process_model_key/correlations/:correlation_id/events/:event_id/trigger',
+  processModelUserTasks: 'process_models/:process_model_key/user_tasks',
+  processModelCorrelationUserTasks: 'process_models/:process_model_key/correlations/:correlation_id/user_tasks',
+  finishProcessModelCorrelationUserTask: '/process_models/:process_model_key/correlations/:correlation_id/user_tasks/:user_task_id/finish',
+  correlationEvents: 'correlations/:correlation_id/events',
+  correlationUserTasks: 'correlations/:correlation_id/user_tasks',
+  triggerEvent: '/events/:event_id/trigger',
+  finishUserTask: '/user_tasks/:user_task_id/finish',
 };
 
 // Notification-channels
