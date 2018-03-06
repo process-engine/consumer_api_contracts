@@ -1,1 +1,6 @@
-export type IProcessModel = any; // TODO: Define the process-model-object
+import {IEvent} from './index';
+
+export interface IProcessModel {
+  key: string;
+  startEvents: Array<IEvent>;
+}

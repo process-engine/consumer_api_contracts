@@ -7,6 +7,7 @@ export * from './iprocess_model';
 export * from './ievent';
 export * from './iuser_task';
 export * from './ipagination_info';
+export * from './iprocess_event_message_payload';
 export * from './iprocess_model_list';
 export * from './ievent_list';
 export * from './iuser_task_list';
