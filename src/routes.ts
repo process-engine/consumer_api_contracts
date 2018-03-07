@@ -38,29 +38,3 @@ export const routes: IRoutes = {
   finishUserTask: '/user_tasks/:user_task_id/finish',
   finishProcessModelCorrelationUserTask: '/process_models/:process_model_key/correlations/:correlation_id/user_tasks/:user_task_id/finish',
 };
-
-// Notification-channels - TODO: Update to consumer api concept
-export interface INotificationChannels {
-  processModelKeyConstant: string;
-  correlationIdConstant: string;
-  elementKeyConstant: string;
-  processNotificationsChannel: string;
-  processNotificationsByProcessModelChannel: string;
-  processNotificationsByCorrelationChannel: string;
-  processNotificationByElementChannel: string;
-}
-
-const processModelKeyConstant: string = ':process_model_key';
-const correlationIdConstant: string = ':correlation_id';
-const elementKeyConstant: string = ':element_key';
-const processNotificationsChannel: string = '/process_notifications';
-
-export const notificationChannels: INotificationChannels = {
-  processModelKeyConstant: processModelKeyConstant,
-  correlationIdConstant: correlationIdConstant,
-  elementKeyConstant: elementKeyConstant,
-  processNotificationsChannel: processNotificationsChannel,
-  processNotificationsByProcessModelChannel: `/process_models/${processModelKeyConstant}${processNotificationsChannel}`,
-  processNotificationsByCorrelationChannel: `/correlation/${correlationIdConstant}${processNotificationsChannel}`,
-  processNotificationByElementChannel: `/correlation/${correlationIdConstant}/elements/${elementKeyConstant}${processNotificationsChannel}`,
-};
