@@ -1,4 +1,4 @@
-import {IEvent} from './index';
+import {IEvent} from '../index';
 
 export interface IProcessModel {
   key: string;
