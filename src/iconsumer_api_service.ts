@@ -1,4 +1,4 @@
-import {IEventList, IEventTriggerPayload, IProcessModel, IProcessModelList, IUserTaskList, IUserTaskResult} from './index';
+import {IEventList, IEventTriggerPayload, IProcessModel, IProcessModelList, IUserTaskList, IUserTaskResult} from './data_models/index';
 
 export interface IConsumerApiService {
   // Process models
