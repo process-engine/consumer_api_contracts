@@ -1,4 +1,3 @@
-// TODO - Question: Use different types for ProcessInstance and ProcessModel?
 export interface IUserTask {
   key: string;
   id: string;
