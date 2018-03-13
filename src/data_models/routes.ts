@@ -2,7 +2,7 @@
 export interface IRoutes {
   // Process models
   processModels: string;
-  processModel: string;
+  processModelByKey: string;
   startProcess: string;
   startProcessAndAwaitEndEvent: string;
   // Events
@@ -22,7 +22,7 @@ export interface IRoutes {
 export const routes: IRoutes = {
   // Process models
   processModels: '/process_models',
-  processModel: '/process_models/:process_model_key',
+  processModelByKey: '/process_models/:process_model_key',
   startProcess: '/process_models/:process_model_key/start_events/:start_event_key/start',
   startProcessAndAwaitEndEvent: '/process_models/:process_model_key/start_events/:start_event_key/end_event/:end_event_key/start_and_resolve_by_end_event',
   // Events
