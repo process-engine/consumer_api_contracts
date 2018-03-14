@@ -10,13 +10,11 @@ export interface IRoutes {
   correlationEvents: string;
   processModelCorrelationEvents: string;
   triggerEvent: string;
-  triggerProcessModelCorrelationEvent: string;
   // UserTasks
   processModelUserTasks: string;
   correlationUserTasks: string;
   processModelCorrelationUserTasks: string;
   finishUserTask: string;
-  finishProcessModelCorrelationUserTask: string;
 }
 
 export const routes: IRoutes = {
@@ -29,12 +27,10 @@ export const routes: IRoutes = {
   processModelEvents: '/process_models/:process_model_key/events',
   correlationEvents: '/correlations/:correlation_id/events',
   processModelCorrelationEvents: '/process_models/:process_model_key/correlations/:correlation_id/events',
-  triggerEvent: '/events/:event_id/trigger',
-  triggerProcessModelCorrelationEvent: '/process_models/:process_model_key/correlations/:correlation_id/events/:event_id/trigger',
+  triggerEvent: '/process_models/:process_model_key/correlations/:correlation_id/events/:event_id/trigger',
   // UserTasks
   processModelUserTasks: '/process_models/:process_model_key/user_tasks',
   correlationUserTasks: '/correlations/:correlation_id/user_tasks',
   processModelCorrelationUserTasks: '/process_models/:process_model_key/correlations/:correlation_id/user_tasks',
-  finishUserTask: '/user_tasks/:user_task_id/finish',
-  finishProcessModelCorrelationUserTask: '/process_models/:process_model_key/correlations/:correlation_id/user_tasks/:user_task_id/finish',
+  finishUserTask: '/process_models/:process_model_key/correlations/:correlation_id/user_tasks/:user_task_id/finish',
 };
