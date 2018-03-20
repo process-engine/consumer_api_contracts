@@ -9,11 +9,14 @@ import {IEventList,
   ProcessStartReturnOnOptions,
 } from './data_models/index';
 
+import {ExecutionContext} from '@essential-projects/core_contracts';
+
 export interface IConsumerApiService {
   // Process models
   getProcessModels(): Promise<IProcessModelList>;
   getProcessModelByKey(processModelKey: string): Promise<IProcessModel>;
-  startProcess(processModelKey: string,
+  startProcess(context: ExecutionContext,
+               processModelKey: string,
                startEventKey: string,
                payload: IProcessStartRequestPayload,
                returnOn: ProcessStartReturnOnOptions): Promise<IProcessStartResponsePayload>;

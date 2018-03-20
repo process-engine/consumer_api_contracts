@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/process-engine/consumer_api_contracts#readme",
   "devDependencies": {
+    "@essential-projects/core_contracts": "^1.0.0",
     "@essential-projects/http_node": "^1.0.0",
     "@essential-projects/tslint-config": "1.0.0",
     "@types/express": "^4.11.0",
