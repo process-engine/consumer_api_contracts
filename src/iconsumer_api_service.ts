@@ -20,7 +20,8 @@ export interface IConsumerApiService {
                startEventKey: string,
                payload: IProcessStartRequestPayload,
                returnOn: ProcessStartReturnOnOptions): Promise<IProcessStartResponsePayload>;
-  startProcessAndAwaitEndEvent(processModelKey: string,
+  startProcessAndAwaitEndEvent(context: ExecutionContext,
+                               processModelKey: string,
                                startEventKey: string,
                                endEventKey: string,
                                payload: IProcessStartRequestPayload): Promise<IProcessStartResponsePayload>;
