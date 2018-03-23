@@ -1,18 +1,19 @@
 import {Request, Response} from 'express';
-import {IEventList, IProcessModel, IProcessModelList, IUserTaskList} from './index';
 
 export interface IConsumerApiController {
+  // Process models
   getProcessModels(request: Request, response: Response): Promise<void>;
   getProcessModelByKey(request: Request, response: Response): Promise<void>;
   startProcess(request: Request, response: Response): Promise<void>;
-
-  getEventsByProcessModel(request: Request, response: Response): Promise<void>;
-  getEventsByCorrelation(request: Request, response: Response): Promise<void>;
-  getEventsByVerifiedCorrelation(request: Request, response: Response): Promise<void>;
+  startProcessAndAwaitEndEvent(request: Request, response: Response): Promise<void>;
+  // Events
+  getEventsForProcessModel(request: Request, response: Response): Promise<void>;
+  getEventsForCorrelation(request: Request, response: Response): Promise<void>;
+  getEventsForProcessModelInCorrelation(request: Request, response: Response): Promise<void>;
   triggerEvent(request: Request, response: Response): Promise<void>;
-
-  getUserTasksByProcessModel(request: Request, response: Response): Promise<void>;
-  getUserTasksByCorrelation(request: Request, response: Response): Promise<void>;
-  getUserTasksByVerifiedCorrelation(request: Request, response: Response): Promise<void>;
+  // UserTasks
+  getUserTasksForProcessModel(request: Request, response: Response): Promise<void>;
+  getUserTasksForCorrelation(request: Request, response: Response): Promise<void>;
+  getUserTasksForProcessModelInCorrelation(request: Request, response: Response): Promise<void>;
   finishUserTask(request: Request, response: Response): Promise<void>;
 }
