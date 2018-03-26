@@ -4,4 +4,4 @@ export * from './messagebus_api/index';
 export * from './iconsumer_api_controller';
 export * from './iconsumer_api_router';
 export * from './iconsumer_api_service';
-export * from './iconsumer_context';
+export * from './consumer_context';

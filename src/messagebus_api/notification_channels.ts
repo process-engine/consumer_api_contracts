@@ -1,24 +1,10 @@
-export interface INotificationChannels {
-  processModelKeyConstant: string;
-  correlationIdConstant: string;
-  elementKeyConstant: string;
-  processNotificationsChannel: string;
-  processNotificationsByProcessModelChannel: string;
-  processNotificationsByCorrelationChannel: string;
-  processNotificationByElementChannel: string;
+// tslint:disable:max-line-length
+export class NotificationChannels {
+  public static processModelKeyConstant: string = ':process_model_key';
+  public static correlationIdConstant: string = ':correlation_id';
+  public static elementKeyConstant: string = ':element_key';
+  public static processNotificationsChannel: string = '/process_notifications';
+  public static processNotificationsByProcessModelChannel: string = `/process_models/${NotificationChannels.processModelKeyConstant}${NotificationChannels.processNotificationsChannel}`;
+  public static processNotificationsByCorrelationChannel: string = `/correlation/${NotificationChannels.correlationIdConstant}${NotificationChannels.processNotificationsChannel}`;
+  public static processNotificationByElementChannel: string = `/correlation/${NotificationChannels.correlationIdConstant}/elements/${NotificationChannels.elementKeyConstant}${NotificationChannels.processNotificationsChannel}`;
 }
-
-const processModelKeyConstant: string = ':process_model_key';
-const correlationIdConstant: string = ':correlation_id';
-const elementKeyConstant: string = ':element_key';
-const processNotificationsChannel: string = '/process_notifications';
-
-export const notificationChannels: INotificationChannels = {
-  processModelKeyConstant: processModelKeyConstant,
-  correlationIdConstant: correlationIdConstant,
-  elementKeyConstant: elementKeyConstant,
-  processNotificationsChannel: processNotificationsChannel,
-  processNotificationsByProcessModelChannel: `/process_models/${processModelKeyConstant}${processNotificationsChannel}`,
-  processNotificationsByCorrelationChannel: `/correlation/${correlationIdConstant}${processNotificationsChannel}`,
-  processNotificationByElementChannel: `/correlation/${correlationIdConstant}/elements/${elementKeyConstant}${processNotificationsChannel}`,
-};

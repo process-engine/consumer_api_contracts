@@ -1,63 +1,35 @@
-export interface IUrlParameters {
-  processModelKey: string;
-  correlationId: string;
-  startEventKey: string;
-  endEventKey: string;
-  eventId: string;
-  userTaskId: string;
+
+// tslint:disable:variable-name
+// tslint:disable:max-classes-per-file
+// tslint:disable:max-line-length
+export class UrlParameters {
+  public static processModelKey: string = ':process_model_key';
+  public static correlationId: string = ':correlation_id';
+  public static startEventKey: string = ':start_event_key';
+  public static endEventKey: string = ':end_event_key';
+  public static eventId: string = ':event_id';
+  public static userTaskId: string = ':user_task_id';
 }
 
-export interface IUrlPaths {
+export class UrlPaths {
   // Process models
-  processModels: string;
-  processModelByKey: string;
-  startProcess: string;
-  startProcessAndAwaitEndEvent: string;
+  public static processModels: string = `/process_models`;
+  public static processModelByKey: string = `/process_models/${UrlParameters.processModelKey}`;
+  public static startProcess: string = `/process_models/${UrlParameters.processModelKey}/start_events/${UrlParameters.startEventKey}/start`;
+  public static startProcessAndAwaitEndEvent: string = `/process_models/${UrlParameters.processModelKey}/start_events/${UrlParameters.startEventKey}/end_event/${UrlParameters.endEventKey}/start_and_resolve_by_end_event`;
   // Events
-  processModelEvents: string;
-  correlationEvents: string;
-  processModelCorrelationEvents: string;
-  triggerEvent: string;
+  public static processModelEvents: string = `/process_models/${UrlParameters.processModelKey}/events`;
+  public static correlationEvents: string = `/correlations/${UrlParameters.correlationId}/events`;
+  public static processModelCorrelationEvents: string = `/process_models/${UrlParameters.processModelKey}/correlations/${UrlParameters.correlationId}/events`;
+  public static triggerEvent: string = `/process_models/${UrlParameters.processModelKey}/correlations/${UrlParameters.correlationId}/events/${UrlParameters.eventId}/trigger`;
   // UserTasks
-  processModelUserTasks: string;
-  correlationUserTasks: string;
-  processModelCorrelationUserTasks: string;
-  finishUserTask: string;
+  public static processModelUserTasks: string = `/process_models/${UrlParameters.processModelKey}/user_tasks`;
+  public static correlationUserTasks: string = `/correlations/${UrlParameters.correlationId}/user_tasks`;
+  public static processModelCorrelationUserTasks: string = `/process_models/${UrlParameters.processModelKey}/correlations/${UrlParameters.correlationId}/user_tasks`;
+  public static finishUserTask: string = `/process_models/${UrlParameters.processModelKey}/correlations/${UrlParameters.correlationId}/user_tasks/${UrlParameters.userTaskId}/finish`;
 }
 
-export interface IRestSettings {
-  params: IUrlParameters;
-  paths: IUrlPaths;
+export class RestSettings {
+  public params: UrlParameters;
+  public paths: UrlPaths;
 }
-
-const params: IUrlParameters = {
-  processModelKey: ':process_model_key',
-  correlationId: ':correlation_id',
-  startEventKey: ':start_event_key',
-  endEventKey: ':end_event_key',
-  eventId: ':event_id',
-  userTaskId: ':user_task_id',
-};
-
-const paths: IUrlPaths = {
-  // Process models
-  processModels: `/process_models`,
-  processModelByKey: `/process_models/${params.processModelKey}`,
-  startProcess: `/process_models/${params.processModelKey}/start_events/${params.startEventKey}/start`,
-  startProcessAndAwaitEndEvent: `/process_models/${params.processModelKey}/start_events/${params.startEventKey}/end_event/${params.endEventKey}/start_and_resolve_by_end_event`,
-  // Events
-  processModelEvents: `/process_models/${params.processModelKey}/events`,
-  correlationEvents: `/correlations/${params.correlationId}/events`,
-  processModelCorrelationEvents: `/process_models/${params.processModelKey}/correlations/${params.correlationId}/events`,
-  triggerEvent: `/process_models/${params.processModelKey}/correlations/${params.correlationId}/events/${params.eventId}/trigger`,
-  // UserTasks
-  processModelUserTasks: `/process_models/${params.processModelKey}/user_tasks`,
-  correlationUserTasks: `/correlations/${params.correlationId}/user_tasks`,
-  processModelCorrelationUserTasks: `/process_models/${params.processModelKey}/correlations/${params.correlationId}/user_tasks`,
-  finishUserTask: `/process_models/${params.processModelKey}/correlations/${params.correlationId}/user_tasks/${params.userTaskId}/finish`,
-};
-
-export const restSettings: IRestSettings = {
-  params: params,
-  paths: paths,
-};

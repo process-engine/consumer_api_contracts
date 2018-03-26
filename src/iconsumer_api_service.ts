@@ -1,45 +1,45 @@
 import {
   IEventList,
   IEventTriggerPayload,
-  IProcessModel,
-  IProcessModelList,
-  IProcessStartRequestPayload,
-  IProcessStartResponsePayload,
+  ProcessModel,
+  ProcessModelList,
+  ProcessStartRequestPayload,
+  ProcessStartResponsePayload,
   ProcessStartReturnOnOptions,
   UserTaskList,
   UserTaskResult,
 } from './data_models/index';
 
-import {IConsumerContext} from './index';
+import {ConsumerContext} from './index';
 
 export interface IConsumerApiService {
   // Process models
-  getProcessModels(context: IConsumerContext): Promise<IProcessModelList>;
-  getProcessModelByKey(context: IConsumerContext, processModelKey: string): Promise<IProcessModel>;
-  startProcess(context: IConsumerContext,
+  getProcessModels(context: ConsumerContext): Promise<ProcessModelList>;
+  getProcessModelByKey(context: ConsumerContext, processModelKey: string): Promise<ProcessModel>;
+  startProcess(context: ConsumerContext,
                processModelKey: string,
                startEventKey: string,
-               payload: IProcessStartRequestPayload,
-               returnOn: ProcessStartReturnOnOptions): Promise<IProcessStartResponsePayload>;
-  startProcessAndAwaitEndEvent(context: IConsumerContext,
+               payload: ProcessStartRequestPayload,
+               returnOn: ProcessStartReturnOnOptions): Promise<ProcessStartResponsePayload>;
+  startProcessAndAwaitEndEvent(context: ConsumerContext,
                                processModelKey: string,
                                startEventKey: string,
                                endEventKey: string,
-                               payload: IProcessStartRequestPayload): Promise<IProcessStartResponsePayload>;
+                               payload: ProcessStartRequestPayload): Promise<ProcessStartResponsePayload>;
   // Events
-  getEventsForProcessModel(context: IConsumerContext, processModelKey: string): Promise<IEventList>;
-  getEventsForCorrelation(context: IConsumerContext, correlationId: string): Promise<IEventList>;
-  getEventsForProcessModelInCorrelation(context: IConsumerContext, processModelKey: string, correlationId: string): Promise<IEventList>;
-  triggerEvent(context: IConsumerContext,
+  getEventsForProcessModel(context: ConsumerContext, processModelKey: string): Promise<IEventList>;
+  getEventsForCorrelation(context: ConsumerContext, correlationId: string): Promise<IEventList>;
+  getEventsForProcessModelInCorrelation(context: ConsumerContext, processModelKey: string, correlationId: string): Promise<IEventList>;
+  triggerEvent(context: ConsumerContext,
                processModelKey: string,
                correlationId: string,
                eventId: string,
                eventTriggerPayload?: IEventTriggerPayload): Promise<void>;
   // UserTasks
-  getUserTasksForProcessModel(context: IConsumerContext, processModelKey: string): Promise<UserTaskList>;
-  getUserTasksForCorrelation(context: IConsumerContext, correlationId: string): Promise<UserTaskList>;
-  getUserTasksForProcessModelInCorrelation(context: IConsumerContext, processModelKey: string, correlationId: string): Promise<UserTaskList>;
-  finishUserTask(context: IConsumerContext,
+  getUserTasksForProcessModel(context: ConsumerContext, processModelKey: string): Promise<UserTaskList>;
+  getUserTasksForCorrelation(context: ConsumerContext, correlationId: string): Promise<UserTaskList>;
+  getUserTasksForProcessModelInCorrelation(context: ConsumerContext, processModelKey: string, correlationId: string): Promise<UserTaskList>;
+  finishUserTask(context: ConsumerContext,
                  processModelKey: string,
                  correlationId: string,
                  userTaskId: string,
