@@ -1,12 +1,13 @@
-import {IEventList,
+import {
+  IEventList,
   IEventTriggerPayload,
   IProcessModel,
   IProcessModelList,
   IProcessStartRequestPayload,
   IProcessStartResponsePayload,
-  IUserTaskList,
-  IUserTaskResult,
   ProcessStartReturnOnOptions,
+  UserTaskList,
+  UserTaskResult,
 } from './data_models/index';
 
 import {IConsumerContext} from './index';
@@ -35,12 +36,12 @@ export interface IConsumerApiService {
                eventId: string,
                eventTriggerPayload?: IEventTriggerPayload): Promise<void>;
   // UserTasks
-  getUserTasksForProcessModel(context: IConsumerContext, processModelKey: string): Promise<IUserTaskList>;
-  getUserTasksForCorrelation(context: IConsumerContext, correlationId: string): Promise<IUserTaskList>;
-  getUserTasksForProcessModelInCorrelation(context: IConsumerContext, processModelKey: string, correlationId: string): Promise<IUserTaskList>;
+  getUserTasksForProcessModel(context: IConsumerContext, processModelKey: string): Promise<UserTaskList>;
+  getUserTasksForCorrelation(context: IConsumerContext, correlationId: string): Promise<UserTaskList>;
+  getUserTasksForProcessModelInCorrelation(context: IConsumerContext, processModelKey: string, correlationId: string): Promise<UserTaskList>;
   finishUserTask(context: IConsumerContext,
                  processModelKey: string,
                  correlationId: string,
                  userTaskId: string,
-                 userTaskResult: IUserTaskResult): Promise<void>;
+                 userTaskResult: UserTaskResult): Promise<void>;
 }
