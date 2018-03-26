@@ -30,6 +30,6 @@ export class UrlPaths {
 }
 
 export class RestSettings {
-  public params: UrlParameters;
-  public paths: UrlPaths;
+  public static params: UrlParameters = UrlParameters;
+  public static paths: UrlPaths = UrlPaths;
 }
