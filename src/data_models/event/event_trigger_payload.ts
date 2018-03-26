@@ -1,1 +1,1 @@
-export type IEventTriggerPayload = any; // TODO: Define EventTrigger-body
+export type EventTriggerPayload = any; // TODO: Define EventTrigger-body

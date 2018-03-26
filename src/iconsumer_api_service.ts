@@ -1,6 +1,6 @@
 import {
-  IEventList,
-  IEventTriggerPayload,
+  EventList,
+  EventTriggerPayload,
   ProcessModel,
   ProcessModelList,
   ProcessStartRequestPayload,
@@ -27,14 +27,14 @@ export interface IConsumerApiService {
                                endEventKey: string,
                                payload: ProcessStartRequestPayload): Promise<ProcessStartResponsePayload>;
   // Events
-  getEventsForProcessModel(context: ConsumerContext, processModelKey: string): Promise<IEventList>;
-  getEventsForCorrelation(context: ConsumerContext, correlationId: string): Promise<IEventList>;
-  getEventsForProcessModelInCorrelation(context: ConsumerContext, processModelKey: string, correlationId: string): Promise<IEventList>;
+  getEventsForProcessModel(context: ConsumerContext, processModelKey: string): Promise<EventList>;
+  getEventsForCorrelation(context: ConsumerContext, correlationId: string): Promise<EventList>;
+  getEventsForProcessModelInCorrelation(context: ConsumerContext, processModelKey: string, correlationId: string): Promise<EventList>;
   triggerEvent(context: ConsumerContext,
                processModelKey: string,
                correlationId: string,
                eventId: string,
-               eventTriggerPayload?: IEventTriggerPayload): Promise<void>;
+               eventTriggerPayload?: EventTriggerPayload): Promise<void>;
   // UserTasks
   getUserTasksForProcessModel(context: ConsumerContext, processModelKey: string): Promise<UserTaskList>;
   getUserTasksForCorrelation(context: ConsumerContext, correlationId: string): Promise<UserTaskList>;
