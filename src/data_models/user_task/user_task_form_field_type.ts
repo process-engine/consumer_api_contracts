@@ -1,8 +1,8 @@
 export enum UserTaskFormFieldType {
-  string = 'string',
-  long = 'long',
-  number = 'number',
   boolean = 'boolean',
   date = 'date',
   enumeration = 'enum',
+  long = 'long',
+  number = 'number',
+  string = 'string',
 }
