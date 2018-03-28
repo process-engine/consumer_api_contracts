@@ -1,39 +1,5 @@
-
-// tslint:disable:variable-name
-// tslint:disable:max-classes-per-file
-export class UrlParameters {
-  public processModelKey: string;
-  public correlationId: string;
-  public startEventKey: string;
-  public endEventKey: string;
-  public eventId: string;
-  public userTaskId: string;
-}
-
-export class UrlPaths {
-  // Process models
-  public processModels: string;
-  public processModelByKey: string;
-  public startProcess: string;
-  public startProcessAndAwaitEndEvent: string;
-  // Events
-  public processModelEvents: string;
-  public correlationEvents: string;
-  public processModelCorrelationEvents: string;
-  public triggerEvent: string;
-  // UserTasks
-  public processModelUserTasks: string;
-  public correlationUserTasks: string;
-  public processModelCorrelationUserTasks: string;
-  public finishUserTask: string;
-}
-
-export class RestSettings {
-  public params: UrlParameters;
-  public paths: UrlPaths;
-}
-
-const params: UrlParameters = {
+// tslint:disable:typedef
+const params = {
   processModelKey: ':process_model_key',
   correlationId: ':correlation_id',
   startEventKey: ':start_event_key',
@@ -42,7 +8,7 @@ const params: UrlParameters = {
   userTaskId: ':user_task_id',
 };
 
-const paths: UrlPaths = {
+const paths = {
   // Process models
   processModels: `/process_models`,
   processModelByKey: `/process_models/${params.processModelKey}`,
@@ -60,7 +26,7 @@ const paths: UrlPaths = {
   finishUserTask: `/process_models/${params.processModelKey}/correlations/${params.correlationId}/user_tasks/${params.userTaskId}/finish`,
 };
 
-export const restSettings: RestSettings = {
+export const restSettings = {
   params: params,
   paths: paths,
 };
