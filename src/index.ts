@@ -5,3 +5,4 @@ export * from './iconsumer_api_controller';
 export * from './iconsumer_api_router';
 export * from './iconsumer_api_service';
 export * from './consumer_context';
+export * from './consumer_request';
