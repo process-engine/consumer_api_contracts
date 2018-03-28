@@ -1,36 +1,5 @@
-export interface IUrlParameters {
-  processModelKey: string;
-  correlationId: string;
-  startEventKey: string;
-  endEventKey: string;
-  eventId: string;
-  userTaskId: string;
-}
-
-export interface IUrlPaths {
-  // Process models
-  processModels: string;
-  processModelByKey: string;
-  startProcess: string;
-  startProcessAndAwaitEndEvent: string;
-  // Events
-  processModelEvents: string;
-  correlationEvents: string;
-  processModelCorrelationEvents: string;
-  triggerEvent: string;
-  // UserTasks
-  processModelUserTasks: string;
-  correlationUserTasks: string;
-  processModelCorrelationUserTasks: string;
-  finishUserTask: string;
-}
-
-export interface IRestSettings {
-  params: IUrlParameters;
-  paths: IUrlPaths;
-}
-
-const params: IUrlParameters = {
+// tslint:disable:typedef
+const params = {
   processModelKey: ':process_model_key',
   correlationId: ':correlation_id',
   startEventKey: ':start_event_key',
@@ -39,7 +8,7 @@ const params: IUrlParameters = {
   userTaskId: ':user_task_id',
 };
 
-const paths: IUrlPaths = {
+const paths = {
   // Process models
   processModels: `/process_models`,
   processModelByKey: `/process_models/${params.processModelKey}`,
@@ -57,7 +26,7 @@ const paths: IUrlPaths = {
   finishUserTask: `/process_models/${params.processModelKey}/correlations/${params.correlationId}/user_tasks/${params.userTaskId}/finish`,
 };
 
-export const restSettings: IRestSettings = {
+export const restSettings = {
   params: params,
   paths: paths,
 };
