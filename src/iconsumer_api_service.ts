@@ -16,16 +16,16 @@ export interface IConsumerApiService {
   // Process models
   getProcessModels(context: ConsumerContext): Promise<ProcessModelList>;
   getProcessModelByKey(context: ConsumerContext, processModelKey: string): Promise<ProcessModel>;
-  startProcess(context: ConsumerContext,
-               processModelKey: string,
-               startEventKey: string,
-               payload: ProcessStartRequestPayload,
-               returnOn: ProcessStartReturnOnOptions): Promise<ProcessStartResponsePayload>;
-  startProcessAndAwaitEndEvent(context: ConsumerContext,
-                               processModelKey: string,
-                               startEventKey: string,
-                               endEventKey: string,
-                               payload: ProcessStartRequestPayload): Promise<ProcessStartResponsePayload>;
+  startProcessInstance(context: ConsumerContext,
+                       processModelKey: string,
+                       startEventKey: string,
+                       payload: ProcessStartRequestPayload,
+                       returnOnOption: ProcessStartReturnOnOptions): Promise<ProcessStartResponsePayload>;
+  startProcessInstanceAndAwaitEndEvent(context: ConsumerContext,
+                                       processModelKey: string,
+                                       startEventKey: string,
+                                       endEventKey: string,
+                                       payload: ProcessStartRequestPayload): Promise<ProcessStartResponsePayload>;
   // Events
   getEventsForProcessModel(context: ConsumerContext, processModelKey: string): Promise<EventList>;
   getEventsForCorrelation(context: ConsumerContext, correlationId: string): Promise<EventList>;
