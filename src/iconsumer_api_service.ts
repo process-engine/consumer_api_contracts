@@ -5,7 +5,7 @@ import {
   ProcessModelList,
   ProcessStartRequestPayload,
   ProcessStartResponsePayload,
-  ProcessStartReturnOnOptions,
+  StartCallbackType,
   UserTaskList,
   UserTaskResult,
 } from './data_models/index';
@@ -20,7 +20,7 @@ export interface IConsumerApiService {
                        processModelKey: string,
                        startEventKey: string,
                        payload: ProcessStartRequestPayload,
-                       returnOnOption: ProcessStartReturnOnOptions): Promise<ProcessStartResponsePayload>;
+                       startCallbackType: StartCallbackType): Promise<ProcessStartResponsePayload>;
   startProcessInstanceAndAwaitEndEvent(context: ConsumerContext,
                                        processModelKey: string,
                                        startEventKey: string,
