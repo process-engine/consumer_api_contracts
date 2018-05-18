@@ -1,4 +1,3 @@
-import {ICorrelationResult} from './correlation/index';
 import {
   EventList,
   EventTriggerPayload,
@@ -10,6 +9,7 @@ import {
   UserTaskList,
   UserTaskResult,
 } from './data_models/index';
+import {ICorrelationResult} from './icorrelation_result';
 
 import {ConsumerContext} from './index';
 
