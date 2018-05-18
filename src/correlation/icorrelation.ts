@@ -1,5 +1,8 @@
 export interface ICorrelation {
-  id: string;
+  [correlationId: string]: Array<ICorrelationItem>;
+}
+
+export interface ICorrelationItem {
   processInstanceId: string;
   processModelKey: string;
 }
