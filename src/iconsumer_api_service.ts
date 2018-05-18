@@ -1,3 +1,4 @@
+import {ICorrelationResult} from './correlation/index';
 import {
   EventList,
   EventTriggerPayload,
@@ -26,6 +27,7 @@ export interface IConsumerApiService {
                                        startEventKey: string,
                                        endEventKey: string,
                                        payload: ProcessStartRequestPayload): Promise<ProcessStartResponsePayload>;
+  getCorrelationResults(context: ConsumerContext, correlationId: string): Promise<ICorrelationResult>;
   // Events
   getEventsForProcessModel(context: ConsumerContext, processModelKey: string): Promise<EventList>;
   getEventsForCorrelation(context: ConsumerContext, correlationId: string): Promise<EventList>;
