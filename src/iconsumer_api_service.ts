@@ -27,7 +27,7 @@ export interface IConsumerApiService {
                                        startEventKey: string,
                                        endEventKey: string,
                                        payload: ProcessStartRequestPayload): Promise<ProcessStartResponsePayload>;
-  getCorrelationResultByProcessModelKey(context: ConsumerContext, correlationId: string, processModelKey: string): Promise<ICorrelationResult>;
+  getCorrelationProcessModelResult(context: ConsumerContext, correlationId: string, processModelKey: string): Promise<ICorrelationResult>;
   // Events
   getEventsForProcessModel(context: ConsumerContext, processModelKey: string): Promise<EventList>;
   getEventsForCorrelation(context: ConsumerContext, correlationId: string): Promise<EventList>;
