@@ -1,5 +1,3 @@
 export interface ICorrelationResult {
-  correlationId: string;
-  processModelKey: string;
-  result: any;
+  [field: string]: any;
 }

@@ -1,6 +1,5 @@
-// tslint:disable:variable-name
 export class ConsumerContext {
   public identity: string;
-  public Internationalization?: string;
+  public internationalization?: string;
   public localization?: string;
 }
