@@ -5,6 +5,6 @@ export class UserTaskFormField {
   public id: string;
   public type: UserTaskFormFieldType;
   public label: string;
-  public default_value?: any;
-  public preferred_control?: string;
+  public defaultValue?: any;
+  public preferredControl?: string;
 }
