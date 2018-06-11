@@ -1,6 +1,5 @@
 export class UserTaskResult {
-  // tslint:disable-next-line:variable-name
-  public form_fields: {
+  public formFields: {
     [fieldId: string]: any,
   };
 }
