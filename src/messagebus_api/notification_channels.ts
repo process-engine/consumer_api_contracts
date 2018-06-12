@@ -3,7 +3,7 @@ const correlationIdConstant: string = ':correlation_id';
 const elementKeyConstant: string = ':element_key';
 const processNotificationsChannel: string = '/process_notifications';
 
-export const notificationChannels = {
+export const notificationChannels: {[channelName: string]: string} = {
   processModelKeyConstant: processModelKeyConstant,
   correlationIdConstant: correlationIdConstant,
   elementKeyConstant: elementKeyConstant,
