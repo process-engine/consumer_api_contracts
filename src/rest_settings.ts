@@ -13,8 +13,6 @@ const paths = {
   processModels: `/process_models`,
   processModelByKey: `/process_models/${params.processModelKey}`,
   startProcessInstance: `/process_models/${params.processModelKey}/start_events/${params.startEventKey}/start`,
-  // tslint:disable-next-line:max-line-length
-  startProcessInstanceAndAwaitEndEvent: `/process_models/${params.processModelKey}/start_events/${params.startEventKey}/end_event/${params.endEventKey}/start_and_resolve_by_end_event`,
   getProcessResultForCorrelation: `/correlations/${params.correlationId}/process_models/${params.processModelKey}/results`,
   // Events
   processModelEvents: `/process_models/${params.processModelKey}/events`,
