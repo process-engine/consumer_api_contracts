@@ -5,4 +5,5 @@ export class UserTask {
   public id: string;
   public processInstanceId: string;
   public data: UserTaskConfig;
+  public tokenPayload: any; // token payload the UserTask got suspended with
 }
