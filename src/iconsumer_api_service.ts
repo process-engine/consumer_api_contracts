@@ -9,9 +9,9 @@ import {
   UserTaskList,
   UserTaskResult,
 } from './data_models/index';
-import {ICorrelationResult} from './icorrelation_result';
 
-import {ConsumerContext} from './index';
+import {ConsumerContext} from './consumer_context';
+import {CorrelationResult} from './correlation_result';
 
 export interface IConsumerApiService {
   // Process models
@@ -23,7 +23,7 @@ export interface IConsumerApiService {
                        payload: ProcessStartRequestPayload,
                        startCallbackType: StartCallbackType,
                        endEventKey?: string): Promise<ProcessStartResponsePayload>;
-  getProcessResultForCorrelation(context: ConsumerContext, correlationId: string, processModelKey: string): Promise<Array<ICorrelationResult>>;
+  getProcessResultForCorrelation(context: ConsumerContext, correlationId: string, processModelKey: string): Promise<Array<CorrelationResult>>;
   // Events
   getEventsForProcessModel(context: ConsumerContext, processModelKey: string): Promise<EventList>;
   getEventsForCorrelation(context: ConsumerContext, correlationId: string): Promise<EventList>;
