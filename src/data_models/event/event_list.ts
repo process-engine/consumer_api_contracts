@@ -1,7 +1,7 @@
 import {Event} from '../index';
 
 /**
- * Contains a list of consumer api events.
+ * Contains a list of events.
  */
 export interface EventList {
   /**

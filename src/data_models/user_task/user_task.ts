@@ -1,7 +1,7 @@
 import {UserTaskConfig} from './user_task_config';
 
 /**
- * Describes a consumer-api formatted user task that belongs to an active correlation.
+ * Describes a user task that belongs to an active correlation.
  */
 export class UserTask {
   /**

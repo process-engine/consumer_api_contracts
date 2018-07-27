@@ -6,7 +6,7 @@ import {ConsumerContext} from './consumer_context';
  */
 export interface ConsumerRequest extends Request {
   /**
-   * Contains the user specific context with which a user is performing requests against the consumer api.
+   * Contains the user specific context with which a user is performing requests against the api.
    */
   consumerContext: ConsumerContext;
 }

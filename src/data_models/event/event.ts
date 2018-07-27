@@ -1,7 +1,7 @@
 import { EventTriggerPayload } from './event_trigger_payload';
 
 /**
- * Describes a consumer api event.
+ * Describes an event.
  */
 export class Event {
   /**

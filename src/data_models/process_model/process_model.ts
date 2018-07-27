@@ -1,7 +1,7 @@
 import {Event} from '../index';
 
 /**
- * Describes a consumer api formatted process model.
+ * Describes a process model.
  * The content is always user-specific and will not contain any information that a requesting user is not authorized to see.
  */
 export class ProcessModel {

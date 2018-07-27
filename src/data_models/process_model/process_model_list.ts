@@ -1,7 +1,7 @@
 import {ProcessModel} from '../index';
 
 /**
- * Contains a list of consumer api formatted process models.
+ * Contains a list of process models.
  */
 export class ProcessModelList {
   /**
