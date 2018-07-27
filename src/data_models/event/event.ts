@@ -5,11 +5,11 @@ import { EventTriggerPayload } from './event_trigger_payload';
  */
 export class Event {
   /**
-   * The id of the event
+   * The id of the event.
    */
   public id: string;
   /**
-   * Optional: The id of the process instance that the event belongs to
+   * Optional: The id of the process instance that the event belongs to.
    */
   public processInstanceId?: string;
   /**

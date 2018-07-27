@@ -8,12 +8,12 @@ export class ProcessStartResponsePayload {
    */
   public correlationId: string;
   /**
-   * Optional: If the process engine is to wait for the process instance to finish,
+   * Optional: If the process engine is set to wait for the process instance to finish,
    * this will contain the id of the end event with which process execution was finished.
    */
   public endEventId?: string;
   /**
-   * Optional: If the process engine is to wait for the process instance to finish,
+   * Optional: If the process engine is set to wait for the process instance to finish,
    * this will contain the final result with which process execution was finished.
    */
   public tokenPayload?: string;

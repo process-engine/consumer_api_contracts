@@ -7,11 +7,11 @@ export class ConsumerContext {
    */
   public identity: string;
   /**
-   * Contains the users language settings.
+   * Optional: Contains the users language settings.
    */
   public internationalization?: string;
   /**
-   * Contains the users locale settings.
+   * Optional: Contains the users locale settings.
    */
   public localization?: string;
 }

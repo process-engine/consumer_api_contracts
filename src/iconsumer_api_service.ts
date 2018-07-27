@@ -26,6 +26,7 @@ export interface IConsumerApiService {
    * @returns       A Promise, which resolves with the process model list, or rejects an error, in case the request failed.
    */
   getProcessModels(context: ConsumerContext): Promise<ProcessModelList>;
+
   /**
    * Retrieves a process model by its id.
    *
@@ -36,6 +37,7 @@ export interface IConsumerApiService {
    *                       This can happen, if the process model was not found, or the user is not authorized to see it.
    */
   getProcessModelById(context: ConsumerContext, processModelId: string): Promise<ProcessModel>;
+
   /**
    * Starts a new instance of a process model with a specific id.
    * Depending on the type of callback used, this function will resolve either immediately after the process instance was started,
@@ -61,6 +63,7 @@ export interface IConsumerApiService {
                        payload: ProcessStartRequestPayload,
                        startCallbackType: StartCallbackType,
                        endEventId?: string): Promise<ProcessStartResponsePayload>;
+
   /**
    * Retrieves the result of a specifc process model within a correlation.
    * This only works for process instances that have finished execution.
@@ -73,6 +76,7 @@ export interface IConsumerApiService {
    *                       This can happen, if the process model or correlation were not found, or the user is not authorized to see the result.
    */
   getProcessResultForCorrelation(context: ConsumerContext, correlationId: string, processModelId: string): Promise<Array<CorrelationResult>>;
+
   /**
    * Retrieves a list of all triggerable events belonging to an instance of a specific process model.
    *
@@ -83,6 +87,7 @@ export interface IConsumerApiService {
    *                       This can happen, if the process model was not found, or the user is not authorized to see the it.
    */
   getEventsForProcessModel(context: ConsumerContext, processModelId: string): Promise<EventList>;
+
   /**
    * Retrieves a list of all triggerable events belonging to a specific correlation.
    *
@@ -93,6 +98,7 @@ export interface IConsumerApiService {
    *                       This can happen, if the correlation was not found, or the user is not authorized to see the it.
    */
   getEventsForCorrelation(context: ConsumerContext, correlationId: string): Promise<EventList>;
+
   /**
    * Retrieves a list of all triggerable events belonging to an instance of a specific process model within a correlation.
    *
@@ -104,6 +110,7 @@ export interface IConsumerApiService {
    *                       This can happen, if the process model or correlation were not found, or the user is not authorized to see either.
    */
   getEventsForProcessModelInCorrelation(context: ConsumerContext, processModelId: string, correlationId: string): Promise<EventList>;
+
   /**
    * Triggers an event belonging to an instance of a specific process model within a correlation.
    *
@@ -122,6 +129,7 @@ export interface IConsumerApiService {
                correlationId: string,
                eventId: string,
                eventTriggerPayload?: EventTriggerPayload): Promise<void>;
+
   /**
    * Retrieves a list of all suspended user tasks belonging to an instance of a specific process model.
    *
@@ -132,6 +140,7 @@ export interface IConsumerApiService {
    *                       This can happen, if the process model was not found, or the user is not authorized to see the it.
    */
   getUserTasksForProcessModel(context: ConsumerContext, processModelId: string): Promise<UserTaskList>;
+
   /**
    * Retrieves a list of all suspended user tasks belonging to a specific correlation.
    *
@@ -142,6 +151,7 @@ export interface IConsumerApiService {
    *                       This can happen, if the correlation was not found, or the user is not authorized to see the it.
    */
   getUserTasksForCorrelation(context: ConsumerContext, correlationId: string): Promise<UserTaskList>;
+
   /**
    * Retrieves a list of all suspended user tasks belonging to an instance of a specific process model within a correlation.
    *
@@ -153,6 +163,7 @@ export interface IConsumerApiService {
    *                       This can happen, if the process model or correlation were not found, or the user is not authorized to see either.
    */
   getUserTasksForProcessModelInCorrelation(context: ConsumerContext, processModelId: string, correlationId: string): Promise<UserTaskList>;
+
   /**
    * Finishes a user task belonging to an instance of a specific process model within a correlation.
    *
