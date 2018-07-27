@@ -61,17 +61,17 @@ export interface IConsumerApiService {
                        payload: ProcessStartRequestPayload,
                        startCallbackType: StartCallbackType,
                        endEventId?: string): Promise<ProcessStartResponsePayload>;
- /**
-  * Retrieves the result of a specifc process model within a correlation.
-  * This only works for process instances that have finished execution.
-  *
-  * @async
-  * @param context        The consumer-api specific execution context of the requesting user.
-  * @param correlationId  The id of the correlation for which to retrieve the result.
-  * @param processModelId The id of the process model for which to retrieve the result.
-  * @returns              A Promise, which resolves with the retrieved correlation result, or rejects an error, in case the request failed.
-  *                       This can happen, if the process model or correlation were not found, or the user is not authorized to see the result.
-  */
+  /**
+   * Retrieves the result of a specifc process model within a correlation.
+   * This only works for process instances that have finished execution.
+   *
+   * @async
+   * @param context        The consumer-api specific execution context of the requesting user.
+   * @param correlationId  The id of the correlation for which to retrieve the result.
+   * @param processModelId The id of the process model for which to retrieve the result.
+   * @returns              A Promise, which resolves with the retrieved correlation result, or rejects an error, in case the request failed.
+   *                       This can happen, if the process model or correlation were not found, or the user is not authorized to see the result.
+   */
   getProcessResultForCorrelation(context: ConsumerContext, correlationId: string, processModelId: string): Promise<Array<CorrelationResult>>;
   /**
    * Retrieves a list of all triggerable events belonging to an instance of a specific process model.
@@ -122,15 +122,15 @@ export interface IConsumerApiService {
                correlationId: string,
                eventId: string,
                eventTriggerPayload?: EventTriggerPayload): Promise<void>;
- /**
-  * Retrieves a list of all suspended user tasks belonging to an instance of a specific process model.
-  *
-  * @async
-  * @param context        The consumer-api specific execution context of the requesting user.
-  * @param processModelId The id of the process model for which to retrieve the user tasks.
-  * @returns              A Promise, which resolves with the retrieved user tasks or rejects an error, in case the request failed.
-  *                       This can happen, if the process model was not found, or the user is not authorized to see the it.
-  */
+  /**
+   * Retrieves a list of all suspended user tasks belonging to an instance of a specific process model.
+   *
+   * @async
+   * @param context        The consumer-api specific execution context of the requesting user.
+   * @param processModelId The id of the process model for which to retrieve the user tasks.
+   * @returns              A Promise, which resolves with the retrieved user tasks or rejects an error, in case the request failed.
+   *                       This can happen, if the process model was not found, or the user is not authorized to see the it.
+   */
   getUserTasksForProcessModel(context: ConsumerContext, processModelId: string): Promise<UserTaskList>;
   /**
    * Retrieves a list of all suspended user tasks belonging to a specific correlation.
