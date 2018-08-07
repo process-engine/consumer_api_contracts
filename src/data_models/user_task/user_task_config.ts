@@ -8,4 +8,8 @@ export class UserTaskConfig {
    * A list of accessible form fields for the user task.
    */
   public formFields: Array<UserTaskFormField> = [];
+  /**
+   * The perferred type of control for the form field.
+   */
+  public preferredControl?: string;
 }
