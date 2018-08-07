@@ -11,5 +11,5 @@ export class UserTaskConfig {
   /**
    * The perferred type of control for the form field.
    */
-  public preferredControl?: string;
+  public preferedControl?: string;
 }
