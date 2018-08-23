@@ -4,8 +4,6 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
-    using ProcessEngine.Runtime.Contracts;
-
     /// <summary>
     /// Service for starting and managing BMPN processes.
     /// </summary>
