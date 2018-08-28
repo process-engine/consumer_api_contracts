@@ -6,6 +6,10 @@
     public class CorrelationResult<TPayload>
     {
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="payload">The token payload</param>
         public CorrelationResult(TPayload payload)
         {
             TokenPayload = payload;
