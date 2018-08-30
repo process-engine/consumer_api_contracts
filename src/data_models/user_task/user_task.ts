@@ -17,6 +17,10 @@ export class UserTask {
    */
   public processModelId: string;
   /**
+   * The id of the process instance that the user task belongs to.
+   */
+  public processInstanceId?: string;
+  /**
    * Contains information about the user tasks configuration, such as the form fields that can be addressed.
    */
   public data: UserTaskConfig;
