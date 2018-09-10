@@ -39,13 +39,20 @@ pipeline {
         }
       }
     }
+    stage('lint') {
+      steps {
+        dir('typescript') {
+          sh('node --version')
+          /* we do not want the linting to cause a failed build */
+          sh('npm run lint || true')
+        }
+      }
+    }
     stage('build') {
       steps {
         dir('typescript') {
           sh('node --version')
           sh('npm run build')
-          sh('npm run build-schemas')
-          sh('npm run build-doc')
         }
       }
     }
