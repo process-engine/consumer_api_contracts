@@ -8,6 +8,7 @@ import {
   ProcessStartRequestPayload,
   ProcessStartResponsePayload,
   StartCallbackType,
+  UserTask,
   UserTaskList,
   UserTaskResult,
 } from './data_models/index';
@@ -238,4 +239,9 @@ export interface IConsumerApi {
                  correlationId: string,
                  userTaskId: string,
                  userTaskResult?: UserTaskResult): Promise<void>;
+
+  onUserTaskWaiting(correlationId: string, callback: (userTask: UserTask) => void|Promise<void>): void;
+  onUserTaskFinished(correlationId: string, callback: (userTask: UserTask, userTaskResult: UserTaskResult) => void|Promise<void>): void;
+  onProcessTerminated(correlationId: string, callback: (terminateEndEventId: string, tokenPayload: any) => void|Promise<void>): void;
+  onProcessEnd(correlationId: string, callback: (endEventId: string, tokenPayload: any) => void|Promise<void>): void;
 }
