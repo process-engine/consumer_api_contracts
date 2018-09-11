@@ -1,6 +1,13 @@
 import {IIdentity} from '@essential-projects/iam_contracts';
 
 import {
+  ProcessEndedMessage,
+  UserTaskFinishedMessage,
+  UserTaskWaitingMessage,
+} from '@process-engine/process_engine_contracts';
+import {ConsumerContext} from './consumer_context';
+import {CorrelationResult} from './correlation_result';
+import {
   EventList,
   EventTriggerPayload,
   ProcessModel,
@@ -8,12 +15,9 @@ import {
   ProcessStartRequestPayload,
   ProcessStartResponsePayload,
   StartCallbackType,
-  UserTask,
   UserTaskList,
   UserTaskResult,
 } from './data_models/index';
-
-import {CorrelationResult} from './correlation_result';
 
 /**
  * The primary access point for the ConsumerAPI.
@@ -79,7 +83,8 @@ export interface IConsumerApi {
                        startEventId: string,
                        payload: ProcessStartRequestPayload,
                        startCallbackType: StartCallbackType,
-                       endEventId?: string): Promise<ProcessStartResponsePayload>;
+                       endEventId?: string,
+                       processEndedCallback?: (processEnded: ProcessEndedMessage) => void|Promise<void>): Promise<ProcessStartResponsePayload>;
 
   /**
    * Retrieves the result of a specifc ProcessModel within a Correlation.
@@ -240,8 +245,8 @@ export interface IConsumerApi {
                  userTaskId: string,
                  userTaskResult?: UserTaskResult): Promise<void>;
 
-  onUserTaskWaiting(correlationId: string, callback: (userTask: UserTask) => void|Promise<void>): void;
-  onUserTaskFinished(correlationId: string, callback: (userTask: UserTask, userTaskResult: UserTaskResult) => void|Promise<void>): void;
-  onProcessTerminated(correlationId: string, callback: (terminateEndEventId: string, tokenPayload: any) => void|Promise<void>): void;
-  onProcessEnd(correlationId: string, callback: (endEventId: string, tokenPayload: any) => void|Promise<void>): void;
+  onUserTaskWaiting(context: ConsumerContext, callback: (userTaskWaiting: UserTaskWaitingMessage) => void|Promise<void>): void;
+  onUserTaskFinished(context: ConsumerContext, callback: (userTaskFinished: UserTaskFinishedMessage) => void|Promise<void>): void;
+  onProcessTerminated(context: ConsumerContext, callback: (processEnded: ProcessEndedMessage) => void|Promise<void>): void;
+  onProcessEnded(context: ConsumerContext, callback: (processEnded: ProcessEndedMessage) => void|Promise<void>): void;
 }
