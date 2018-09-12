@@ -39,6 +39,6 @@
     "test": "gulp test"
   },
   "dependencies": {
-    "@process-engine/process_engine_contracts": "^26.0.0"
+    "@process-engine/process_engine_contracts": "feature~async_notifications"
   }
 }
