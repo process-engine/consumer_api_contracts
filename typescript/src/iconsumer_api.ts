@@ -245,8 +245,8 @@ export interface IConsumerApi {
                  userTaskId: string,
                  userTaskResult?: UserTaskResult): Promise<void>;
 
-  onUserTaskWaiting(context: ConsumerContext, callback: (userTaskWaiting: UserTaskWaitingMessage) => void|Promise<void>): void;
-  onUserTaskFinished(context: ConsumerContext, callback: (userTaskFinished: UserTaskFinishedMessage) => void|Promise<void>): void;
-  onProcessTerminated(context: ConsumerContext, callback: (processEnded: ProcessEndedMessage) => void|Promise<void>): void;
-  onProcessEnded(context: ConsumerContext, callback: (processEnded: ProcessEndedMessage) => void|Promise<void>): void;
+  onUserTaskWaiting(callback: (userTaskWaiting: UserTaskWaitingMessage) => void|Promise<void>): void;
+  onUserTaskFinished(callback: (userTaskFinished: UserTaskFinishedMessage) => void|Promise<void>): void;
+  onProcessTerminated(callback: (processEnded: ProcessEndedMessage) => void|Promise<void>): void;
+  onProcessEnded(callback: (processEnded: ProcessEndedMessage) => void|Promise<void>): void;
 }
