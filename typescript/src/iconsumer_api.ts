@@ -245,8 +245,44 @@ export interface IConsumerApi {
                  userTaskId: string,
                  userTaskResult?: UserTaskResult): Promise<void>;
 
+  /**
+   * Executes a callback when a user task is reached.
+   *
+   * @async
+   * @param callback       The callback that will be executed when a user task
+   *                       is reached. The message passed to the callback
+   *                       contains further information about the user task.
+   */
   onUserTaskWaiting(callback: (userTaskWaiting: UserTaskWaitingMessage) => void|Promise<void>): void;
+
+  /**
+   * Executes a callback when a user task is finished.
+   *
+   * @async
+   * @param callback       The callback that will be executed when a user task
+   *                       is finished. The message passed to the callback
+   *                       contains further information about the user task.
+   */
   onUserTaskFinished(callback: (userTaskFinished: UserTaskFinishedMessage) => void|Promise<void>): void;
+
+  /**
+   * Executes a callback when a process is terminated.
+   *
+   * @async
+   * @param callback       The callback that will be executed when a user task
+   *                       is reached. The message passed to the callback
+   *                       contains further information about the process
+   *                       terminated.
+   */
   onProcessTerminated(callback: (processEnded: ProcessEndedMessage) => void|Promise<void>): void;
+
+  /**
+   * Executes a callback when a process ends.
+   *
+   * @async
+   * @param callback       The callback that will be executed when a user task
+   *                       is reached. The message passed to the callback
+   *                       contains further information about the ended process.
+   */
   onProcessEnded(callback: (processEnded: ProcessEndedMessage) => void|Promise<void>): void;
 }
