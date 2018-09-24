@@ -1,3 +1,5 @@
+import {IIdentity} from '@essential-projects/iam_contracts';
+
 import {
   EventList,
   EventTriggerPayload,
@@ -10,7 +12,6 @@ import {
   UserTaskResult,
 } from './data_models/index';
 
-import {ConsumerContext} from './consumer_context';
 import {CorrelationResult} from './correlation_result';
 
 /**
@@ -24,26 +25,24 @@ export interface IConsumerApiService {
    * authorized to see.
    *
    * @async
-   * @param context The ConsumerAPI specific execution context of the
-   *                requesting user.
-   * @returns       A Promise, which resolves with the ProcessModel list,
-   *                or rejects an error, in case the request failed.
+   * @param identity The requesting users identity.
+   * @returns        A Promise, which resolves with the ProcessModel list,
+   *                 or rejects an error, in case the request failed.
    */
-  getProcessModels(context: ConsumerContext): Promise<ProcessModelList>;
+  getProcessModels(identity: IIdentity): Promise<ProcessModelList>;
 
   /**
    * Retrieves a ProcessModel by its ID.
    *
    * @async
-   * @param context        The ConsumerAPI specific execution context of the
-   *                       requesting user.
+   * @param identity       The requesting users identity.
    * @param processModelId The ID of the ProcessModel to retrieve.
    * @returns              A Promise, which resolves with the ProcessModel,
    *                       or rejects an error, in case the request failed.
    *                       This can happen, if the ProcessModel was not found,
    *                       or the user is not authorized to see it.
    */
-  getProcessModelById(context: ConsumerContext, processModelId: string): Promise<ProcessModel>;
+  getProcessModelById(identity: IIdentity, processModelId: string): Promise<ProcessModel>;
 
   /**
    * Starts a new instance of a ProcessModel with a specific ID.
@@ -54,8 +53,7 @@ export interface IConsumerApiService {
    * during execution.
    *
    * @async
-   * @param context           The ConsumerAPI specific execution context of
-   *                          the requesting user.
+   * @param identity          The requesting users identity.
    * @param processModelId    The ID of the ProcessModel to retrieve.
    * @param startEventId      The ID of the start event through which to start
    *                          the ProcessInstance.
@@ -75,7 +73,7 @@ export interface IConsumerApiService {
    *                          or the user is not authorized to see it, or if
    *                          the ProcessInstance was interrupted prematurely because of an error.
    */
-  startProcessInstance(context: ConsumerContext,
+  startProcessInstance(identity: IIdentity,
                        processModelId: string,
                        startEventId: string,
                        payload: ProcessStartRequestPayload,
@@ -87,8 +85,7 @@ export interface IConsumerApiService {
    * This only works for ProcessInstances that have finished execution.
    *
    * @async
-   * @param context        The ConsumerAPI specific execution context of the
-   *                       requesting user.
+   * @param identity       The requesting users identity.
    * @param correlationId  The ID of the correlation for which to retrieve
    *                       the result.
    * @param processModelId The ID of the ProcessModel for which to retrieve
@@ -99,15 +96,14 @@ export interface IConsumerApiService {
    *                       were not found, or the user is not authorized to see
    *                       the result.
    */
-  getProcessResultForCorrelation(context: ConsumerContext, correlationId: string, processModelId: string): Promise<Array<CorrelationResult>>;
+  getProcessResultForCorrelation(identity: IIdentity, correlationId: string, processModelId: string): Promise<Array<CorrelationResult>>;
 
   /**
    * Retrieves a list of all triggerable events belonging to an instance of a
    * specific ProcessModel.
    *
    * @async
-   * @param context        The ConsumerAPI specific execution context of the
-   *                       requesting user.
+   * @param identity       The requesting users identity.
    * @param processModelId The ID of the ProcessModel for which to retrieve
    *                       the events.
    * @returns              A Promise, which resolves with the retrieved events,
@@ -115,14 +111,13 @@ export interface IConsumerApiService {
    *                       This can happen, if the ProcessModel was not found,
    *                       or the user is not authorized to see the it.
    */
-  getEventsForProcessModel(context: ConsumerContext, processModelId: string): Promise<EventList>;
+  getEventsForProcessModel(identity: IIdentity, processModelId: string): Promise<EventList>;
 
   /**
    * Retrieves a list of all triggerable events belonging to a correlation.
    *
    * @async
-   * @param context       The ConsumerAPI specific execution context of the
-   *                      requesting user.
+   * @param identity      The requesting users identity.
    * @param correlationId The ID of the Correlation for which to retrieve
    *                      the events.
    * @returns             A Promise, which resolves with the retrieved events,
@@ -130,15 +125,14 @@ export interface IConsumerApiService {
    *                      This can happen, if the ProcessModel was not found,
    *                      or the user is not authorized to see the it.
    */
-  getEventsForCorrelation(context: ConsumerContext, correlationId: string): Promise<EventList>;
+  getEventsForCorrelation(identity: IIdentity, correlationId: string): Promise<EventList>;
 
   /**
    * Retrieves a list of all triggerable events belonging to an instance of a
    * specific ProcessModel within a Correlation.
    *
    * @async
-   * @param context        The ConsumerAPI specific execution context of the
-   *                       requesting user.
+   * @param identity       The requesting users identity.
    * @param correlationId  The ID of the Correlation for which to retrieve
    *                       the events.
    * @param processModelId The ID of the ProcessModel for which to retrieve
@@ -149,15 +143,14 @@ export interface IConsumerApiService {
    *                       was not found, or the user is not authorized to see
    *                       the it.
    */
-  getEventsForProcessModelInCorrelation(context: ConsumerContext, processModelId: string, correlationId: string): Promise<EventList>;
+  getEventsForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<EventList>;
 
   /**
    * Triggers an event belonging to an instance of a specific ProcessModel
    * within a Correlation.
    *
    * @async
-   * @param context             The ConsumerAPI specific execution context of
-   *                            the requesting user.
+   * @param identity            The requesting users identity.
    * @param processModelId      The ID of the ProcessModel for which to trigger
    *                            the event.
    * @param correlationId       The ID of the correlation for which to trigger
@@ -170,7 +163,7 @@ export interface IConsumerApiService {
    *                            correlation were not found,
    *                            or the user is not authorized to see either.
    */
-  triggerEvent(context: ConsumerContext,
+  triggerEvent(identity: IIdentity,
                processModelId: string,
                correlationId: string,
                eventId: string,
@@ -181,8 +174,7 @@ export interface IConsumerApiService {
    * specific ProcessModel.
    *
    * @async
-   * @param context        The ConsumerAPI specific execution context of the
-   *                       requesting user.
+   * @param identity       The requesting users identity.
    * @param processModelId The ID of the ProcessModel for which to retrieve the
    *                       UserTasks.
    * @returns              A Promise, which resolves with the retrieved UserTasks,
@@ -190,15 +182,14 @@ export interface IConsumerApiService {
    *                       This can happen, if the ProcessModel was not found,
    *                       or the user is not authorized to see the it.
    */
-  getUserTasksForProcessModel(context: ConsumerContext, processModelId: string): Promise<UserTaskList>;
+  getUserTasksForProcessModel(identity: IIdentity, processModelId: string): Promise<UserTaskList>;
 
   /**
    * Retrieves a list of all suspended UserTasks belonging to a specific
    * Correlation.
    *
    * @async
-   * @param context       The ConsumerAPI specific execution context of the
-   *                      requesting user.
+   * @param identity      The requesting users identity.
    * @param correlationId The ID of the Correlation for which to retrieve the
    *                      UserTasks.
    * @returns             A Promise, which resolves with the retrieved UserTasks,
@@ -206,15 +197,14 @@ export interface IConsumerApiService {
    *                      This can happen, if the Correlation was not found,
    *                      or the user is not authorized to see the it.
    */
-  getUserTasksForCorrelation(context: ConsumerContext, correlationId: string): Promise<UserTaskList>;
+  getUserTasksForCorrelation(identity: IIdentity, correlationId: string): Promise<UserTaskList>;
 
   /**
    * Retrieves a list of all suspended UserTasks belonging to an instance of a
    * specific ProcessModel within a Correlation.
    *
    * @async
-   * @param context        The ConsumerAPI specific execution context of the
-   *                       requesting user.
+   * @param identity       The requesting users identity.
    * @param correlationId  The ID of the Correlation for which to retrieve the
    *                       UserTasks.
    * @param processModelId The ID of the ProcessModel for which to retrieve the
@@ -225,15 +215,14 @@ export interface IConsumerApiService {
    *                       correlation were not found,
    *                       or the user is not authorized to see either.
    */
-  getUserTasksForProcessModelInCorrelation(context: ConsumerContext, processModelId: string, correlationId: string): Promise<UserTaskList>;
+  getUserTasksForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<UserTaskList>;
 
   /**
    * Finishes a UserTask belonging to an instance of a specific ProcessModel
    * within a Correlation.
    *
    * @async
-   * @param context        The ConsumerAPI specific execution context of the
-   *                       requesting user.
+   * @param identity       The requesting users identity.
    * @param processModelId The ID of the ProcessModel for which to finish a
    *                       UserTask.
    * @param correlationId  The ID of the correlation for which to finish a UserTask.
@@ -244,7 +233,7 @@ export interface IConsumerApiService {
    *                       This can happen, if the UserTask, ProcessModel or correlation were not found,
    *                       or the user is not authorized to see either.
    */
-  finishUserTask(context: ConsumerContext,
+  finishUserTask(identity: IIdentity,
                  processModelId: string,
                  correlationId: string,
                  userTaskId: string,
