@@ -19,7 +19,7 @@ import {CorrelationResult} from './correlation_result';
  * This service contains all functions that the ConsumerAPI employs to
  * communicate with the ProcessEngine.
  */
-export interface IConsumerApiService {
+export interface IConsumerApi {
   /**
    * Retrieves a list of all ProcessModels that the requesting user is
    * authorized to see.
