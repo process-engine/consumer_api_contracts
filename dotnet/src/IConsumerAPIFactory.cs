@@ -10,6 +10,6 @@
         /// </summary>
         /// <returns>The ConsumerAPIService.</returns>
         /// <param name="processEngineAddress">The address of the process engine. This address is specific to the used process engine.</param>
-        IConsumerAPIService CreateConsumerAPIService(string processEngineAddress);
+        IConsumerAPI CreateConsumerAPIService(string processEngineAddress);
     }
 }

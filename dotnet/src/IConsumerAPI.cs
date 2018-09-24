@@ -5,11 +5,10 @@
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Service for starting and managing BMPN processes.
+    /// API for starting and managing BMPN processes.
     /// </summary>
-    public interface IConsumerAPIService : IDisposable
+    public interface IConsumerAPI : IDisposable
     {
-
         /// <summary>
         /// Starts an instance a given process definition. Process variables and correlation id may be supplied in the request payload.
         /// </summary>
