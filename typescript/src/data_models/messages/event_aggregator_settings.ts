@@ -9,14 +9,17 @@ export const messagePaths = {
 export const routePaths = {
   finishUserTask: '/processengine/correlation/:correlation_id/processinstance/:process_instance_id/node/:user_task_id/finish',
   userTaskFinished: '/processengine/correlation/:correlation_id/processinstance/:process_instance_id/node/:user_task_id/finished',
-  processTerminated: '/processengine/process/:process_instance_id/terminated',
   processEnded: '/processengine/process/:process_instance_id/ended',
   messageEventReached: '/processengine/process/message/:message_ref',
   signalEventReached: '/processengine/process/signal/:signal_ref',
+  terminateEndEventReached: '/processengine/process/:process_instance_id/terminated',
+  endEventReached: '/processengine/process/:process_instance_id/ended',
 };
 
 export const routeParams = {
   processInstanceId: ':process_instance_id',
+  processModelId: ':process_model_id',
+  endEventId: ':end_event_id',
   correlationId: ':correlation_id',
   userTaskId: ':user_task_id',
   messageReference: ':message_ref',
