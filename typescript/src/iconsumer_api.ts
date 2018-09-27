@@ -1,15 +1,10 @@
 import {IIdentity} from '@essential-projects/iam_contracts';
 
-import {
-  ProcessEndedMessage,
-  UserTaskFinishedMessage,
-  UserTaskWaitingMessage,
-} from '@process-engine/process_engine_contracts';
-import {ConsumerContext} from './consumer_context';
 import {CorrelationResult} from './correlation_result';
 import {
   EventList,
   EventTriggerPayload,
+  Messages,
   ProcessModel,
   ProcessModelList,
   ProcessStartRequestPayload,
@@ -84,7 +79,7 @@ export interface IConsumerApi {
                        payload: ProcessStartRequestPayload,
                        startCallbackType: StartCallbackType,
                        endEventId?: string,
-                       processEndedCallback?: (processEnded: ProcessEndedMessage) => void|Promise<void>): Promise<ProcessStartResponsePayload>;
+                       processEndedCallback?: Messages.CallbackTypes.OnProcessEndedCallback): Promise<ProcessStartResponsePayload>;
 
   /**
    * Retrieves the result of a specifc ProcessModel within a Correlation.
@@ -253,7 +248,7 @@ export interface IConsumerApi {
    *                       is reached. The message passed to the callback
    *                       contains further information about the user task.
    */
-  onUserTaskWaiting(callback: (userTaskWaiting: UserTaskWaitingMessage) => void|Promise<void>): void;
+  onUserTaskWaiting(callback: Messages.CallbackTypes.OnUserTaskWaitingCallback): void;
 
   /**
    * Executes a callback when a user task is finished.
@@ -263,7 +258,7 @@ export interface IConsumerApi {
    *                       is finished. The message passed to the callback
    *                       contains further information about the user task.
    */
-  onUserTaskFinished(callback: (userTaskFinished: UserTaskFinishedMessage) => void|Promise<void>): void;
+  onUserTaskFinished(callback: Messages.CallbackTypes.OnUserTaskFinishedCallback): void;
 
   /**
    * Executes a callback when a process is terminated.
@@ -274,7 +269,7 @@ export interface IConsumerApi {
    *                       contains further information about the process
    *                       terminated.
    */
-  onProcessTerminated(callback: (processEnded: ProcessEndedMessage) => void|Promise<void>): void;
+  onProcessTerminated(callback: Messages.CallbackTypes.OnProcessTerminatedCallback): void;
 
   /**
    * Executes a callback when a process ends.
@@ -284,5 +279,5 @@ export interface IConsumerApi {
    *                       is reached. The message passed to the callback
    *                       contains further information about the ended process.
    */
-  onProcessEnded(callback: (processEnded: ProcessEndedMessage) => void|Promise<void>): void;
+  onProcessEnded(callback: Messages.CallbackTypes.OnProcessEndedCallback): void;
 }
