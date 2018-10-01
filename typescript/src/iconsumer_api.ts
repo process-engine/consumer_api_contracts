@@ -1,8 +1,10 @@
 import {IIdentity} from '@essential-projects/iam_contracts';
 
+import {CorrelationResult} from './correlation_result';
 import {
   EventList,
   EventTriggerPayload,
+  Messages,
   ProcessModel,
   ProcessModelList,
   ProcessStartRequestPayload,
@@ -11,8 +13,6 @@ import {
   UserTaskList,
   UserTaskResult,
 } from './data_models/index';
-
-import {CorrelationResult} from './correlation_result';
 
 /**
  * The primary access point for the ConsumerAPI.
@@ -78,7 +78,8 @@ export interface IConsumerApi {
                        startEventId: string,
                        payload: ProcessStartRequestPayload,
                        startCallbackType: StartCallbackType,
-                       endEventId?: string): Promise<ProcessStartResponsePayload>;
+                       endEventId?: string,
+                       processEndedCallback?: Messages.CallbackTypes.OnProcessEndedCallback): Promise<ProcessStartResponsePayload>;
 
   /**
    * Retrieves the result of a specifc ProcessModel within a Correlation.
@@ -238,4 +239,45 @@ export interface IConsumerApi {
                  correlationId: string,
                  userTaskId: string,
                  userTaskResult?: UserTaskResult): Promise<void>;
+
+  /**
+   * Executes a callback when a user task is reached.
+   *
+   * @async
+   * @param callback       The callback that will be executed when a user task
+   *                       is reached. The message passed to the callback
+   *                       contains further information about the user task.
+   */
+  onUserTaskWaiting(callback: Messages.CallbackTypes.OnUserTaskWaitingCallback): void;
+
+  /**
+   * Executes a callback when a user task is finished.
+   *
+   * @async
+   * @param callback       The callback that will be executed when a user task
+   *                       is finished. The message passed to the callback
+   *                       contains further information about the user task.
+   */
+  onUserTaskFinished(callback: Messages.CallbackTypes.OnUserTaskFinishedCallback): void;
+
+  /**
+   * Executes a callback when a process is terminated.
+   *
+   * @async
+   * @param callback       The callback that will be executed when a user task
+   *                       is reached. The message passed to the callback
+   *                       contains further information about the process
+   *                       terminated.
+   */
+  onProcessTerminated(callback: Messages.CallbackTypes.OnProcessTerminatedCallback): void;
+
+  /**
+   * Executes a callback when a process ends.
+   *
+   * @async
+   * @param callback       The callback that will be executed when a user task
+   *                       is reached. The message passed to the callback
+   *                       contains further information about the ended process.
+   */
+  onProcessEnded(callback: Messages.CallbackTypes.OnProcessEndedCallback): void;
 }
