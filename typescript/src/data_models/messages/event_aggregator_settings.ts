@@ -6,16 +6,6 @@ export const messagePaths = {
   processEnded: 'process_ended',
 };
 
-export const routePaths = {
-  finishUserTask: '/processengine/correlation/:correlation_id/processinstance/:process_instance_id/node/:user_task_id/finish',
-  userTaskFinished: '/processengine/correlation/:correlation_id/processinstance/:process_instance_id/node/:user_task_id/finished',
-  processEnded: '/processengine/process/:process_instance_id/ended',
-  messageEventReached: '/processengine/process/message/:message_ref',
-  signalEventReached: '/processengine/process/signal/:signal_ref',
-  terminateEndEventReached: '/processengine/process/:process_instance_id/terminated',
-  endEventReached: '/processengine/process/:process_instance_id/ended',
-};
-
 export const routeParams = {
   processInstanceId: ':process_instance_id',
   processModelId: ':process_model_id',
@@ -24,4 +14,15 @@ export const routeParams = {
   userTaskId: ':user_task_id',
   messageReference: ':message_ref',
   signalReference: ':signal_ref',
+};
+
+export const routePaths = {
+  finishUserTask:
+    `/processengine/correlation/${routeParams.correlationId}/processmodel/${routeParams.processModelId}/node/${routeParams.userTaskId}/finish`,
+  userTaskFinished:
+    `/processengine/correlation/${routeParams.correlationId}/processmodel/${routeParams.processModelId}/node/${routeParams.userTaskId}/finished`,
+  endEventReached: `/processengine/correlation/${routeParams.correlationId}/processmodel/${routeParams.processModelId}/ended`,
+  messageEventReached: `/processengine/process/message/${routeParams.messageReference}`,
+  signalEventReached: `/processengine/process/signal/${routeParams.signalReference}`,
+  terminateEndEventReached: `/processengine/process/${routeParams.processInstanceId}/terminated`,
 };
