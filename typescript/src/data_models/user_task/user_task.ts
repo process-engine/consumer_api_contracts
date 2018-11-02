@@ -9,6 +9,10 @@ export class UserTask {
    */
   public id: string;
   /**
+   * The name of the UserTask.
+   */
+  public name: string;
+  /**
    * The id of the correlation that the user task belongs to.
    */
   public correlationId: string;
