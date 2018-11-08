@@ -220,25 +220,28 @@ export interface IConsumerApi {
 
   /**
    * Finishes a UserTask belonging to an instance of a specific ProcessModel
-   * within a Correlation.
+   * within a correlation.
    *
    * @async
-   * @param identity       The requesting users identity.
-   * @param processModelId The ID of the ProcessModel for which to finish a
-   *                       UserTask.
-   * @param correlationId  The ID of the correlation for which to finish a UserTask.
-   * @param userTaskId     The ID of UserTask to finish.
-   * @param userTaskResult Optional: Contains a set of results with which to
-   *                       finish the UserTask.
-   * @returns              A Promise, which resolves without content, or rejects an error, in case the request failed.
-   *                       This can happen, if the UserTask, ProcessModel or correlation were not found,
-   *                       or the user is not authorized to see either.
+   * @param identity           The requesting Users identity.
+   * @param processInstanceId  The ID of the ProcessInstance for which to finish
+   *                           a UserTask.
+   * @param correlationId      The ID of the correlation for which to finish a
+   *                           UserTask.
+   * @param userTaskInstanceId The instance ID of UserTask to finish.
+   * @param userTaskResult     Contains a set of results with which to finish
+   *                           the UserTask.
+   * @returns                  A Promise, which resolves without content,
+   *                           or rejects an error, in case the request failed.
+   *                           This can happen, if the UserTask, ProcessModel or
+   *                           correlation were not found,
+   *                           or the user is not authorized to see either.
    */
   finishUserTask(identity: IIdentity,
-                 processModelId: string,
+                 processInstanceId: string,
                  correlationId: string,
-                 userTaskId: string,
-                 userTaskResult?: UserTaskResult): Promise<void>;
+                 userTaskInstanceId: string,
+                 userTaskResult: UserTaskResult): Promise<void>;
 
   /**
    * Executes a callback when a user task is reached.
