@@ -8,6 +8,7 @@ const params = {
   eventId: ':event_id',
   eventName: ':event_name',
   userTaskInstanceId: ':user_task_instance_id',
+  manualTaskId: ':manual_task_id',
 };
 
 const paths = {
@@ -27,6 +28,11 @@ const paths = {
   correlationUserTasks: `/correlations/${params.correlationId}/user_tasks`,
   processModelCorrelationUserTasks: `/process_models/${params.processModelId}/correlations/${params.correlationId}/user_tasks`,
   finishUserTask: `/processes/${params.processInstanceId}/correlations/${params.correlationId}/usertasks/${params.userTaskInstanceId}/finish`,
+  // ManualTask
+  processModelManualTasks: `/process_models/${params.processModelId}/manual_tasks`,
+  correlationManualTasks: `/correlations/${params.correlationId}/manual_tasks`,
+  processModelCorrelationManualTasks: `/process_models/${params.processModelId}/correlations/${params.correlationId}/manual_tasks`,
+  finishManualTask: `/process_models/${params.processModelId}/correlations/${params.correlationId}/manual_tasks/${params.manualTaskId}/finish`,
 };
 
 /**
