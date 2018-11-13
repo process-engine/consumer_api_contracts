@@ -9,6 +9,10 @@ export class UserTask {
    */
   public id: string;
   /**
+   * The instance id of the UserTask.
+   */
+  public flowNodeInstanceId?: string;
+  /**
    * The name of the UserTask.
    */
   public name: string;
