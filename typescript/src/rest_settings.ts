@@ -1,11 +1,12 @@
 // tslint:disable:typedef
 const params = {
+  processInstanceId: ':process_instance_id',
   processModelId: ':process_model_id',
   correlationId: ':correlation_id',
   startEventId: ':start_event_id',
   endEventId: ':end_event_id',
   eventId: ':event_id',
-  userTaskId: ':user_task_id',
+  userTaskInstanceId: ':user_task_instance_id',
 };
 
 const paths = {
@@ -23,7 +24,7 @@ const paths = {
   processModelUserTasks: `/process_models/${params.processModelId}/user_tasks`,
   correlationUserTasks: `/correlations/${params.correlationId}/user_tasks`,
   processModelCorrelationUserTasks: `/process_models/${params.processModelId}/correlations/${params.correlationId}/user_tasks`,
-  finishUserTask: `/process_models/${params.processModelId}/correlations/${params.correlationId}/user_tasks/${params.userTaskId}/finish`,
+  finishUserTask: `/processes/${params.processInstanceId}/correlations/${params.correlationId}/usertasks/${params.userTaskInstanceId}/finish`,
 };
 
 /**
