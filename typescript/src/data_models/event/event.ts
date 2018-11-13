@@ -12,10 +12,6 @@ export class Event {
    */
   public flowNodeInstanceId?: string;
   /**
-   * The name of the event.
-   */
-  public name: string;
-  /**
    * The corresponding id of the Correlation holding the event.
    */
   public correlationId: string;
