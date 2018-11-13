@@ -1,19 +1,38 @@
-import { EventTriggerPayload } from './event_trigger_payload';
-
 /**
- * Describes an event.
+ * Describes an event that can be triggered through the ConsumerAPI.
  */
+
 export class Event {
   /**
    * The id of the event.
    */
   public id: string;
   /**
-   * Optional: The id of the process instance that the event belongs to.
+   * Optional: The instance id of this specific FlowNode.
+   */
+  public flowNodeInstanceId?: string;
+  /**
+   * The name of the event.
+   */
+  public name: string;
+  /**
+   * The corresponding id of the Correlation holding the event.
+   */
+  public correlationId: string;
+  /**
+   * The corresponding id of the ProcessModel.
+   */
+  public processModelId: string;
+  /**
+   * The id of the ProcessInstance.
    */
   public processInstanceId?: string;
   /**
-   * Optional: The payload with which the event can be triggered.
+   * The type of the event.
    */
-  public data?: EventTriggerPayload;
+  public eventType: string;
+  /**
+   * The BPMN type of the event.
+   */
+  public bpmnType: string;
 }
