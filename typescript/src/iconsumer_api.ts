@@ -147,7 +147,7 @@ export interface IConsumerApi {
   getEventsForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<EventList>;
 
   /**
-   * Triggers an event belonging to an instance of a specific ProcessModel
+   * Triggers a message event belonging to an instance of a specific ProcessModel
    * within a Correlation.
    *
    * @async
@@ -156,7 +156,7 @@ export interface IConsumerApi {
    *                            the event.
    * @param correlationId       The ID of the correlation for which to trigger
    *                            the event.
-   * @param eventId             The ID of the event to trigger.
+   * @param eventId             The ID of the message event to trigger.
    * @param eventTriggerPayload The payload with which to trigger the event.
    * @returns                   A Promise, which resolves without content,
    *                            or rejects an error, in case the request failed.
@@ -164,11 +164,35 @@ export interface IConsumerApi {
    *                            correlation were not found,
    *                            or the user is not authorized to see either.
    */
-  triggerEvent(identity: IIdentity,
-               processModelId: string,
-               correlationId: string,
-               eventId: string,
-               eventTriggerPayload?: EventTriggerPayload): Promise<void>;
+  triggerMessageEvent(identity: IIdentity,
+                      processModelId: string,
+                      correlationId: string,
+                      eventId: string,
+                      eventTriggerPayload?: EventTriggerPayload): Promise<void>;
+
+  /**
+   * Triggers an signal event belonging to an instance of a specific ProcessModel
+   * within a Correlation.
+   *
+   * @async
+   * @param identity            The requesting users identity.
+   * @param processModelId      The ID of the ProcessModel for which to trigger
+   *                            the event.
+   * @param correlationId       The ID of the correlation for which to trigger
+   *                            the event.
+   * @param eventId             The ID of the signal event to trigger.
+   * @param eventTriggerPayload The payload with which to trigger the event.
+   * @returns                   A Promise, which resolves without content,
+   *                            or rejects an error, in case the request failed.
+   *                            This can happen, if the event, ProcessModel or
+   *                            correlation were not found,
+   *                            or the user is not authorized to see either.
+   */
+  triggerSignalEvent(identity: IIdentity,
+                     processModelId: string,
+                     correlationId: string,
+                     eventId: string,
+                     eventTriggerPayload?: EventTriggerPayload): Promise<void>;
 
   /**
    * Retrieves a list of all suspended UserTasks belonging to an instance of a
