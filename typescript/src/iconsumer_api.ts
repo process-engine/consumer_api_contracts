@@ -263,14 +263,14 @@ export interface IConsumerApi {
   onUserTaskFinished(identity: IIdentity, callback: Messages.CallbackTypes.OnUserTaskFinishedCallback): void;
 
   /**
-   * Retrieves a list of all suspended UserTasks belonging to an instance of a
+   * Retrieves a list of all suspended ManualTasks belonging to an instance of a
    * specific ProcessModel.
    *
    * @async
    * @param identity       The requesting users identity.
    * @param processModelId The ID of the ProcessModel for which to retrieve the
-   *                       UserTasks.
-   * @returns              A Promise, which resolves with the retrieved UserTasks,
+   *                       ManualTasks.
+   * @returns              A Promise, which resolves with the retrieved ManualTasks,
    *                       or rejects an error, in case the request failed.
    *                       This can happen, if the ProcessModel was not found,
    *                       or the user is not authorized to see the it.

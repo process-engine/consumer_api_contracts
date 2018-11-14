@@ -28,9 +28,9 @@ export const routePaths = {
     `/processengine/correlation/${routeParams.correlationId}/processinstance/${routeParams.processInstanceId}/usertask/${routeParams.flowNodeInstanceId}/finished`,
   processEnded: `/processengine/process/${routeParams.processInstanceId}/ended`,
   finishManualTask:
-    `/processengine/correlation/${routeParams.correlationId}/processmodel/${routeParams.processModelId}/node/${routeParams.manualTaskId}/finish`,
+    `/processengine/correlation/${routeParams.correlationId}/processmodel/${routeParams.processModelId}/manualtask/${routeParams.manualTaskId}/finish`,
   manualTaskFinished:
-    `/processengine/correlation/${routeParams.correlationId}/processmodel/${routeParams.processModelId}/node/${routeParams.manualTaskId}/finished`,
+    `/processengine/correlation/${routeParams.correlationId}/processmodel/${routeParams.processModelId}/manualtask/${routeParams.manualTaskId}/finished`,
   endEventReached: `/processengine/correlation/${routeParams.correlationId}/processmodel/${routeParams.processModelId}/ended`,
   messageEventReached: `/processengine/process/message/${routeParams.messageReference}`,
   signalEventReached: `/processengine/process/signal/${routeParams.signalReference}`,
