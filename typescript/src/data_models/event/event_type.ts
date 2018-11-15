@@ -1,4 +1,7 @@
 export enum EventType {
-  message = 'message',
-  signal = 'signal',
+  messageEvent = 'MessageEvent',
+  signalEvent = 'SignalEvent',
+  terminateEvent = 'TerminateEvent',
+  timerEvent = 'TimerEvent',
+  errorEvent = 'ErrorEvent',
 }
