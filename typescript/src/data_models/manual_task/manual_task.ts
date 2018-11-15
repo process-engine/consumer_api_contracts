@@ -19,7 +19,7 @@ export class ManualTask {
    */
   public processModelId: string;
   /**
-   * The id of the process instance that the ManualTask belongs to.
+   * The ID of the process instance that the ManualTask belongs to.
    */
   public processInstanceId?: string;
   /**
