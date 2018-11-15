@@ -11,7 +11,7 @@ export class ManualTask {
    */
   public name: string;
   /**
-   * The id of the correlation that the ManualTask belongs to.
+   * The ID of the correlation that the ManualTask belongs to.
    */
   public correlationId: string;
   /**
