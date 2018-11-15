@@ -1,5 +1,5 @@
 /**
- * Describes a maual task that belongs to an active correlation.
+ * Describes a MaualTask that belongs to an active correlation.
  */
 export class ManualTask {
   /**
