@@ -147,28 +147,24 @@ export interface IConsumerApi {
   getEventsForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<EventList>;
 
   /**
-   * Triggers an event belonging to an instance of a specific ProcessModel
-   * within a Correlation.
+   * Triggers a message event.
    *
    * @async
-   * @param identity            The requesting users identity.
-   * @param processModelId      The ID of the ProcessModel for which to trigger
-   *                            the event.
-   * @param correlationId       The ID of the correlation for which to trigger
-   *                            the event.
-   * @param eventId             The ID of the event to trigger.
-   * @param eventTriggerPayload The payload with which to trigger the event.
-   * @returns                   A Promise, which resolves without content,
-   *                            or rejects an error, in case the request failed.
-   *                            This can happen, if the event, ProcessModel or
-   *                            correlation were not found,
-   *                            or the user is not authorized to see either.
+   * @param identity    The requesting users identity.
+   * @param messageName The name of the message to trigger.
+   * @param payload     The payload with which to trigger the message.
    */
-  triggerEvent(identity: IIdentity,
-               processModelId: string,
-               correlationId: string,
-               eventId: string,
-               eventTriggerPayload?: EventTriggerPayload): Promise<void>;
+  triggerMessageEvent(identity: IIdentity, messageName: string, payload?: EventTriggerPayload): Promise<void>;
+
+  /**
+   * Triggers a signal event.
+   *
+   * @async
+   * @param identity   The requesting users identity.
+   * @param signalName The name of the signal to trigger.
+   * @param payload    The payload with which to trigger the signal.
+   */
+  triggerSignalEvent(identity: IIdentity, signalName: string, payload?: EventTriggerPayload): Promise<void>;
 
   /**
    * Retrieves a list of all suspended UserTasks belonging to an instance of a
