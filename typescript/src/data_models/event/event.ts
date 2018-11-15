@@ -1,3 +1,5 @@
+import {EventType} from './event_type';
+
 /**
  * Describes an event that can be triggered through the ConsumerAPI.
  */
@@ -24,11 +26,15 @@ export class Event {
    */
   public processInstanceId?: string;
   /**
-   * The type of the event.
-   */
-  public eventType: string;
-  /**
    * The BPMN type of the event.
    */
   public bpmnType: string;
+  /**
+   * The type of the event.
+   */
+  public eventType: EventType;
+  /**
+   * The name of the event.
+   */
+  public eventName: string;
 }
