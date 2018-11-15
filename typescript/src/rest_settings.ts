@@ -6,6 +6,7 @@ const params = {
   startEventId: ':start_event_id',
   endEventId: ':end_event_id',
   eventId: ':event_id',
+  eventName: ':event_name',
   userTaskInstanceId: ':user_task_instance_id',
 };
 
@@ -19,7 +20,8 @@ const paths = {
   processModelEvents: `/process_models/${params.processModelId}/events`,
   correlationEvents: `/correlations/${params.correlationId}/events`,
   processModelCorrelationEvents: `/process_models/${params.processModelId}/correlations/${params.correlationId}/events`,
-  triggerEvent: `/process_models/${params.processModelId}/correlations/${params.correlationId}/events/${params.eventId}/trigger`,
+  triggerMessageEvent: `/message/${params.eventName}/trigger`,
+  triggerSignalEvent: `/signal/${params.eventName}/trigger`,
   // UserTasks
   processModelUserTasks: `/process_models/${params.processModelId}/user_tasks`,
   correlationUserTasks: `/correlations/${params.correlationId}/user_tasks`,
