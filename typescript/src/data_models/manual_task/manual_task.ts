@@ -15,7 +15,7 @@ export class ManualTask {
    */
   public correlationId: string;
   /**
-   * The id of the process model that the ManualTask belongs to.
+   * The ID of the process model that the ManualTask belongs to.
    */
   public processModelId: string;
   /**
