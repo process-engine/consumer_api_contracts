@@ -7,6 +7,10 @@ export class ManualTask {
    */
   public id: string;
   /**
+   * The instance id of the UserTask.
+   */
+  public flowNodeInstanceId?: string;
+  /**
    * The name of the ManualTask.
    */
   public name: string;
