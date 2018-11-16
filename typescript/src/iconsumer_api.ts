@@ -316,10 +316,10 @@ export interface IConsumerApi {
    *
    * @async
    * @param identity       The requesting users identity.
-   * @param processModelId The ID of the ProcessModel for which to finish a
+   * @param processInstanceId The ID of the ProcessInstance for which to finish a
    *                       ManualTask.
    * @param correlationId  The ID of the correlation for which to finish a ManualTask.
-   * @param manualTaskId     The ID of ManualTask to finish.
+   * @param manualTaskInstanceId The instance ID of a ManualTask to finish.
    * @param manualTaskResult Optional: Contains a set of results with which to
    *                       finish the ManualTask.
    * @returns              A Promise, which resolves without content, or rejects an error, in case the request failed.
@@ -327,9 +327,9 @@ export interface IConsumerApi {
    *                       or the user is not authorized to see either.
    */
   finishManualTask(identity: IIdentity,
-                   processModelId: string,
+                   processInstanceId: string,
                    correlationId: string,
-                   manualTaskId: string): Promise<void>;
+                   manualTaskInstanceId: string): Promise<void>;
 
   /**
    * Executes a callback when a manual task is reached.
