@@ -5,6 +5,7 @@ const paths = {
   manualTaskWaiting: 'manual_task_waiting',
   manualTaskFinished: 'manual_task_finished',
   processEnded: 'process_ended',
+  processStarted: `process_started`,
   processTerminated: 'process_terminated',
 };
 
