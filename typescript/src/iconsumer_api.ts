@@ -278,7 +278,7 @@ export interface IConsumerApi {
   getManualTasksForProcessModel(identity: IIdentity, processModelId: string): Promise<ManualTaskList>;
 
   /**
-   * Retrieves a list of all suspended UserTasks belonging to a specific
+   * Retrieves a list of all suspended ManualTasks belonging to a specific
    * Correlation.
    *
    * @async
