@@ -83,7 +83,7 @@ export interface IConsumerApi {
                        processEndedCallback?: Messages.CallbackTypes.OnProcessEndedCallback): Promise<ProcessStartResponsePayload>;
 
   /**
-   * Retrieves the result of a specifc ProcessModel within a Correlation.
+   * Retrieves the result of a specific ProcessModel within a Correlation.
    * This only works for ProcessInstances that have finished execution.
    *
    * @async
