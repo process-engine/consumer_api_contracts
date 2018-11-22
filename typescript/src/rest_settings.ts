@@ -23,8 +23,6 @@ const paths = {
   processModelCorrelationEvents: `/process_models/${params.processModelId}/correlations/${params.correlationId}/events`,
   triggerMessageEvent: `/message/${params.eventName}/trigger`,
   triggerSignalEvent: `/signal/${params.eventName}/trigger`,
-  // Notifications
-  processInstanceStarted: `/process_started/${params.processModelId}`,
   // UserTasks
   processModelUserTasks: `/process_models/${params.processModelId}/user_tasks`,
   correlationUserTasks: `/correlations/${params.correlationId}/user_tasks`,

@@ -1,4 +1,8 @@
 // tslint:disable:typedef
+const pathParams = {
+  processModelId: 'process_model_id',
+};
+
 const paths = {
   userTaskWaiting: 'user_task_waiting',
   userTaskFinished: 'user_task_finished',
@@ -7,6 +11,7 @@ const paths = {
   processEnded: 'process_ended',
   processStarted: `process_started`,
   processTerminated: 'process_terminated',
+  processInstanceStarted: `/processengine/process_started/${pathParams.processModelId}`,
 };
 
 const namespace: string = 'consumer_api';
