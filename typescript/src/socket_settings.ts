@@ -11,7 +11,7 @@ const paths = {
   processEnded: 'process_ended',
   processStarted: `process_started`,
   processTerminated: 'process_terminated',
-  processInstanceStarted: `/processengine/process_started/${pathParams.processModelId}`,
+  processInstanceStarted: `/process_instance_started/${pathParams.processModelId}`,
 };
 
 const namespace: string = 'consumer_api';
