@@ -19,4 +19,5 @@ const namespace: string = 'consumer_api';
 export const socketSettings = {
   namespace: namespace,
   paths: paths,
+  pathParams: pathParams,
 };
