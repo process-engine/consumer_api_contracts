@@ -4,6 +4,10 @@
  */
 export class ProcessStartResponsePayload {
   /**
+   * The id of the process instance.
+   */
+  public processInstanceId?: string;
+  /**
    * The id of the correlation in which the started process model runs.
    */
   public correlationId: string;
