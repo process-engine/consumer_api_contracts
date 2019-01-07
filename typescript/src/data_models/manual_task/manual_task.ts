@@ -30,4 +30,8 @@ export class ManualTask {
    * The token payload the ManualTask got suspended with.
    */
   public tokenPayload: any;
+  /**
+   * Contains the identity the UserTask belongs to.
+   */
+  public identity: any;
 }
