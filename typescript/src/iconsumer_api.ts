@@ -1,11 +1,12 @@
 import {IIdentity} from '@essential-projects/iam_contracts';
 
-import {CorrelationResult} from './correlation_result';
 import {
+  CorrelationResult,
   EventList,
   EventTriggerPayload,
   ManualTaskList,
   Messages,
+  ProcessInstance,
   ProcessModel,
   ProcessModelList,
   ProcessStartRequestPayload,
