@@ -1,6 +1,8 @@
 import {HttpRequestWithIdentity} from '@essential-projects/http_contracts';
 import {IIdentity} from '@essential-projects/iam_contracts';
 
+import {Response} from 'express';
+
 /**
  * Contains functions for a HTTP Controller that can be used for accessing
  * the Consumer API.
