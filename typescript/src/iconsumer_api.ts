@@ -308,6 +308,15 @@ export interface IConsumerApi {
   getManualTasksForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<ManualTaskList>;
 
   /**
+   * Gets all waiting ManualTasks belonging to the given identity.
+   *
+   * @async
+   * @param   identity The identity for which to get the ManualTasks.
+   * @returns          The list of ManualTasks.
+   */
+  getWaitingManualTasksByIdentity(identity: IIdentity): Promise<ManualTaskList>;
+
+  /**
    * Finishes a ManualTask belonging to an instance of a specific ProcessModel
    * within a Correlation.
    *
@@ -349,6 +358,28 @@ export interface IConsumerApi {
    *                       contains further information about the manual task.
    */
   onManualTaskFinished(identity: IIdentity, callback: Messages.CallbackTypes.OnManualTaskFinishedCallback): void;
+
+  /**
+   * Executes a callback when a ManualTask for the given identity is reached.
+   *
+   * @async
+   * @param identity       The requesting users identity.
+   * @param callback       The callback that will be executed when a ManualTask
+   *                       is reached. The message passed to the callback
+   *                       contains further information about the ManualTask.
+   */
+  onManualTaskForIdentityWaiting(identity: IIdentity, callback: Messages.CallbackTypes.OnManualTaskWaitingCallback): void;
+
+  /**
+   * Executes a callback when a ManualTask for the given identity is finished.
+   *
+   * @async
+   * @param identity       The requesting users identity.
+   * @param callback       The callback that will be executed when a ManualTask
+   *                       is finished. The message passed to the callback
+   *                       contains further information about the ManualTask.
+   */
+  onManualTaskForIdentityFinished(identity: IIdentity, callback: Messages.CallbackTypes.OnManualTaskFinishedCallback): void;
 
   /**
    * Executes a callback when a process started.
