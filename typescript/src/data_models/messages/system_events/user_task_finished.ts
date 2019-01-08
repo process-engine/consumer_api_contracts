@@ -1,3 +1,5 @@
+import {IIdentity} from '@essential-projects/iam_contracts';
+
 import {UserTaskResult} from '../../user_task/user_task_result';
 import {BaseSystemEventMessage} from './base_system_event_message';
 
@@ -17,8 +19,9 @@ export class UserTaskFinishedMessage extends BaseSystemEventMessage {
               processInstanceId: string,
               flowNodeId: string,
               flowNodeInstanceId: string,
+              identity: IIdentity,
               currentToken: any) {
-    super(correlationId, processModelId, processInstanceId, flowNodeId, flowNodeInstanceId, currentToken);
+    super(correlationId, processModelId, processInstanceId, flowNodeId, flowNodeInstanceId, identity, currentToken);
 
     this.userTaskResult = userTaskResult;
   }
