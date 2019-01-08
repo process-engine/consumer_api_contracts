@@ -1,5 +1,4 @@
 import {HttpRequestWithIdentity} from '@essential-projects/http_contracts';
-import {IIdentity} from '@essential-projects/iam_contracts';
 
 import {Response} from 'express';
 
@@ -147,6 +146,15 @@ export interface IConsumerApiHttpController {
   getWaitingUserTasksByIdentity(request: HttpRequestWithIdentity, response: Response): Promise<void>;
 
   /**
+   * Gets all waiting UserTasks belonging to the given identity.
+   *
+   * @async
+   * @param request  The HttpRequest object containing all request infos.
+   * @param response The HttpResponse object to use for sending a Http response.
+   */
+  getWaitingUserTasksByIdentity(request: HttpRequestWithIdentity, response: Response): Promise<void>;
+
+  /**
    * Finishes a UserTask belonging to an instance of a specific ProcessModel
    * within a correlation.
    *
@@ -185,6 +193,15 @@ export interface IConsumerApiHttpController {
    * @param response The HttpResponse object to use for sending a Http response.
    */
   getManualTasksForProcessModelInCorrelation(request: HttpRequestWithIdentity, response: Response): Promise<void>;
+
+  /**
+   * Gets all waiting ManualTasks belonging to the given identity.
+   *
+   * @async
+   * @param request  The HttpRequest object containing all request infos.
+   * @param response The HttpResponse object to use for sending a Http response.
+   */
+  getWaitingManualTasksByIdentity(request: HttpRequestWithIdentity, response: Response): Promise<void>;
 
   /**
    * Finishes a ManualTask belonging to an instance of a specific ProcessModel
