@@ -184,7 +184,7 @@ export interface IConsumerApiHttpController {
    * @param request  The HttpRequest object containing all request infos.
    * @param response The HttpResponse object to use for sending a Http response.
    */
-  getManualTasksForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<void>;
+  getManualTasksForProcessModelInCorrelation(request: HttpRequestWithIdentity, response: Response): Promise<void>;
 
   /**
    * Finishes a ManualTask belonging to an instance of a specific ProcessModel
