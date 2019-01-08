@@ -34,6 +34,7 @@ const paths = {
   processModelManualTasks: `/process_models/${params.processModelId}/manual_tasks`,
   correlationManualTasks: `/correlations/${params.correlationId}/manual_tasks`,
   processModelCorrelationManualTasks: `/process_models/${params.processModelId}/correlations/${params.correlationId}/manual_tasks`,
+  getOwnManualTasks: `/manual_tasks/own`,
   finishManualTask: `/processes/${params.processInstanceId}/correlations/${params.correlationId}/` +
     `manual_tasks/${params.manualTaskInstanceId}/finish`,
 };
