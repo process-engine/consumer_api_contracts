@@ -5,5 +5,4 @@ export * from './manual_task/index';
 export * from './messages/index';
 
 export * from './correlation_result';
-export * from './decoded_identity_token';
 export * from './process_instance';
