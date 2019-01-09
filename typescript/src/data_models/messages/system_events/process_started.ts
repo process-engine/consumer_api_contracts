@@ -12,8 +12,8 @@ export class ProcessStartedMessage extends BaseSystemEventMessage {
               processInstanceId: string,
               startEventId: string,
               startEventInstanceId: string,
-              identity: IIdentity,
+              processInstanceOwner: IIdentity,
               currentToken: any) {
-    super(correlationId, processModelId, processInstanceId, startEventId, startEventInstanceId, identity, currentToken);
+    super(correlationId, processModelId, processInstanceId, startEventId, startEventInstanceId, processInstanceOwner, currentToken);
   }
 }

@@ -11,7 +11,7 @@ export class BaseBpmnEventMessage {
   public readonly processInstanceId: string;
   public readonly flowNodeId: string;
   public readonly flowNodeInstanceId: string;
-  public readonly identity: IIdentity;
+  public readonly processInstanceOwner: IIdentity;
   public readonly currentToken: any;
 
   constructor(correlationId: string,
@@ -19,14 +19,14 @@ export class BaseBpmnEventMessage {
               processInstanceId: string,
               flowNodeId: string,
               flowNodeInstanceId: string,
-              identity: IIdentity,
+              processInstanceOwner: IIdentity,
               currentToken: any) {
     this.correlationId = correlationId;
     this.processModelId = processModelId;
     this.processInstanceId = processInstanceId;
     this.flowNodeId = flowNodeId;
     this.flowNodeInstanceId = flowNodeInstanceId;
-    this.identity = identity;
+    this.processInstanceOwner = processInstanceOwner;
     this.currentToken = currentToken;
   }
 }
