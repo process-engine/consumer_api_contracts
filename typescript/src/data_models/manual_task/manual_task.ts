@@ -1,3 +1,5 @@
+import {IIdentity} from '@essential-projects/iam_contracts';
+
 /**
  * Describes a MaualTask that belongs to an active correlation.
  */
@@ -33,5 +35,5 @@ export class ManualTask {
   /**
    * Contains the identity the UserTask belongs to.
    */
-  public identity: any;
+  public owner: IIdentity;
 }

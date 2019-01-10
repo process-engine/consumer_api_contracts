@@ -1,3 +1,5 @@
+import {IIdentity} from '@essential-projects/iam_contracts';
+
 import {UserTaskConfig} from './user_task_config';
 
 /**
@@ -39,5 +41,5 @@ export class UserTask {
   /**
    * Contains the identity the UserTask belongs to.
    */
-  public identity: any;
+  public owner: IIdentity;
 }
