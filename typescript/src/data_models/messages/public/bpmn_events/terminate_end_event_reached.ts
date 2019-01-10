@@ -1,9 +1,10 @@
-import {BaseSystemEventMessage} from './base_system_event_message';
+import {BasePublicEventMessage} from '../base_public_event_message';
 
 /**
- * The message sent when a process ends.
+ * Encapsulates a Message for the EventAggregator, describing a
+ * MessageEvent.
  */
-export class ProcessEndedMessage extends BaseSystemEventMessage {
+export class TerminateEndEventReachedMessage extends BasePublicEventMessage {
 
   constructor(correlationId: string,
               processModelId: string,

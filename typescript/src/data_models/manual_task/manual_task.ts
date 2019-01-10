@@ -1,3 +1,5 @@
+import {IIdentity} from '@essential-projects/iam_contracts';
+
 /**
  * Describes a MaualTask that belongs to an active correlation.
  */

@@ -1,11 +1,12 @@
 import {IIdentity} from '@essential-projects/iam_contracts';
 
-import {CorrelationResult} from './correlation_result';
 import {
+  CorrelationResult,
   EventList,
   EventTriggerPayload,
   ManualTaskList,
   Messages,
+  ProcessInstance,
   ProcessModel,
   ProcessModelList,
   ProcessStartRequestPayload,
@@ -148,6 +149,15 @@ export interface IConsumerApi {
   getEventsForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<EventList>;
 
   /**
+   * Gets all active ProcessInstances belonging to the given identity.
+   *
+   * @async
+   * @param   identity The identity for which to get the ProcessInstances.
+   * @returns          The list of ProcessInstances.
+   */
+  getProcessInstancesByIdentity(identity: IIdentity): Promise<Array<ProcessInstance>>;
+
+  /**
    * Triggers a message event.
    *
    * @async
@@ -216,6 +226,15 @@ export interface IConsumerApi {
   getUserTasksForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<UserTaskList>;
 
   /**
+   * Gets all waiting UserTasks belonging to the given identity.
+   *
+   * @async
+   * @param   identity The identity for which to get the UserTasks.
+   * @returns          The list of UserTasks.
+   */
+  getWaitingUserTasksByIdentity(identity: IIdentity): Promise<UserTaskList>;
+
+  /**
    * Finishes a UserTask belonging to an instance of a specific ProcessModel
    * within a correlation.
    *
@@ -239,28 +258,6 @@ export interface IConsumerApi {
                  correlationId: string,
                  userTaskInstanceId: string,
                  userTaskResult: UserTaskResult): Promise<void>;
-
-  /**
-   * Executes a callback when a user task is reached.
-   *
-   * @async
-   * @param identity       The requesting users identity.
-   * @param callback       The callback that will be executed when a user task
-   *                       is reached. The message passed to the callback
-   *                       contains further information about the user task.
-   */
-  onUserTaskWaiting(identity: IIdentity, callback: Messages.CallbackTypes.OnUserTaskWaitingCallback): void;
-
-  /**
-   * Executes a callback when a user task is finished.
-   *
-   * @async
-   * @param identity       The requesting users identity.
-   * @param callback       The callback that will be executed when a user task
-   *                       is finished. The message passed to the callback
-   *                       contains further information about the user task.
-   */
-  onUserTaskFinished(identity: IIdentity, callback: Messages.CallbackTypes.OnUserTaskFinishedCallback): void;
 
   /**
    * Retrieves a list of all suspended ManualTasks belonging to an instance of a
@@ -311,6 +308,15 @@ export interface IConsumerApi {
   getManualTasksForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<ManualTaskList>;
 
   /**
+   * Gets all waiting ManualTasks belonging to the given identity.
+   *
+   * @async
+   * @param   identity The identity for which to get the ManualTasks.
+   * @returns          The list of ManualTasks.
+   */
+  getWaitingManualTasksByIdentity(identity: IIdentity): Promise<ManualTaskList>;
+
+  /**
    * Finishes a ManualTask belonging to an instance of a specific ProcessModel
    * within a Correlation.
    *
@@ -354,6 +360,28 @@ export interface IConsumerApi {
   onManualTaskFinished(identity: IIdentity, callback: Messages.CallbackTypes.OnManualTaskFinishedCallback): void;
 
   /**
+   * Executes a callback when a ManualTask for the given identity is reached.
+   *
+   * @async
+   * @param identity       The requesting users identity.
+   * @param callback       The callback that will be executed when a ManualTask
+   *                       is reached. The message passed to the callback
+   *                       contains further information about the ManualTask.
+   */
+  onManualTaskForIdentityWaiting(identity: IIdentity, callback: Messages.CallbackTypes.OnManualTaskWaitingCallback): void;
+
+  /**
+   * Executes a callback when a ManualTask for the given identity is finished.
+   *
+   * @async
+   * @param identity       The requesting users identity.
+   * @param callback       The callback that will be executed when a ManualTask
+   *                       is finished. The message passed to the callback
+   *                       contains further information about the ManualTask.
+   */
+  onManualTaskForIdentityFinished(identity: IIdentity, callback: Messages.CallbackTypes.OnManualTaskFinishedCallback): void;
+
+  /**
    * Executes a callback when a process started.
    *
    * @async
@@ -363,6 +391,7 @@ export interface IConsumerApi {
    *                       contains further information about the started process.
    */
   onProcessStarted(identity: IIdentity, callback: Messages.CallbackTypes.OnProcessStartedCallback): void;
+
   /**
    * Executes a callback when a process with a given ProcessModelId was started.
    *
@@ -375,13 +404,14 @@ export interface IConsumerApi {
   *                        notification should be send.
    */
   onProcessWithProcessModelIdStarted(identity: IIdentity, callback: Messages.CallbackTypes.OnProcessStartedCallback, processModelId: string): void;
+
   /**
    * Executes a callback when a process is terminated.
    *
    * @async
    * @param identity       The requesting users identity.
-   * @param callback       The callback that will be executed when a user task
-   *                       is reached. The message passed to the callback
+   * @param callback       The callback that will be executed when a Process
+   *                       is terminated. The message passed to the callback
    *                       contains further information about the process
    *                       terminated.
    */
@@ -392,9 +422,53 @@ export interface IConsumerApi {
    *
    * @async
    * @param identity       The requesting users identity.
-   * @param callback       The callback that will be executed when a user task
-   *                       is reached. The message passed to the callback
-   *                       contains further information about the ended process.
+   * @param callback       The callback that will be executed when a Process
+   *                       is finished. The message passed to the callback
+   *                       contains further information about the finished process.
    */
   onProcessEnded(identity: IIdentity, callback: Messages.CallbackTypes.OnProcessEndedCallback): void;
+
+  /**
+   * Executes a callback when a UserTask is reached.
+   *
+   * @async
+   * @param identity       The requesting users identity.
+   * @param callback       The callback that will be executed when a UserTask
+   *                       is reached. The message passed to the callback
+   *                       contains further information about the UserTask.
+   */
+  onUserTaskWaiting(identity: IIdentity, callback: Messages.CallbackTypes.OnUserTaskWaitingCallback): void;
+
+  /**
+   * Executes a callback when a UserTask is finished.
+   *
+   * @async
+   * @param identity       The requesting users identity.
+   * @param callback       The callback that will be executed when a UserTask
+   *                       is finished. The message passed to the callback
+   *                       contains further information about the UserTask.
+   */
+  onUserTaskFinished(identity: IIdentity, callback: Messages.CallbackTypes.OnUserTaskFinishedCallback): void;
+
+  /**
+   * Executes a callback when a UserTask for the given identity is reached.
+   *
+   * @async
+   * @param identity       The requesting users identity.
+   * @param callback       The callback that will be executed when a UserTask
+   *                       is reached. The message passed to the callback
+   *                       contains further information about the UserTask.
+   */
+  onUserTaskForIdentityWaiting(identity: IIdentity, callback: Messages.CallbackTypes.OnUserTaskWaitingCallback): void;
+
+  /**
+   * Executes a callback when a UserTask for the given identity is finished.
+   *
+   * @async
+   * @param identity       The requesting users identity.
+   * @param callback       The callback that will be executed when a UserTask
+   *                       is finished. The message passed to the callback
+   *                       contains further information about the UserTask.
+   */
+  onUserTaskForIdentityFinished(identity: IIdentity, callback: Messages.CallbackTypes.OnUserTaskFinishedCallback): void;
 }
