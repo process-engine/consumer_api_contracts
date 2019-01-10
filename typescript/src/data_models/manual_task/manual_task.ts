@@ -32,8 +32,4 @@ export class ManualTask {
    * The token payload the ManualTask got suspended with.
    */
   public tokenPayload: any;
-  /**
-   * Contains the identity of the ProcessInstance's owner.
-   */
-  public processInstanceOwner: IIdentity;
 }

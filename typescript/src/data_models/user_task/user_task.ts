@@ -38,8 +38,4 @@ export class UserTask {
    * The token payload the UserTask got suspended with.
    */
   public tokenPayload: any;
-  /**
-   * Contains the identity of the ProcessInstance's owner.
-   */
-  public processInstanceOwner: IIdentity;
 }
