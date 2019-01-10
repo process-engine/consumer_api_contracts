@@ -16,6 +16,7 @@ const paths = {
   processModels: `/process_models`,
   processModelById: `/process_models/${params.processModelId}`,
   startProcessInstance: `/process_models/${params.processModelId}/start_events/${params.startEventId}/start`,
+  getOwnProcessInstances: `/process_instances/own`,
   getProcessResultForCorrelation: `/correlations/${params.correlationId}/process_models/${params.processModelId}/results`,
   // Events
   processModelEvents: `/process_models/${params.processModelId}/events`,
@@ -27,11 +28,13 @@ const paths = {
   processModelUserTasks: `/process_models/${params.processModelId}/user_tasks`,
   correlationUserTasks: `/correlations/${params.correlationId}/user_tasks`,
   processModelCorrelationUserTasks: `/process_models/${params.processModelId}/correlations/${params.correlationId}/user_tasks`,
+  getOwnUserTasks: `/user_tasks/own`,
   finishUserTask: `/processes/${params.processInstanceId}/correlations/${params.correlationId}/usertasks/${params.userTaskInstanceId}/finish`,
   // ManualTask
   processModelManualTasks: `/process_models/${params.processModelId}/manual_tasks`,
   correlationManualTasks: `/correlations/${params.correlationId}/manual_tasks`,
   processModelCorrelationManualTasks: `/process_models/${params.processModelId}/correlations/${params.correlationId}/manual_tasks`,
+  getOwnManualTasks: `/manual_tasks/own`,
   finishManualTask: `/processes/${params.processInstanceId}/correlations/${params.correlationId}/` +
     `manual_tasks/${params.manualTaskInstanceId}/finish`,
 };
