@@ -35,5 +35,5 @@ export class ManualTask {
   /**
    * Contains the identity of the ProcessInstance's owner.
    */
-  public owner: IIdentity;
+  public processInstanceOwner: IIdentity;
 }
