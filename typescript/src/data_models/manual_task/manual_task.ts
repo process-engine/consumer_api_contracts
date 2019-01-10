@@ -33,7 +33,7 @@ export class ManualTask {
    */
   public tokenPayload: any;
   /**
-   * Contains the identity the UserTask belongs to.
+   * Contains the identity of the ProcessInstance's owner.
    */
   public owner: IIdentity;
 }
