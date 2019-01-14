@@ -4,16 +4,16 @@
  */
 export class ProcessStartResponsePayload {
   /**
-   * The id of the process instance.
+   * The ID of the process instance.
    */
   public processInstanceId?: string;
   /**
-   * The id of the correlation in which the started process model runs.
+   * The ID of the correlation in which the started process model runs.
    */
   public correlationId: string;
   /**
    * Optional: If the process engine is set to wait for the process instance to finish,
-   * this will contain the id of the end event with which process execution was finished.
+   * this will contain the ID of the end event with which process execution was finished.
    */
   public endEventId?: string;
   /**
