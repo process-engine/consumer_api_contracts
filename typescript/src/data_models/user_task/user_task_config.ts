@@ -17,7 +17,7 @@ export class UserTaskConfig {
    */
   public description?: string;
   /**
-   * A message to show if UserTask is finshed.
+   * Optional: A message to show when the UserTask has been finished.
    */
   public finishedMessage?: string;
 }
