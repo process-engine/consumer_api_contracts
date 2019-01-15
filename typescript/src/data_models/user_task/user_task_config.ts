@@ -12,4 +12,12 @@ export class UserTaskConfig {
    * The perferred type of control for the form field.
    */
   public preferredControl?: string;
+  /**
+   * A description of this UserTask.
+   */
+  public description?: string;
+  /**
+   * A message to show if UserTask is finshed.
+   */
+  public finishedMessage?: string;
 }
