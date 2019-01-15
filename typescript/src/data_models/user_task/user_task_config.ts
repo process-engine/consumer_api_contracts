@@ -13,7 +13,7 @@ export class UserTaskConfig {
    */
   public preferredControl?: string;
   /**
-   * A description of this UserTask.
+   * Optional: A description of this UserTask.
    */
   public description?: string;
   /**
