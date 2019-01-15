@@ -1,6 +1,6 @@
 import {IIdentity} from '@essential-projects/iam_contracts';
 
-import {UserTaskList, UserTaskResult} from '../data_models/index';
+import {UserTaskList, UserTaskResult} from '../data_models/user_task/index';
 
 /**
  * The IUserTaskConsumerApi is used to retreive and manage UserTasks.

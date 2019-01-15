@@ -1,6 +1,6 @@
 import {IIdentity} from '@essential-projects/iam_contracts';
 
-import {Messages} from '../data_models/index';
+import {Messages} from '../messages/index';
 
 /**
  * The INotificationConsumerApi is used to manage Subscriptions for async

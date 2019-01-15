@@ -1,6 +1,6 @@
 import {IIdentity} from '@essential-projects/iam_contracts';
 
-import {EventList, EventTriggerPayload} from '../data_models/index';
+import {EventList, EventTriggerPayload} from '../data_models/event/index';
 
 /**
  * The IEventConsumerApi is used to retrieve waiting events and to trigger them.

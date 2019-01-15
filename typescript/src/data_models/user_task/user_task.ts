@@ -1,5 +1,3 @@
-import {IIdentity} from '@essential-projects/iam_contracts';
-
 import {UserTaskConfig} from './user_task_config';
 
 /**

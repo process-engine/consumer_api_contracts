@@ -1,15 +1,7 @@
 import {IIdentity} from '@essential-projects/iam_contracts';
 
-import {
-  CorrelationResult,
-  Messages,
-  ProcessInstance,
-  ProcessModel,
-  ProcessModelList,
-  ProcessStartRequestPayload,
-  ProcessStartResponsePayload,
-  StartCallbackType,
-} from '../data_models/index';
+import {DataModels} from '../data_models/index';
+import {Messages} from '../messages/index';
 
 /**
  * The IProcessModelConsumerApi is used to retreive ProcessModels and start ProcessInstances.
@@ -24,7 +16,7 @@ export interface IProcessModelConsumerApi {
    * @returns        A Promise, which resolves with the ProcessModel list,
    *                 or rejects an error, in case the request failed.
    */
-  getProcessModels(identity: IIdentity): Promise<ProcessModelList>;
+  getProcessModels(identity: IIdentity): Promise<DataModels.ProcessModels.ProcessModelList>;
 
   /**
    * Retrieves a ProcessModel by its ID.
@@ -37,7 +29,7 @@ export interface IProcessModelConsumerApi {
    *                       This can happen, if the ProcessModel was not found,
    *                       or the user is not authorized to see it.
    */
-  getProcessModelById(identity: IIdentity, processModelId: string): Promise<ProcessModel>;
+  getProcessModelById(identity: IIdentity, processModelId: string): Promise<DataModels.ProcessModels.ProcessModel>;
 
   /**
    * Starts a new instance of a ProcessModel with a specific ID.
@@ -71,10 +63,11 @@ export interface IProcessModelConsumerApi {
   startProcessInstance(identity: IIdentity,
                        processModelId: string,
                        startEventId: string,
-                       payload: ProcessStartRequestPayload,
-                       startCallbackType: StartCallbackType,
+                       payload: DataModels.ProcessModels.ProcessStartRequestPayload,
+                       startCallbackType: DataModels.ProcessModels.StartCallbackType,
                        endEventId?: string,
-                       processEndedCallback?: Messages.CallbackTypes.OnProcessEndedCallback): Promise<ProcessStartResponsePayload>;
+                       processEndedCallback?: Messages.CallbackTypes.OnProcessEndedCallback,
+                      ): Promise<DataModels.ProcessModels.ProcessStartResponsePayload>;
 
   /**
    * Retrieves the result of a specific ProcessModel within a Correlation.
@@ -92,7 +85,7 @@ export interface IProcessModelConsumerApi {
    *                       were not found, or the user is not authorized to see
    *                       the result.
    */
-  getProcessResultForCorrelation(identity: IIdentity, correlationId: string, processModelId: string): Promise<Array<CorrelationResult>>;
+  getProcessResultForCorrelation(identity: IIdentity, correlationId: string, processModelId: string): Promise<Array<DataModels.CorrelationResult>>;
 
   /**
    * Gets all active ProcessInstances belonging to the given identity.
@@ -101,5 +94,5 @@ export interface IProcessModelConsumerApi {
    * @param   identity The identity for which to get the ProcessInstances.
    * @returns          The list of ProcessInstances.
    */
-  getProcessInstancesByIdentity(identity: IIdentity): Promise<Array<ProcessInstance>>;
+  getProcessInstancesByIdentity(identity: IIdentity): Promise<Array<DataModels.ProcessInstance>>;
 }

@@ -1,6 +1,6 @@
 import {IIdentity} from '@essential-projects/iam_contracts';
 
-import {ManualTaskList} from '../data_models/index';
+import {ManualTaskList} from '../data_models/manual_task/index';
 
 /**
  * The IManualTaskConsumerApi is used to retreive and manage ManualTasks.

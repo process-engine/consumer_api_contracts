@@ -1,4 +1,4 @@
-import {IEventConsumerApi, IManualTaskConsumerApi, INotificationConsumerApi, IProcessModelConsumerApi, IUserTaskConsumerApi} from './apis/index';
+import {APIs} from './apis/index';
 
 /**
  * The primary access point for the ConsumerAPI.
@@ -6,4 +6,8 @@ import {IEventConsumerApi, IManualTaskConsumerApi, INotificationConsumerApi, IPr
  * communicate with the ProcessEngine.
  */
 export interface IConsumerApi
-  extends IEventConsumerApi, IManualTaskConsumerApi, INotificationConsumerApi, IProcessModelConsumerApi, IUserTaskConsumerApi {}
+  extends APIs.IEventConsumerApi,
+          APIs.IManualTaskConsumerApi,
+          APIs.INotificationConsumerApi,
+          APIs.IProcessModelConsumerApi,
+          APIs.IUserTaskConsumerApi {}
