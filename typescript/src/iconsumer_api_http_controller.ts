@@ -27,6 +27,15 @@ export interface IConsumerApiHttpController {
   getProcessModelById(request: HttpRequestWithIdentity, response: Response): Promise<void>;
 
   /**
+   * Retrieves a ProcessModel by a ProcessInstanceID.
+   *
+   * @async
+   * @param request  The HttpRequest object containing all request infos.
+   * @param response The HttpResponse object to use for sending a Http response.
+   */
+  getProcessModelByProcessInstanceId(request: HttpRequestWithIdentity, response: Response): Promise<void>;
+
+  /**
    * Starts a new instance of a ProcessModel with a specific ID.
    * Depending on the type of callback used, this function will resolve either
    * immediately after the ProcessInstance was started, or after it has reached
