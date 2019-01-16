@@ -18,7 +18,7 @@ export interface IEventConsumerApi {
    * @returns              A Promise, which resolves with the retrieved events,
    *                       or rejects an error, in case the request failed.
    *                       This can happen, if the ProcessModel was not found,
-   *                       or the user is not authorized to see the it.
+   *                       or the user is not authorized to see it.
    */
   getEventsForProcessModel(identity: IIdentity, processModelId: string): Promise<EventList>;
 
@@ -32,7 +32,7 @@ export interface IEventConsumerApi {
    * @returns             A Promise, which resolves with the retrieved events,
    *                      or rejects an error, in case the request failed.
    *                      This can happen, if the ProcessModel was not found,
-   *                      or the user is not authorized to see the it.
+   *                      or the user is not authorized to see it.
    */
   getEventsForCorrelation(identity: IIdentity, correlationId: string): Promise<EventList>;
 
