@@ -50,7 +50,7 @@ export interface IEventConsumerApi {
    *                       or rejects an error, in case the request failed.
    *                       This can happen, if the ProcessModel or Correlation
    *                       was not found, or the user is not authorized to see
-   *                       the it.
+   *                       it.
    */
   getEventsForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<EventList>;
 
