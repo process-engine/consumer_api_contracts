@@ -104,7 +104,7 @@ export interface IUserTaskConsumerApi {
    *                   information about the UserTask.
    * @returns          The Subscription created by the EventAggregator.
    */
-  onUserTaskWaiting(identity: IIdentity, callback: Messages.CallbackTypes.OnUserTaskWaitingCallback): Subscription;
+  onUserTaskWaiting(identity: IIdentity, callback: Messages.CallbackTypes.OnUserTaskWaitingCallback): Subscription | Promise<Subscription>;
 
   /**
    * Executes a callback when a UserTask is finished.
@@ -117,7 +117,7 @@ export interface IUserTaskConsumerApi {
    *                   information about the UserTask.
    * @returns          The Subscription created by the EventAggregator.
    */
-  onUserTaskFinished(identity: IIdentity, callback: Messages.CallbackTypes.OnUserTaskFinishedCallback): Subscription;
+  onUserTaskFinished(identity: IIdentity, callback: Messages.CallbackTypes.OnUserTaskFinishedCallback): Subscription | Promise<Subscription>;
 
   /**
    * Executes a callback when a UserTask for the given identity is reached.
@@ -130,7 +130,7 @@ export interface IUserTaskConsumerApi {
    *                   information about the UserTask.
    * @returns          The Subscription created by the EventAggregator.
    */
-  onUserTaskForIdentityWaiting(identity: IIdentity, callback: Messages.CallbackTypes.OnUserTaskWaitingCallback): Subscription;
+  onUserTaskForIdentityWaiting(identity: IIdentity, callback: Messages.CallbackTypes.OnUserTaskWaitingCallback): Subscription | Promise<Subscription>;
 
   /**
    * Executes a callback when a UserTask for the given identity is finished.
@@ -143,5 +143,8 @@ export interface IUserTaskConsumerApi {
    *                   information about the UserTask.
    * @returns          The Subscription created by the EventAggregator.
    */
-  onUserTaskForIdentityFinished(identity: IIdentity, callback: Messages.CallbackTypes.OnUserTaskFinishedCallback): Subscription;
+  onUserTaskForIdentityFinished(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnUserTaskFinishedCallback,
+  ): Subscription | Promise<Subscription>;
 }
