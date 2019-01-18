@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
+    using EssentialProjects.IAM.Contracts;
 
     /// <summary>
     /// API for starting and managing BMPN processes.
@@ -22,7 +23,7 @@
         /// <typeparam name="TProcessStartRequestPayload">Parameter with initial data for the process.</typeparam>
         /// <typeparam name="TProcessStartResponsePayload">Parameter that should return a unique process Id and correlation Id.</typeparam>
         Task<TProcessStartResponsePayload> StartProcessInstance<TProcessStartRequestPayload, TProcessStartResponsePayload>(
-            string identity,
+            IIdentity identity,
             string processModelId,
             string startEventKey,
             TProcessStartRequestPayload payload,
