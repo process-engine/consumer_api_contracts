@@ -1,3 +1,4 @@
+import {Subscription} from '@essential-projects/event_aggregator_contracts';
 import {IIdentity} from '@essential-projects/iam_contracts';
 
 import {DataModels} from '../data_models/index';
@@ -100,49 +101,58 @@ export interface IProcessModelConsumerApi {
    * Executes a callback when a process started.
    *
    * @async
-   * @param identity       The requesting users identity.
-   * @param callback       The callback that will be executed when a new
-   *                       ProcessInstance was started.
-   *                       The message passed to the callback contains further
-   *                       information about the started process.
+   * @param   identity The requesting users identity.
+   * @param   callback The callback that will be executed when a new
+   *                   ProcessInstance was started.
+   *                   The message passed to the callback contains further
+   *                   information about the started process.
+   * @returns          The Subscription created by the EventAggregator.
    */
-  onProcessStarted(identity: IIdentity, callback: Messages.CallbackTypes.OnProcessStartedCallback): void;
+  onProcessStarted(identity: IIdentity, callback: Messages.CallbackTypes.OnProcessStartedCallback): Subscription;
 
   /**
    * Executes a callback when a new ProcessInstance for a given ProcessModelId
    * was started.
    *
    * @async
-   * @param identity       The requesting users identity.
-   * @param callback       The callback that will be executed when a new
-   *                       ProcessInstance was started.
-   *                       The message passed to the callback contains further
-   *                       information about the started ProcessInstance.
-   * @param processModelId The ID of the ProcessModel for which to receive notifications.
+   * @param   identity       The requesting users identity.
+   * @param   callback       The callback that will be executed when a new
+   *                         ProcessInstance was started.
+   *                         The message passed to the callback contains further
+   *                         information about the started ProcessInstance.
+   * @param   processModelId The ID of the ProcessModel for which to receive
+   *                         notifications.
+   * @returns                The Subscription created by the EventAggregator.
    */
-  onProcessWithProcessModelIdStarted(identity: IIdentity, callback: Messages.CallbackTypes.OnProcessStartedCallback, processModelId: string): void;
+  onProcessWithProcessModelIdStarted(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnProcessStartedCallback,
+    processModelId: string,
+  ): Subscription;
 
   /**
    * Executes a callback when a ProcessInstance is terminated.
    *
    * @async
-   * @param identity       The requesting users identity.
-   * @param callback       The callback that will be executed when a
-   *                       ProcessInstance is terminated.
-   *                       The message passed to the callback contains further
-   *                       information about the ProcessInstance terminated.
+   * @param   identity The requesting users identity.
+   * @param   callback The callback that will be executed when a
+   *                   ProcessInstance is terminated.
+   *                   The message passed to the callback contains further
+   *                   information about the ProcessInstance terminated.
+   * @returns          The Subscription created by the EventAggregator.
    */
-  onProcessTerminated(identity: IIdentity, callback: Messages.CallbackTypes.OnProcessTerminatedCallback): void;
+  onProcessTerminated(identity: IIdentity, callback: Messages.CallbackTypes.OnProcessTerminatedCallback): Subscription;
 
   /**
    * Executes a callback when a ProcessInstance ends.
    *
    * @async
-   * @param identity       The requesting users identity.
-   * @param callback       The callback that will be executed when a
-   *                       ProcessInstance is finished.
-   *                       The message passed to the callback contains further
-   *                       information about the finished ProcessInstance.
+   * @param identity The requesting users identity.
+   * @param callback The callback that will be executed when a
+   *                 ProcessInstance is finished.
+   *                 The message passed to the callback contains further
+   *                 information about the finished ProcessInstance.
+   * @returns        The Subscription created by the EventAggregator.
    */
-  onProcessEnded(identity: IIdentity, callback: Messages.CallbackTypes.OnProcessEndedCallback): void;
+  onProcessEnded(identity: IIdentity, callback: Messages.CallbackTypes.OnProcessEndedCallback): Subscription;
 }
