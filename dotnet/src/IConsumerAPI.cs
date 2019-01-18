@@ -39,7 +39,10 @@
         /// <param name="correlationId">The correlation id generated at the start of the process instance.</param>
         /// <param name="processModelId">The key of the process definition (the latest version thereof) to be retrieved.</param>
         /// <typeparam name="TPayload">Parameter holding the result data for a correlation.</typeparam>
-        Task<IEnumerable<CorrelationResult<TPayload>>> GetProcessResultForCorrelation<TPayload>(string identity, string correlationId, string processModelId)
+        Task<IEnumerable<CorrelationResult<TPayload>>> GetProcessResultForCorrelation<TPayload>(
+            IIdentity identity,
+            string correlationId,
+            string processModelId)
             where TPayload : new();
 
     }
