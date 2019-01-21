@@ -20,16 +20,13 @@
         /// <param name="payload">The payload to supply process variables and an optional correlation id.</param>
         /// <param name="callbackType"><see cref="StartCallbackType">Callback type</see></param>
         /// <param name="endEventKey">The key of the end event when startCallbackType == StartCallbackType.CallbackOnEndEventReached.</param>
-        /// <typeparam name="TProcessStartRequestPayload">Parameter with initial data for the process.</typeparam>
-        /// <typeparam name="TProcessStartResponsePayload">Parameter that should return a unique process Id and correlation Id.</typeparam>
-        Task<TProcessStartResponsePayload> StartProcessInstance<TProcessStartRequestPayload, TProcessStartResponsePayload>(
+        Task<ProcessStartResponsePayload> StartProcessInstance(
             IIdentity identity,
             string processModelId,
             string startEventKey,
-            TProcessStartRequestPayload payload,
+            object payload,
             StartCallbackType callbackType = StartCallbackType.CallbackOnProcessInstanceCreated,
-            string endEventKey = "")
-            where TProcessStartResponsePayload : new();
+            string endEventKey = "");
 
         /// <summary>
         /// Gets the process result for a given correlation.
