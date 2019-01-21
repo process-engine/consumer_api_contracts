@@ -28,7 +28,7 @@ pipeline {
       steps {
         dir('typescript') {
           script {
-            raw_package_version = sh(script: 'node --print --eval "require(\'./typescript/package.json\').version"', returnStdout: true).trim()
+            raw_package_version = sh(script: 'node --print --eval "require(\'./package.json\').version"', returnStdout: true).trim()
             package_version = raw_package_version.trim()
             echo("Package version is '${package_version}'")
           }
@@ -89,7 +89,7 @@ pipeline {
                   }
                 }
 
-                def raw_package_name = sh(script: 'node --print --eval "require(\'./typescript/package.json\').name"', returnStdout: true).trim()
+                def raw_package_name = sh(script: 'node --print --eval "require(\'./package.json\').name"', returnStdout: true).trim()
                 def current_published_version = sh(script: "npm show ${raw_package_name} version", returnStdout: true).trim();
                 def version_has_changed = current_published_version != raw_package_version;
 
