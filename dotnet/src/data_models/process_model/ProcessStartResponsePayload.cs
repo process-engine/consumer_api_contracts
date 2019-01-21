@@ -1,9 +1,8 @@
 namespace ProcessEngine.ConsumerAPI.Contracts
 {
     /// <summary>
-    /// Contains a response from the process engine, which will be send after a
-    /// process model was started. Depending on the type of start callback used,
-    /// this will also contain information about the correlation result.
+    /// Contains a response from the process engine, which will be sent after a
+    /// process model was started.
     /// </summary>
     public class ProcessStartResponsePayload
     {
