@@ -97,54 +97,79 @@ export interface IUserTaskConsumerApi {
    * Executes a callback when a UserTask is reached.
    *
    * @async
-   * @param   identity The requesting users identity.
-   * @param   callback The callback that will be executed when a UserTask is
-   *                   reached.
-   *                   The message passed to the callback contains further
-   *                   information about the UserTask.
-   * @returns          The Subscription created by the EventAggregator.
+   * @param   identity      The requesting users identity.
+   * @param   callback      The callback that will be executed when a UserTask
+   *                        is reached.
+   *                        The message passed to the callback contains further
+   *                        information about the UserTask.
+   * @param   subscribeOnce Optional: If set to true, the Subscription will be
+   *                        automatically disposed, after the notification was
+   *                        received once.
+   * @returns               The Subscription created by the EventAggregator.
    */
-  onUserTaskWaiting(identity: IIdentity, callback: Messages.CallbackTypes.OnUserTaskWaitingCallback): Promise<Subscription>;
+  onUserTaskWaiting(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnUserTaskWaitingCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
 
   /**
    * Executes a callback when a UserTask is finished.
    *
    * @async
-   * @param   identity The requesting users identity.
-   * @param   callback The callback that will be executed when a UserTask is
-   *                   finished.
-   *                   The message passed to the callback contains further
-   *                   information about the UserTask.
-   * @returns          The Subscription created by the EventAggregator.
+   * @param   identity      The requesting users identity.
+   * @param   callback      The callback that will be executed when a UserTask
+   *                        is finished.
+   *                        The message passed to the callback contains further
+   *                        information about the UserTask.
+   * @param   subscribeOnce Optional: If set to true, the Subscription will be
+   *                        automatically disposed, after the notification was
+   *                        received once.
+   * @returns               The Subscription created by the EventAggregator.
    */
-  onUserTaskFinished(identity: IIdentity, callback: Messages.CallbackTypes.OnUserTaskFinishedCallback): Promise<Subscription>;
+  onUserTaskFinished(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnUserTaskFinishedCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
 
   /**
    * Executes a callback when a UserTask for the given identity is reached.
    *
    * @async
-   * @param   identity The requesting users identity.
-   * @param   callback The callback that will be executed when a UserTask is
-   *                   reached.
-   *                   The message passed to the callback contains further
-   *                   information about the UserTask.
-   * @returns          The Subscription created by the EventAggregator.
+   * @param identity        The requesting users identity.
+   * @param callback        The callback that will be executed when a UserTask
+   *                        is reached.
+   *                        The message passed to the callback contains further
+   *                        information about the UserTask.
+   * @param   subscribeOnce Optional: If set to true, the Subscription will be
+   *                        automatically disposed, after the notification was
+   *                        received once.
+   * @returns               The Subscription created by the EventAggregator.
    */
-  onUserTaskForIdentityWaiting(identity: IIdentity, callback: Messages.CallbackTypes.OnUserTaskWaitingCallback): Promise<Subscription>;
+  onUserTaskForIdentityWaiting(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnUserTaskWaitingCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
 
   /**
    * Executes a callback when a UserTask for the given identity is finished.
    *
    * @async
-   * @param   identity The requesting users identity.
-   * @param   callback The callback that will be executed when a UserTask is
-   *                   finished.
-   *                   The message passed to the callback contains further
-   *                   information about the UserTask.
-   * @returns          The Subscription created by the EventAggregator.
+   * @param   identity      The requesting users identity.
+   * @param   callback      The callback that will be executed when a UserTask
+   *                        is finished.
+   *                        The message passed to the callback contains further
+   *                        information about the UserTask.
+   * @param   subscribeOnce Optional: If set to true, the Subscription will be
+   *                        automatically disposed, after the notification was
+   *                        received once.
+   * @returns               The Subscription created by the EventAggregator.
    */
   onUserTaskForIdentityFinished(
     identity: IIdentity,
     callback: Messages.CallbackTypes.OnUserTaskFinishedCallback,
+    subscribeOnce?: boolean,
   ): Promise<Subscription>;
 }
