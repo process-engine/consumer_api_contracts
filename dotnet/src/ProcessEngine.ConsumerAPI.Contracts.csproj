@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>7.0.0</Version>
+    <Version>8.0.0</Version>
     <RootNamespace>ProcessEngine.ConsumerAPI.Contracts</RootNamespace>
     <AssemblyName>ProcessEngine.ConsumerAPI.Contracts</AssemblyName>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Authors>Thomas Konrad;</Authors>
+    <Authors>Thomas Konrad;Sebastian Meier</Authors>
     <Company>5Minds IT-Solutions GmbH &amp; Co. KG</Company>
     <Description />
     <Copyright>Copyright © 5Minds IT-Solutions GmbH &amp; Co. KG 2018</Copyright>
@@ -17,5 +17,9 @@
     <PackageLicenseUrl />
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EssentialProjects.IAM.Contracts" Version="0.1.2" />
+  </ItemGroup>
 
 </Project>
