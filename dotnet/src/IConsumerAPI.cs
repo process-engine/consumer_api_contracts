@@ -14,7 +14,7 @@
         /// Starts an instance a given process definition. Process variables and correlation id may be supplied in the request payload.
         /// </summary>
         /// <returns>The process instance.</returns>
-        /// <param name="identity">The requesting users identity. Should usually be an auth token.</param>
+        /// <param name="identity">The requesting users <see cref="EssentialProjects.IAM.Contracts.IIdentity">identity</see>. Should usually contain an auth token.</param>
         /// <param name="processModelId">The key of the process definition (the latest version thereof) to be retrieved.</param>
         /// <param name="startEventKey">The key of a specific start event to start the process with.</param>
         /// <param name="payload">The payload to supply process variables and an optional correlation id.</param>
@@ -32,7 +32,7 @@
         /// Gets the process result for a given correlation.
         /// </summary>
         /// <returns>The process result for the correlation.</returns>
-        /// <param name="identity">The requesting users identity. Should usually be an auth token.</param>
+        /// <param name="identity">The requesting users <see cref="EssentialProjects.IAM.Contracts.IIdentity">identity</see>. Should usually contain an auth token.</param>
         /// <param name="correlationId">The correlation id generated at the start of the process instance.</param>
         /// <param name="processModelId">The key of the process definition (the latest version thereof) to be retrieved.</param>
         /// <typeparam name="TPayload">Parameter holding the result data for a correlation.</typeparam>
