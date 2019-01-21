@@ -103,7 +103,7 @@ export interface IManualTaskConsumerApi {
    *                   information about the ManualTask.
    * @returns          The Subscription created by the EventAggregator.
    */
-  onManualTaskWaiting(identity: IIdentity, callback: Messages.CallbackTypes.OnManualTaskWaitingCallback): Subscription | Promise<Subscription>;
+  onManualTaskWaiting(identity: IIdentity, callback: Messages.CallbackTypes.OnManualTaskWaitingCallback): Promise<Subscription>;
 
   /**
    * Executes a callback when a ManualTask is finished.
@@ -116,7 +116,7 @@ export interface IManualTaskConsumerApi {
    *                   information about the ManualTask.
    * @returns          The Subscription created by the EventAggregator.
    */
-  onManualTaskFinished(identity: IIdentity, callback: Messages.CallbackTypes.OnManualTaskFinishedCallback): Subscription | Promise<Subscription>;
+  onManualTaskFinished(identity: IIdentity, callback: Messages.CallbackTypes.OnManualTaskFinishedCallback): Promise<Subscription>;
 
   /**
    * Executes a callback when a ManualTask for the given identity is reached.
@@ -132,7 +132,7 @@ export interface IManualTaskConsumerApi {
   onManualTaskForIdentityWaiting(
     identity: IIdentity,
     callback: Messages.CallbackTypes.OnManualTaskWaitingCallback,
-  ): Subscription | Promise<Subscription>;
+  ): Promise<Subscription>;
 
   /**
    * Executes a callback when a ManualTask for the given identity is finished.
@@ -148,5 +148,5 @@ export interface IManualTaskConsumerApi {
   onManualTaskForIdentityFinished(
     identity: IIdentity,
     callback: Messages.CallbackTypes.OnManualTaskFinishedCallback,
-  ): Subscription | Promise<Subscription>;
+  ): Promise<Subscription>;
 }

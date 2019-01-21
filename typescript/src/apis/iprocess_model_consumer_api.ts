@@ -108,7 +108,7 @@ export interface IProcessModelConsumerApi {
    *                   information about the started process.
    * @returns          The Subscription created by the EventAggregator.
    */
-  onProcessStarted(identity: IIdentity, callback: Messages.CallbackTypes.OnProcessStartedCallback): Subscription | Promise<Subscription>;
+  onProcessStarted(identity: IIdentity, callback: Messages.CallbackTypes.OnProcessStartedCallback): Promise<Subscription>;
 
   /**
    * Executes a callback when a new ProcessInstance for a given ProcessModelId
@@ -128,7 +128,7 @@ export interface IProcessModelConsumerApi {
     identity: IIdentity,
     callback: Messages.CallbackTypes.OnProcessStartedCallback,
     processModelId: string,
-  ): Subscription | Promise<Subscription>;
+  ): Promise<Subscription>;
 
   /**
    * Executes a callback when a ProcessInstance is terminated.
@@ -141,7 +141,7 @@ export interface IProcessModelConsumerApi {
    *                   information about the ProcessInstance terminated.
    * @returns          The Subscription created by the EventAggregator.
    */
-  onProcessTerminated(identity: IIdentity, callback: Messages.CallbackTypes.OnProcessTerminatedCallback): Subscription | Promise<Subscription>;
+  onProcessTerminated(identity: IIdentity, callback: Messages.CallbackTypes.OnProcessTerminatedCallback): Promise<Subscription>;
 
   /**
    * Executes a callback when a ProcessInstance ends.
@@ -154,5 +154,5 @@ export interface IProcessModelConsumerApi {
    *                 information about the finished ProcessInstance.
    * @returns        The Subscription created by the EventAggregator.
    */
-  onProcessEnded(identity: IIdentity, callback: Messages.CallbackTypes.OnProcessEndedCallback): Subscription | Promise<Subscription>;
+  onProcessEnded(identity: IIdentity, callback: Messages.CallbackTypes.OnProcessEndedCallback): Promise<Subscription>;
 }
