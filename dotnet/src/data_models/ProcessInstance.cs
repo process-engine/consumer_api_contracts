@@ -25,12 +25,12 @@ namespace ProcessEngine.ConsumerAPI.Contracts
         /// <summary>
         /// The Id of the process model the ProcessInstance was created from.
         /// </summary>
-        public object ProcessModelId { get; set; }
+        public string ProcessModelId { get; set; }
 
         /// <summary>
         /// The Id of the ProcessInstance that started this ProcessInstance.
         /// </summary>
-        public object ParentProcessInstanceId { get; set; }
+        public string ParentProcessInstanceId { get; set; }
     }
 }
 
