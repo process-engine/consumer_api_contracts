@@ -9,25 +9,25 @@ namespace ProcessEngine.ConsumerAPI.Contracts
         /// <summary>
         /// The ID of the process instance.
         /// </summary>
-        public string processInstanceId { get; set; }
+        public string ProcessInstanceId { get; set; }
 
         /// <summary>
         /// The ID of the correlation in which the started process model runs.
         /// </summary>
-        public string correlationId { get; set; }
+        public string CorrelationId { get; set; }
 
         /// <summary>
         /// Optional: If the process engine is set to wait for the process
         /// instance to finish, this will contain the ID of the end event with
         /// which process execution was finished.
         /// </summary>
-        public string endEventId { get; set; }
+        public string EndEventId { get; set; }
 
         /// <summary>
         /// Optional: If the process engine is set to wait for the process
         /// instance to finish, this will contain the final result with which
         /// process execution was finished.
         /// </summary>
-        public object tokenPayload { get; set; }
+        public object TokenPayload { get; set; }
     }
 }

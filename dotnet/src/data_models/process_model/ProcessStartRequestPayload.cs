@@ -13,17 +13,17 @@ namespace ProcessEngine.ConsumerAPI.Contracts
         /// provided, the process engine will generate a correlation id by
         /// itself.
         /// </summary>
-        public string correlationId { get; set; }
+        public string CorrelationId { get; set; }
 
         /// <summary>
         /// Optional: Contains a process instance id and must only ever be set,
         /// when a subprocess is to be started.
         /// </summary>
-        public string callerId { get; set; }
+        public string CallerId { get; set; }
 
         /// <summary>
         /// Contains the arguments with which to start the process model.
         /// </summary>
-        public TInputValues inputValues { get; set; }
+        public TInputValues InputValues { get; set; }
     }
 }
