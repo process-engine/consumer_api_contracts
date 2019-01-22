@@ -8,7 +8,7 @@
     /// <summary>
     /// API for starting and managing BMPN processes.
     /// </summary>
-    public interface IConsumerAPI : IDisposable
+    public interface IConsumerAPI
     {
         /// <summary>
         /// Starts an instance a given process definition. Process variables and correlation id may be supplied in the request payload.
