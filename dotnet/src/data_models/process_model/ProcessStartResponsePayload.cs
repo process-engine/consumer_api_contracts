@@ -1,15 +1,13 @@
-namespace ProcessEngine.ConsumerAPI.Contracts
-{
+namespace ProcessEngine.ConsumerAPI.Contracts {
     /// <summary>
     /// Contains a response from the process engine, which will be sent after a
     /// process model was started.
     /// </summary>
-    public class ProcessStartResponsePayload
-    {
+    public class ProcessStartResponsePayload {
         /// <summary>
         /// The ID of the process instance.
         /// </summary>
-        public string ProcessInstanceId { get; set; }
+        /// public string ProcessInstanceId { get; set; }
 
         /// <summary>
         /// The ID of the correlation in which the started process model runs.

@@ -1,10 +1,8 @@
-﻿namespace ProcessEngine.ConsumerAPI.Contracts
-{
+﻿namespace ProcessEngine.ConsumerAPI.Contracts {
     /// <summary>
     /// Contains information about the result with which a correlation has finished execution.
     /// </summary>
-    public class CorrelationResult<TPayload>
-    {
+    public class CorrelationResult<TPayload> {
         /// <summary>
         /// Contains the final result with which a correlation was finished.
         /// </summary>

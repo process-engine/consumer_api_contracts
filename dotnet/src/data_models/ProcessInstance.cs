@@ -1,12 +1,10 @@
-namespace ProcessEngine.ConsumerAPI.Contracts
-{
+namespace ProcessEngine.ConsumerAPI.Contracts {
     using EssentialProjects.IAM.Contracts;
 
     /// <summary>
     /// Describes a single ProcessInstance.
     /// </summary>
-    public class ProcessInstance
-    {
+    public class ProcessInstance {
         /// <summary>
         /// The Id of the ProcessInstance.
         /// </summary>
@@ -33,4 +31,3 @@ namespace ProcessEngine.ConsumerAPI.Contracts
         public string ParentProcessInstanceId { get; set; }
     }
 }
-
