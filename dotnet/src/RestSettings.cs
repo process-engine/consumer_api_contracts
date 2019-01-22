@@ -1,5 +1,11 @@
 namespace ProcessEngine.ConsumerAPI.Contracts.RestSettings
 {
+
+  public static class Endpoints
+  {
+    public static string ConsumerAPI { get { return "/api/consumer/v1"; } }
+  }
+
   public static class Params
   {
     public static string ProcessInstanceId { get { return ":process_instance_id"; } }
