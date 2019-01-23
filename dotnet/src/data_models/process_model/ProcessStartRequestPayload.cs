@@ -11,7 +11,7 @@ namespace ProcessEngine.ConsumerAPI.Contracts {
         /// provided, the process engine will generate a correlation id by
         /// itself.
         /// </summary>
-        /// public string CorrelationId { get; set; }
+        public string CorrelationId { get; set; }
 
         /// <summary>
         /// Optional: Contains a process instance id and must only ever be set,
