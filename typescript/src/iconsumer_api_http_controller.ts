@@ -125,6 +125,16 @@ export interface IConsumerApiHttpController {
    */
   getUserTasksForProcessModel(request: HttpRequestWithIdentity, response: Response): Promise<void>;
 
+    /**
+   * Retrieves a list of all suspended UserTasks belonging to specific 
+   * ProcessInstance.
+   *
+   * @async
+   * @param request  The HttpRequest object containing all request infos.
+   * @param response The HttpResponse object to use for sending a Http response.
+   */
+  getUserTasksForProcessInstance(request: HttpRequestWithIdentity, response: Response): Promise<void>;
+
   /**
    * Retrieves a list of all suspended UserTasks belonging to a specific
    * Correlation.
@@ -182,6 +192,16 @@ export interface IConsumerApiHttpController {
    * @param response The HttpResponse object to use for sending a Http response.
    */
   getManualTasksForProcessModel(request: HttpRequestWithIdentity, response: Response): Promise<void>;
+
+  /**
+   * Retrieves a list of all suspended ManualTasks belonging to a specific
+   * ProcessInstance.
+   *
+   * @async
+   * @param request  The HttpRequest object containing all request infos.
+   * @param response The HttpResponse object to use for sending a Http response.
+   */
+  getManualTasksForProcessInstance(request: HttpRequestWithIdentity, response: Response): Promise<void>;
 
   /**
    * Retrieves a list of all suspended ManualTasks belonging to a specific

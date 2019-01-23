@@ -27,12 +27,14 @@ const paths = {
   triggerSignalEvent: `/signal/${params.eventName}/trigger`,
   // UserTasks
   processModelUserTasks: `/process_models/${params.processModelId}/user_tasks`,
+  processInstanceUserTasks: `/process_instances/${params.processInstanceId}/user_tasks`,
   correlationUserTasks: `/correlations/${params.correlationId}/user_tasks`,
   processModelCorrelationUserTasks: `/process_models/${params.processModelId}/correlations/${params.correlationId}/user_tasks`,
   getOwnUserTasks: `/user_tasks/own`,
   finishUserTask: `/processes/${params.processInstanceId}/correlations/${params.correlationId}/usertasks/${params.userTaskInstanceId}/finish`,
   // ManualTask
   processModelManualTasks: `/process_models/${params.processModelId}/manual_tasks`,
+  processInstanceManualTasks: `/process_instances/${params.processInstanceId}/manual_tasks`,
   correlationManualTasks: `/correlations/${params.correlationId}/manual_tasks`,
   processModelCorrelationManualTasks: `/process_models/${params.processModelId}/correlations/${params.correlationId}/manual_tasks`,
   getOwnManualTasks: `/manual_tasks/own`,
