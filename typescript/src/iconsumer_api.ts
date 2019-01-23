@@ -8,5 +8,6 @@ import {APIs} from './apis/index';
 export interface IConsumerApi
   extends APIs.IEventConsumerApi,
           APIs.IManualTaskConsumerApi,
+          APIs.INotificationConsumerApi,
           APIs.IProcessModelConsumerApi,
           APIs.IUserTaskConsumerApi {}

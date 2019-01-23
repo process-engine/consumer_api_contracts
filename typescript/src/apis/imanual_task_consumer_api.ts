@@ -1,3 +1,4 @@
+import {Subscription} from '@essential-projects/event_aggregator_contracts';
 import {IIdentity} from '@essential-projects/iam_contracts';
 
 import {ManualTaskList} from '../data_models/manual_task/index';
@@ -70,63 +71,104 @@ export interface IManualTaskConsumerApi {
    * within a Correlation.
    *
    * @async
-   * @param identity       The requesting users identity.
-   * @param processInstanceId The ID of the ProcessInstance for which to finish a
-   *                       ManualTask.
-   * @param correlationId  The ID of the correlation for which to finish a ManualTask.
+   * @param identity             The requesting users identity.
+   * @param processInstanceId    The ID of the ProcessInstance for which to
+   *                             finish a ManualTask.
+   * @param correlationId        The ID of the correlation for which to finish
+   *                             a ManualTask.
    * @param manualTaskInstanceId The instance ID of a ManualTask to finish.
-   * @param manualTaskResult Optional: Contains a set of results with which to
-   *                       finish the ManualTask.
-   * @returns              A Promise, which resolves without content, or rejects an error, in case the request failed.
-   *                       This can happen, if the ManualTask, ProcessModel or correlation were not found,
-   *                       or the user is not authorized to see either.
+   * @param manualTaskResult     Optional: Contains a set of results with which
+   *                             to finish the ManualTask.
+   * @returns                    A Promise, which resolves without content, or
+   *                             rejects an error, in case the request failed.
+   *                             This can happen, if the ManualTask, ProcessModel
+   *                             or correlation were not found, or the user is
+   *                             not authorized to see either.
    */
-  finishManualTask(identity: IIdentity,
-                   processInstanceId: string,
-                   correlationId: string,
-                   manualTaskInstanceId: string): Promise<void>;
+  finishManualTask(
+    identity: IIdentity,
+    processInstanceId: string,
+    correlationId: string,
+    manualTaskInstanceId: string,
+  ): Promise<void>;
 
   /**
-   * Executes a callback when a manual task is reached.
+   * Executes a callback when a ManualTask is reached.
    *
    * @async
-   * @param identity       The requesting users identity.
-   * @param callback       The callback that will be executed when a manual task
-   *                       is reached. The message passed to the callback
-   *                       contains further information about the manual task.
+   * @param   identity      The requesting users identity.
+   * @param   callback      The callback that will be executed when a ManualTask
+   *                        is reached.
+   *                        The message passed to the callback contains further
+   *                        information about the ManualTask.
+   * @param   subscribeOnce Optional: If set to true, the Subscription will be
+   *                        automatically disposed, after the notification was
+   *                        received once.
+   * @returns               The Subscription created by the EventAggregator.
    */
-  onManualTaskWaiting(identity: IIdentity, callback: Messages.CallbackTypes.OnManualTaskWaitingCallback): void;
+  onManualTaskWaiting(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnManualTaskWaitingCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
 
   /**
-   * Executes a callback when a manual task is finished.
+   * Executes a callback when a ManualTask is finished.
    *
    * @async
-   * @param identity       The requesting users identity.
-   * @param callback       The callback that will be executed when a manual task
-   *                       is finished. The message passed to the callback
-   *                       contains further information about the manual task.
+   * @param   identity      The requesting users identity.
+   * @param   callback      The callback that will be executed when a ManualTask
+   *                        is finished.
+   *                        The message passed to the callback contains further
+   *                        information about the ManualTask.
+   * @param   subscribeOnce Optional: If set to true, the Subscription will be
+   *                        automatically disposed, after the notification was
+   *                        received once.
+   * @returns               The Subscription created by the EventAggregator.
    */
-  onManualTaskFinished(identity: IIdentity, callback: Messages.CallbackTypes.OnManualTaskFinishedCallback): void;
+  onManualTaskFinished(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnManualTaskFinishedCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
 
   /**
    * Executes a callback when a ManualTask for the given identity is reached.
    *
    * @async
-   * @param identity       The requesting users identity.
-   * @param callback       The callback that will be executed when a ManualTask
-   *                       is reached. The message passed to the callback
-   *                       contains further information about the ManualTask.
+   * @param identity        The requesting users identity.
+   * @param callback        The callback that will be executed when a ManualTask
+   *                        is reached.
+   *                        The message passed to the callback contains further
+   *                        information about the ManualTask.
+   * @param   subscribeOnce Optional: If set to true, the Subscription will be
+   *                        automatically disposed, after the notification was
+   *                        received once.
+   * @returns               The Subscription created by the EventAggregator.
    */
-  onManualTaskForIdentityWaiting(identity: IIdentity, callback: Messages.CallbackTypes.OnManualTaskWaitingCallback): void;
+  onManualTaskForIdentityWaiting(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnManualTaskWaitingCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
 
   /**
    * Executes a callback when a ManualTask for the given identity is finished.
    *
    * @async
-   * @param identity       The requesting users identity.
-   * @param callback       The callback that will be executed when a ManualTask
-   *                       is finished. The message passed to the callback
-   *                       contains further information about the ManualTask.
+   * @param   identity      The requesting users identity.
+   * @param   callback      The callback that will be executed when a ManualTask
+   *                        is finished.
+   *                        The message passed to the callback contains further
+   *                        information about the ManualTask.
+   * @param   subscribeOnce Optional: If set to true, the Subscription will be
+   *                        automatically disposed, after the notification was
+   *                        received once.
+   * @returns               The Subscription created by the EventAggregator.
    */
-  onManualTaskForIdentityFinished(identity: IIdentity, callback: Messages.CallbackTypes.OnManualTaskFinishedCallback): void;
+  onManualTaskForIdentityFinished(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnManualTaskFinishedCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
 }
