@@ -38,7 +38,7 @@ namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
         /// <summary>
         /// Contains information about the UserTask configuration, such as the form fields that can be addressed.
         /// </summary>
-        public UserTaskConfig data { get; set; }
+        public UserTaskConfig Data { get; set; }
 
         /// <summary>
         /// The token payload the UserTask got suspended with.
