@@ -3,7 +3,7 @@ namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
     using System.Collections.Generic;
 
     /// <summary>
-    /// Describes the payload that can be given to a user task upon finishing it.
+    /// Describes the payload that can be given to a UserTask upon finishing it.
     /// </summary>
     public class UserTaskResult
     {
