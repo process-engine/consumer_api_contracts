@@ -6,7 +6,7 @@ namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
     public class UserTaskConfig
     {
         /// <summary>
-        /// A list of accessible form fields for the user task.
+        /// A list of accessible form fields for the UserTask.
         /// </summary>
         public UserTaskFormField[] FormFields { get; set; }
 
