@@ -1,7 +1,7 @@
 namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
 {
     /// <summary>
-    /// Determines the type of a user tasks form field.
+    /// Determines the type of a UserTask's form field.
     /// </summary>
     public static class UserTaskFormFieldType
     {
