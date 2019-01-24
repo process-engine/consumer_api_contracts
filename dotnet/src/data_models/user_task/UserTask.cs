@@ -1,7 +1,7 @@
 namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
 {
     /// <summary>
-    /// Describes a user task that belongs to an active correlation.
+    /// Describes a UserTask that belongs to an active correlation.
     /// </summary>
     public class UserTask
     {
