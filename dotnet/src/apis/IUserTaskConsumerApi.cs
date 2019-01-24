@@ -39,7 +39,7 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         /// </summary>
         /// <returns>The fetched user tasks.</returns>
         /// <param name="identity">The requesting users <see cref="EssentialProjects.IAM.Contracts.IIdentity">identity</see>. Should usually contain an auth token.</param>
-        Task<UserTaskList> getWaitingUserTasksByIdentity(IIdentity identity);
+        Task<UserTaskList> GetWaitingUserTasksByIdentity(IIdentity identity);
 
         /// <summary>
         /// Finishes a UserTask belonging to an instance of a specific ProcessModel within a correlation.
