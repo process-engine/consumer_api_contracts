@@ -1,7 +1,13 @@
-namespace ProcessEngine.ConsumerAPI.Contracts
+namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
 {
-    public class UserTaskList<TUserTaskPayload>
+    /// <summary>
+    /// Describes a list of user tasks.
+    /// </summary>
+    public class UserTaskList
     {
-        UserTask<TUserTaskPayload>[] UserTasks { get; set; }
+        /// <summary>
+        /// The user task list.
+        /// </summary>
+        UserTask[] UserTasks { get; set; }
     }
 }

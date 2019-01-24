@@ -1,8 +1,10 @@
-namespace ProcessEngine.ConsumerAPI.Contracts {
+namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
+{
     /// <summary>
     /// Determines when the ProcessEngine will resolve, after a new ProcessInstance was started.
     /// </summary>
-    public enum StartCallbackType : byte {
+    public enum StartCallbackType : byte
+    {
         /// <summary>
         /// The ProcessEngine will resolve immediately after the ProcessInstance was started.
         /// </summary>

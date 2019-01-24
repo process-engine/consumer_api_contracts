@@ -1,10 +1,13 @@
-namespace ProcessEngine.ConsumerAPI.Contracts.RestSettings {
+namespace ProcessEngine.ConsumerAPI.Contracts.RestSettings
+{
 
-    public static class Endpoints {
+    public static class Endpoints
+    {
         public static string ConsumerAPI { get { return "/api/consumer/v1"; } }
     }
 
-    public static class Params {
+    public static class Params
+    {
         public static string ProcessInstanceId { get { return ":process_instance_id"; } }
         public static string ProcessModelId { get { return ":process_model_id"; } }
         public static string CorrelationId { get { return ":correlation_id"; } }
@@ -16,7 +19,8 @@ namespace ProcessEngine.ConsumerAPI.Contracts.RestSettings {
         public static string ManualTaskInstanceId { get { return ":manual_task_instance_id"; } }
     }
 
-    public static class Paths {
+    public static class Paths
+    {
         public static string ProcessModels { get { return "/process_models"; } }
         public static string ProcessModelById { get { return $"/process_models/{Params.ProcessModelId}"; } }
         public static string StartProcessInstance { get { return $"/process_models/{Params.ProcessModelId}/start_events/{Params.StartEventId}/start"; } }
