@@ -8,7 +8,7 @@ namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
     public class UserTaskResult
     {
         /// <summary>
-        /// Contains a list of results for the user tasks form fields.
+        /// Contains a list of results for the UserTask's form fields.
         /// </summary>
         public IEnumerable<KeyValuePair<string, object>> FormFields { get; set; }
     }
