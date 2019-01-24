@@ -1,7 +1,7 @@
 namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
 {
     /// <summary>
-    /// Contains information about a user tasks configuration.
+    /// Contains information about a UserTasks configuration.
     /// </summary>
     public class UserTaskConfig
     {
