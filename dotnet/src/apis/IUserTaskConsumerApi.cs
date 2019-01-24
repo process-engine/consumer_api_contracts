@@ -50,6 +50,6 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         /// <param name="correlationId">The id of the correlation the finished user task belongs to.</param>
         /// <param name="userTaskInstanceId">The id of the user task instance to be finished.</param>
         /// <param name="userTaskResult">The result data the user task is finished with.</param>
-        void FinishUserTask(IIdentity identity, string processInstanceId, string correlationId, string userTaskInstanceId, UserTaskResult userTaskResult);
+        Task FinishUserTask(IIdentity identity, string processInstanceId, string correlationId, string userTaskInstanceId, UserTaskResult userTaskResult);
     }
 }
