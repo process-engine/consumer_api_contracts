@@ -1,7 +1,7 @@
 namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
 {
     /// <summary>
-    /// Describes a list of user tasks.
+    /// Describes a list of UserTasks.
     /// </summary>
     public class UserTaskList
     {
