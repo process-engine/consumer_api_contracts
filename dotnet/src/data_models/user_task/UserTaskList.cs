@@ -6,7 +6,7 @@ namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
     public class UserTaskList
     {
         /// <summary>
-        /// The user task list.
+        /// The UserTask list.
         /// </summary>
         UserTask[] UserTasks { get; set; }
     }
