@@ -8,7 +8,7 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
     /// </summary>
     public interface IUserTaskConsumerApi
     {
-        Task<UserTaskList> GetUserTasksForProcessModel(IIdentity identity, string processModelId);
+        Task<UserTaskList<object>> GetUserTasksForProcessModel(IIdentity identity, string processModelId);
 
     }
 }

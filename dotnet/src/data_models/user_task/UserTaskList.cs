@@ -1,7 +1,7 @@
 namespace ProcessEngine.ConsumerAPI.Contracts
 {
-    public class UserTaskList
+    public class UserTaskList<TUserTaskPayload>
     {
-        Array<UserTask> UserTasks { get; set; }
+        UserTask<TUserTaskPayload>[] UserTasks { get; set; }
     }
 }
