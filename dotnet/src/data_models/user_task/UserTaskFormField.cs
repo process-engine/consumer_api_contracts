@@ -1,7 +1,7 @@
 namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
 {
     /// <summary>
-    /// Contains information about a user tasks form field.
+    /// Contains information about a UserTasks form field.
     /// </summary>
     public class UserTaskFormField
     {
