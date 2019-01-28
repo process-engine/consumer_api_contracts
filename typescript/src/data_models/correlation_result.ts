@@ -7,7 +7,7 @@ export class CorrelationResult {
    */
   public correlationId: string;
   /**
-   * The id of the end event with which the correlation was finished.
+   * The id of the EndEvent with which the correlation was finished.
    */
   public endEventId: string;
   /**

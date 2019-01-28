@@ -12,7 +12,7 @@ const params = {
 };
 
 const paths = {
-  // Process models
+  // ProcessModels
   processModels: `/process_models`,
   processModelById: `/process_models/${params.processModelId}`,
   startProcessInstance: `/process_models/${params.processModelId}/start_events/${params.startEventId}/start`,

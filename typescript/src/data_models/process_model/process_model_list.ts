@@ -1,11 +1,11 @@
 import {ProcessModel} from './process_model';
 
 /**
- * Contains a list of process models.
+ * Contains a list of ProcessModels.
  */
 export class ProcessModelList {
   /**
-   * The process model list.
+   * The ProcessModel list.
    */
   public processModels: Array<ProcessModel> = [];
 }

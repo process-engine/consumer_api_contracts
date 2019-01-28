@@ -30,8 +30,8 @@ export interface IConsumerApiHttpController {
    * Starts a new instance of a ProcessModel with a specific ID.
    * Depending on the type of callback used, this function will resolve either
    * immediately after the ProcessInstance was started, or after it has reached
-   * an end event.
-   * This can either be a specific end event, or the first end event encountered
+   * an EndEvent.
+   * This can either be a specific EndEvent, or the first EndEvent encountered
    * during execution.
    *
    * @async

@@ -1,5 +1,5 @@
 /**
- * Determines the type of a user tasks form field.
+ * Determines the type of a UserTasks form field.
  */
 export enum UserTaskFormFieldType {
   /**

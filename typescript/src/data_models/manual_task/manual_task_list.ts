@@ -1,11 +1,11 @@
 import {ManualTask} from './manual_task';
 
 /**
- * Describes a list of manual tasks.
+ * Describes a list of ManualTasks.
  */
 export class ManualTaskList {
   /**
-   * The manual task list.
+   * The ManualTask list.
    */
   public manualTasks: Array<ManualTask> = [];
 }

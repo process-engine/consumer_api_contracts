@@ -1,12 +1,12 @@
 import {BasePublicEventMessage} from '../base_public_event_message';
 
 /**
- * The message used to finish a waiting manual task.
+ * The message used to finish a waiting ManualTask.
  */
 export class FinishManualTaskMessage extends BasePublicEventMessage {
 
   /**
-   * The flow node id of the manual task being finished.
+   * The flow node id of the ManualTask being finished.
    */
   public manualTaskId: string;
 
