@@ -33,6 +33,19 @@ export interface IProcessModelConsumerApi {
   getProcessModelById(identity: IIdentity, processModelId: string): Promise<DataModels.ProcessModels.ProcessModel>;
 
   /**
+   * Retrieves a ProcessModel by a ProcessInstanceID.
+   *
+   * @async
+   * @param identity          The requesting users identity.
+   * @param processInstanceId The ProcessInstanceID of the ProcessModel to retrieve.
+   * @returns                 A Promise, which resolves with the ProcessModel,
+   *                          or rejects an error, in case the request failed.
+   *                          This can happen, if the ProcessModel was not found,
+   *                          or the user is not authorized to see it.
+   */
+  getProcessModelByProcessInstanceId(identity: IIdentity, processInstanceId: string): Promise<DataModels.ProcessModels.ProcessModel>;
+
+  /**
    * Starts a new instance of a ProcessModel with a specific ID.
    * Depending on the type of callback used, this function will resolve either
    * immediately after the ProcessInstance was started, or after it has reached
