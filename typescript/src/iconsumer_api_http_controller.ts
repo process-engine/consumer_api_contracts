@@ -31,7 +31,7 @@ export interface IConsumerApiHttpController {
    *
    * @async
    * @param request  The HttpRequest object containing all request infos.
-   * @param response The HttpResponse object to use for sending a Http response.
+   * @param response The HttpResponse object to use for sending a HTTP response.
    */
   getProcessModelByProcessInstanceId(request: HttpRequestWithIdentity, response: Response): Promise<void>;
 
