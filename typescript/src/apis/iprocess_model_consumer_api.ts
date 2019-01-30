@@ -33,25 +33,38 @@ export interface IProcessModelConsumerApi {
   getProcessModelById(identity: IIdentity, processModelId: string): Promise<DataModels.ProcessModels.ProcessModel>;
 
   /**
+   * Retrieves a ProcessModel by a ProcessInstanceID.
+   *
+   * @async
+   * @param identity          The requesting users identity.
+   * @param processInstanceId The ProcessInstanceID of the ProcessModel to retrieve.
+   * @returns                 A Promise, which resolves with the ProcessModel,
+   *                          or rejects an error, in case the request failed.
+   *                          This can happen, if the ProcessModel was not found,
+   *                          or the user is not authorized to see it.
+   */
+  getProcessModelByProcessInstanceId(identity: IIdentity, processInstanceId: string): Promise<DataModels.ProcessModels.ProcessModel>;
+
+  /**
    * Starts a new instance of a ProcessModel with a specific ID.
    * Depending on the type of callback used, this function will resolve either
    * immediately after the ProcessInstance was started, or after it has reached
-   * an end event.
-   * This can either be a specific end event, or the first end event encountered
+   * an EndEvent.
+   * This can either be a specific EndEvent, or the first EndEvent encountered
    * during execution.
    *
    * @async
    * @param identity          The requesting users identity.
    * @param processModelId    The ID of the ProcessModel to retrieve.
-   * @param startEventId      The ID of the start event through which to start
+   * @param startEventId      The ID of the StartEvent through which to start
    *                          the ProcessInstance.
    * @param payload           Contains parameters to pass to the ProcessInstance.
-   *                          Can optionally define a correlation id to use.
+   *                          Can optionally define a CorrelationId to use.
    * @param startCallbackType The type of start callback use. Depending on the
    *                          value used, the function will either resolve right
    *                          after starting the ProcessInstance,
-   *                          or after reaching an end event.
-   * @param endEventId        Contains the ID of the end event that the
+   *                          or after reaching an EndEvent.
+   * @param endEventId        Contains the ID of the EndEvent that the
    *                          ProcessEngine should wait for, before resolving.
    *                          Works only in conjunction with the startCallbackType
    *                          "CallbackOnEndEventReached".

@@ -10,7 +10,7 @@ import {Messages} from '../messages/index';
 export interface IUserTaskConsumerApi {
 
   /**
-   * Retrieves a list of all suspended UserTasks belonging to an instance of a
+   * Retrieves a list of all suspended UserTasks belonging to a
    * specific ProcessModel.
    *
    * @async
@@ -23,6 +23,21 @@ export interface IUserTaskConsumerApi {
    *                       or the user is not authorized to see the it.
    */
   getUserTasksForProcessModel(identity: IIdentity, processModelId: string): Promise<UserTaskList>;
+
+  /**
+   * Retrieves a list of all suspended UserTasks belonging to specific 
+   * ProcessInstance.
+   *
+   * @async
+   * @param identity          The requesting users identity.
+   * @param processInstanceId The ID of the ProcessInstance for which to retrieve the
+   *                          UserTasks.
+   * @returns                 A Promise, which resolves with the retrieved UserTasks,
+   *                          or rejects an error, in case the request failed.
+   *                          This can happen, if the ProcessModel was not found,
+   *                          or the user is not authorized to see the it.
+   */
+  getUserTasksForProcessInstance(identity: IIdentity, processInstanceId: string): Promise<UserTaskList>;
 
   /**
    * Retrieves a list of all suspended UserTasks belonging to a specific

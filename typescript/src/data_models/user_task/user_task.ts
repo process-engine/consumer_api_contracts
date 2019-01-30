@@ -1,7 +1,7 @@
 import {UserTaskConfig} from './user_task_config';
 
 /**
- * Describes a user task that belongs to an active correlation.
+ * Describes a UserTask that belongs to an active correlation.
  */
 export class UserTask {
   /**
@@ -21,11 +21,11 @@ export class UserTask {
    */
   public correlationId: string;
   /**
-   * The id of the process model that the UserTask belongs to.
+   * The id of the ProcessModel that the UserTask belongs to.
    */
   public processModelId: string;
   /**
-   * The id of the process instance that the UserTask belongs to.
+   * The id of the ProcessInstance that the UserTask belongs to.
    */
   public processInstanceId?: string;
   /**

@@ -24,6 +24,22 @@ export interface IManualTaskConsumerApi {
    */
   getManualTasksForProcessModel(identity: IIdentity, processModelId: string): Promise<ManualTaskList>;
 
+
+  /**
+   * Retrieves a list of all suspended ManualTasks belonging to an specific
+   * ProcessInstance.
+   *
+   * @async
+   * @param identity          The requesting users identity.
+   * @param processInstanceId The ID of the ProcessInstance for which to retrieve the
+   *                          ManualTasks.
+   * @returns                 A Promise, which resolves with the retrieved ManualTasks,
+   *                          or rejects an error, in case the request failed.
+   *                          This can happen, if the ProcessModel was not found,
+   *                          or the user is not authorized to see it.
+   */
+  getManualTasksForProcessInstance(identity: IIdentity, processInstanceId: string): Promise<ManualTaskList>;
+
   /**
    * Retrieves a list of all suspended ManualTasks belonging to a specific
    * Correlation.

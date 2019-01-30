@@ -27,11 +27,20 @@ export interface IConsumerApiHttpController {
   getProcessModelById(request: HttpRequestWithIdentity, response: Response): Promise<void>;
 
   /**
+   * Retrieves a ProcessModel by a ProcessInstanceID.
+   *
+   * @async
+   * @param request  The HttpRequest object containing all request infos.
+   * @param response The HttpResponse object to use for sending a HTTP response.
+   */
+  getProcessModelByProcessInstanceId(request: HttpRequestWithIdentity, response: Response): Promise<void>;
+
+  /**
    * Starts a new instance of a ProcessModel with a specific ID.
    * Depending on the type of callback used, this function will resolve either
    * immediately after the ProcessInstance was started, or after it has reached
-   * an end event.
-   * This can either be a specific end event, or the first end event encountered
+   * an EndEvent.
+   * This can either be a specific EndEvent, or the first EndEvent encountered
    * during execution.
    *
    * @async
@@ -116,6 +125,16 @@ export interface IConsumerApiHttpController {
    */
   getUserTasksForProcessModel(request: HttpRequestWithIdentity, response: Response): Promise<void>;
 
+    /**
+   * Retrieves a list of all suspended UserTasks belonging to specific 
+   * ProcessInstance.
+   *
+   * @async
+   * @param request  The HttpRequest object containing all request infos.
+   * @param response The HttpResponse object to use for sending a Http response.
+   */
+  getUserTasksForProcessInstance(request: HttpRequestWithIdentity, response: Response): Promise<void>;
+
   /**
    * Retrieves a list of all suspended UserTasks belonging to a specific
    * Correlation.
@@ -173,6 +192,16 @@ export interface IConsumerApiHttpController {
    * @param response The HttpResponse object to use for sending a Http response.
    */
   getManualTasksForProcessModel(request: HttpRequestWithIdentity, response: Response): Promise<void>;
+
+  /**
+   * Retrieves a list of all suspended ManualTasks belonging to a specific
+   * ProcessInstance.
+   *
+   * @async
+   * @param request  The HttpRequest object containing all request infos.
+   * @param response The HttpResponse object to use for sending a Http response.
+   */
+  getManualTasksForProcessInstance(request: HttpRequestWithIdentity, response: Response): Promise<void>;
 
   /**
    * Retrieves a list of all suspended ManualTasks belonging to a specific
