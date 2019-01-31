@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-@Library('jenkins_shared-libraries@feature/set_package_version_in_csproj_file') _
+@Library('jenkins_shared-libraries@v1.2.0') _
 
 def cleanup_workspace() {
   cleanWs()
