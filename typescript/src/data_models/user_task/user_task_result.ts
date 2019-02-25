@@ -1,9 +1,9 @@
 /**
- * Describes the payload that can be given to a user task upon finishing it.
+ * Describes the payload that can be given to a UserTask upon finishing it.
  */
 export class UserTaskResult {
   /**
-   * Contains a list of results for the user tasks form fields.
+   * Contains a list of results for the UserTasks form fields.
    */
   public formFields: {
     [fieldId: string]: any,

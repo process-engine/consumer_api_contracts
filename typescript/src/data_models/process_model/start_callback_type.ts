@@ -7,11 +7,11 @@ export enum StartCallbackType {
      */
     CallbackOnProcessInstanceCreated = 1,
     /**
-     * The ProcessEngine will resolve after the first end event was reached.
+     * The ProcessEngine will resolve after the first EndEvent was reached.
      */
     CallbackOnProcessInstanceFinished = 2,
     /**
-     * The ProcessEngine will resolve after a specific end event was reached.
+     * The ProcessEngine will resolve after a specific EndEvent was reached.
      */
     CallbackOnEndEventReached = 3,
 }

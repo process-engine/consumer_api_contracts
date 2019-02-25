@@ -1,23 +1,23 @@
 /**
- * Contains a response from the process engine, which will be send after a process model was started.
+ * Contains a response from the ProcessEngine, which will be send after a ProcessModel was started.
  * Depending on the type of start callback used, this will also contain information about the correlation result.
  */
 export class ProcessStartResponsePayload {
   /**
-   * The ID of the process instance.
+   * The ID of the ProcessInstance.
    */
   public processInstanceId?: string;
   /**
-   * The ID of the correlation in which the started process model runs.
+   * The ID of the correlation in which the started ProcessModel runs.
    */
   public correlationId: string;
   /**
-   * Optional: If the process engine is set to wait for the process instance to finish,
-   * this will contain the ID of the end event with which process execution was finished.
+   * Optional: If the ProcessEngine is set to wait for the ProcessInstance to finish,
+   * this will contain the ID of the EndEvent with which process execution was finished.
    */
   public endEventId?: string;
   /**
-   * Optional: If the process engine is set to wait for the process instance to finish,
+   * Optional: If the ProcessEngine is set to wait for the ProcessInstance to finish,
    * this will contain the final result with which process execution was finished.
    */
   public tokenPayload?: string;

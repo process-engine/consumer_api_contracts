@@ -19,11 +19,11 @@ export class ManualTask {
    */
   public correlationId: string;
   /**
-   * The ID of the process model that the ManualTask belongs to.
+   * The ID of the ProcessModel that the ManualTask belongs to.
    */
   public processModelId: string;
   /**
-   * The ID of the process instance that the ManualTask belongs to.
+   * The ID of the ProcessInstance that the ManualTask belongs to.
    */
   public processInstanceId?: string;
   /**

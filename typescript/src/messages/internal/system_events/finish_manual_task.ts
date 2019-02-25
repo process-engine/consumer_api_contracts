@@ -3,12 +3,12 @@ import {IIdentity} from '@essential-projects/iam_contracts';
 import {BaseInternalEventMessage} from '../base_internal_event_message';
 
 /**
- * The message used to finish a waiting manual task.
+ * The message used to finish a waiting ManualTask.
  */
 export class FinishManualTaskMessage extends BaseInternalEventMessage {
 
   /**
-   * The flow node id of the manual task being finished.
+   * The flow node id of the ManualTask being finished.
    */
   public manualTaskId: string;
 

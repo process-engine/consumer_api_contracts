@@ -1,11 +1,11 @@
 import {UserTaskFormField} from './user_task_form_field';
 
 /**
- * Contains information about a user tasks configuration.
+ * Contains information about a UserTasks configuration.
  */
 export class UserTaskConfig {
   /**
-   * A list of accessible form fields for the user task.
+   * A list of accessible form fields for the UserTask.
    */
   public formFields: Array<UserTaskFormField> = [];
   /**
