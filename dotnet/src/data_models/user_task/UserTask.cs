@@ -1,17 +1,17 @@
 namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
 {
     /// <summary>
-    /// Describes a UserTask that belongs to an active correlation.
+    /// Describes a UserTask that belongs to an active Correlation.
     /// </summary>
     public class UserTask
     {
         /// <summary>
-        /// The id of the UserTask.
+        /// The ID of the UserTask.
         /// </summary>
         public string Id { get; set; }
 
         /// <summary>
-        /// The instance id of the UserTask.
+        /// The FlowNodeInstance ID of the UserTask.
         /// </summary>
         public string FlowNodeInstanceId { get; set; }
 
@@ -21,17 +21,17 @@ namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
         public string Name { get; set; }
 
         /// <summary>
-        /// The id of the correlation that the UserTask belongs to.
+        /// The ID of the Correlation that the UserTask belongs to.
         /// </summary>
         public string CorrelationId { get; set; }
 
         /// <summary>
-        /// The id of the process model that the UserTask belongs to.
+        /// The ID of the ProcessModel that the UserTask belongs to.
         /// </summary>
         public string ProcessModelId { get; set; }
 
         /// <summary>
-        /// The id of the process instance that the UserTask belongs to.
+        /// The ID of the ProcessInstance that the UserTask belongs to.
         /// </summary>
         public string ProcessInstanceId { get; set; }
 

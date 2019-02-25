@@ -13,32 +13,32 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
     public interface IProcessModelConsumerApi
     {
         /// <summary>
-        /// Starts an instance a given process definition. Process variables and correlation id may be supplied in the request payload.
+        /// Starts an instance for a given ProcessDefinition. Process variables and correlation id may be supplied in the request payload.
         /// </summary>
-        /// <returns>The process instance.</returns>
+        /// <returns>A set of informations about the started ProcessInstance; such as the used ProcessInstance ID or the assigned Correlation ID.</returns>
         /// <param name="identity">The requesting users <see cref="EssentialProjects.IAM.Contracts.IIdentity">identity</see>. Should usually contain an auth token.</param>
-        /// <param name="processModelId">The key of the process definition (the latest version thereof) to be retrieved.</param>
-        /// <param name="startEventKey">The key of a specific start event to start the process with.</param>
-        /// <param name="processStartRequestPayload">The payload to supply process variables and an optional correlation id.</param>
+        /// <param name="processModelId">The ID of the ProcessDefinition to be retrieved.</param>
+        /// <param name="startEventId">The ID of a specific StartEvent to start the process with.</param>
+        /// <param name="processStartRequestPayload">The payload for the Start request. Contains variables for the ProcessInstance and optionally a CorrelationId.</param>
         /// <param name="callbackType"><see cref="StartCallbackType">Callback type</see></param>
-        /// <param name="endEventKey">The key of the end event when startCallbackType == StartCallbackType.CallbackOnEndEventReached.</param>
+        /// <param name="endEventId">The ID of the end event to wait for, when callbackType == StartCallbackType.CallbackOnEndEventReached.</param>
         Task<ProcessStartResponsePayload> StartProcessInstance<TInputValues>(
             IIdentity identity,
             string processModelId,
-            string startEventKey,
+            string startEventId,
             ProcessStartRequestPayload<TInputValues> processStartRequestPayload,
             StartCallbackType callbackType = StartCallbackType.CallbackOnProcessInstanceCreated,
-            string endEventKey = "")
+            string endEventId = "")
         where TInputValues : new();
 
         /// <summary>
-        /// Gets the process result for a given correlation.
+        /// Gets the ProcessInstance results of a given correlation.
         /// </summary>
-        /// <returns>The process result for the correlation.</returns>
+        /// <returns>The Correlation's results.</returns>
         /// <param name="identity">The requesting users <see cref="EssentialProjects.IAM.Contracts.IIdentity">identity</see>. Should usually contain an auth token.</param>
-        /// <param name="correlationId">The correlation id generated at the start of the process instance.</param>
-        /// <param name="processModelId">The key of the process definition (the latest version thereof) to be retrieved.</param>
-        /// <typeparam name="TPayload">Parameter holding the result data for a correlation.</typeparam>
+        /// <param name="correlationId">The ID of the Correlation for which to get the results.</param>
+        /// <param name="processModelId">The ID of the ProcessDefinition for which to get the results.</param>
+        /// <typeparam name="TPayload">The type that holds the definition for the Correlation result's payload.</typeparam>
         Task<IEnumerable<CorrelationResult<TPayload>>> GetProcessResultForCorrelation<TPayload>(
             IIdentity identity,
             string correlationId,

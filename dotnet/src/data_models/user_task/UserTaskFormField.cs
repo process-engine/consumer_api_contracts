@@ -6,7 +6,7 @@ namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
     public class UserTaskFormField
     {
         /// <summary>
-        /// The id of the form field.
+        /// The ID of the form field.
         /// </summary>
         public string Id { get; set; }
 

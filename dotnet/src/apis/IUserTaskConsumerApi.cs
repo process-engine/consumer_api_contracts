@@ -12,44 +12,43 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         /// <summary>
         /// Retrieves a list of all suspended UserTasks belonging to an instance of a specific ProcessModel.
         /// </summary>
-        /// <returns>The fetched user tasks.</returns>
+        /// <returns>The fetched UserTasks.</returns>
         /// <param name="identity">The requesting users <see cref="EssentialProjects.IAM.Contracts.IIdentity">identity</see>. Should usually contain an auth token.</param>
-        /// <param name="processModelId">The key of the process definition the fetched user tasks should belong to.</param>
+        /// <param name="processModelId">The ID of the ProcessDefinition for which to find UserTasks.</param>
         Task<UserTaskList> GetUserTasksForProcessModel(IIdentity identity, string processModelId);
 
         /// <summary>
         /// Retrieves a list of all suspended UserTasks belonging to a specific Correlation.
         /// </summary>
-        /// <returns>The fetched user tasks.</returns>
+        /// <returns>The fetched UserTasks.</returns>
         /// <param name="identity">The requesting users <see cref="EssentialProjects.IAM.Contracts.IIdentity">identity</see>. Should usually contain an auth token.</param>
-        /// <param name="correlationId">The id of the correlation the fetched user tasks should belong to.</param>
+        /// <param name="correlationId">The ID of the Correlation for which to find UserTasks.</param>
         Task<UserTaskList> GetUserTasksForCorrelation(IIdentity identity, string correlationId);
 
         /// <summary>
         /// Retrieves a list of all suspended UserTasks belonging to an instance of a specific ProcessModel within a Correlation.
         /// </summary>
-        /// <returns>The fetched user tasks.</returns>
+        /// <returns>The fetched UserTasks.</returns>
         /// <param name="identity">The requesting users <see cref="EssentialProjects.IAM.Contracts.IIdentity">identity</see>. Should usually contain an auth token.</param>
-        /// <param name="processModelId">The key of the process definition the fetched user tasks belong to.</param>
-        /// <param name="correlationId">The id of the correlation the fetched user tasks should belong to.</param>
+        /// <param name="processModelId">The ID of the ProcessDefinition for which to find UserTasks.</param>
+        /// <param name="correlationId">The ID of the Correlation for which to find UserTasks.</param>
         Task<UserTaskList> GetUserTasksForProcessModelInCorrelation(IIdentity identity, string processModelId, string correlationId);
 
         /// <summary>
         /// Gets all waiting UserTasks belonging to the given identity.
         /// </summary>
-        /// <returns>The fetched user tasks.</returns>
+        /// <returns>The fetched UserTasks.</returns>
         /// <param name="identity">The requesting users <see cref="EssentialProjects.IAM.Contracts.IIdentity">identity</see>. Should usually contain an auth token.</param>
         Task<UserTaskList> GetWaitingUserTasksByIdentity(IIdentity identity);
 
         /// <summary>
         /// Finishes a UserTask belonging to an instance of a specific ProcessModel within a correlation.
         /// </summary>
-        /// <returns>The fetched user tasks.</returns>
         /// <param name="identity">The requesting users <see cref="EssentialProjects.IAM.Contracts.IIdentity">identity</see>. Should usually contain an auth token.</param>
-        /// <param name="processInstanceId">The key of the process instance the finished user task belongs to.</param>
-        /// <param name="correlationId">The id of the correlation the finished user task belongs to.</param>
-        /// <param name="userTaskInstanceId">The id of the user task instance to be finished.</param>
-        /// <param name="userTaskResult">The result data the user task is finished with.</param>
+        /// <param name="processInstanceId">The ID of the ProcessInstance that the UserTask belongs to.</param>
+        /// <param name="correlationId">The ID of the Correlation that the UserTask belongs to.</param>
+        /// <param name="userTaskInstanceId">The instance ID of the UserTask to finish.</param>
+        /// <param name="userTaskResult">The result that the UserTask is to be finished with.</param>
         Task FinishUserTask(IIdentity identity, string processInstanceId, string correlationId, string userTaskInstanceId, UserTaskResult userTaskResult);
     }
 }
