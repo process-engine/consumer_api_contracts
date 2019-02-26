@@ -1,5 +1,7 @@
 namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// Describes a list of UserTasks.
     /// </summary>
@@ -8,6 +10,6 @@ namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
         /// <summary>
         /// The UserTask list.
         /// </summary>
-        UserTask[] UserTasks { get; set; }
+        IEnumerable<UserTask> UserTasks { get; set; }
     }
 }

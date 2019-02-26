@@ -1,5 +1,7 @@
 namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// Contains information about a UserTasks form field.
     /// </summary>
@@ -18,7 +20,7 @@ namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
         /// <summary>
         /// Optional: If the form field is an enumeration, this will contain the values for that enumeration.
         /// </summary>
-        public UserTaskEnumValue[] EnumValues { get; set; }
+        public IEnumerable<UserTaskEnumValue> EnumValues { get; set; }
 
         /// <summary>
         /// The label of the form field.
