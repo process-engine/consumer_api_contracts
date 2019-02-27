@@ -126,7 +126,7 @@ export interface IConsumerApiHttpController {
   getUserTasksForProcessModel(request: HttpRequestWithIdentity, response: Response): Promise<void>;
 
     /**
-   * Retrieves a list of all suspended UserTasks belonging to specific 
+   * Retrieves a list of all suspended UserTasks belonging to specific
    * ProcessInstance.
    *
    * @async

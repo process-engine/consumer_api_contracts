@@ -1,11 +1,11 @@
-import {EndEventReachedMessage, TerminateEndEventReachedMessage} from './public/bpmn_events';
+import {EndEventReachedMessage, TerminateEndEventReachedMessage} from './bpmn_events';
 import {
   ManualTaskFinishedMessage,
   ManualTaskReachedMessage,
   ProcessStartedMessage,
   UserTaskFinishedMessage,
   UserTaskReachedMessage,
-} from './public/system_events';
+} from './system_events';
 
 export type OnUserTaskWaitingCallback = (userTaskWaiting: UserTaskReachedMessage) => void | Promise<void>;
 export type OnUserTaskFinishedCallback = (userTaskFinished: UserTaskFinishedMessage) => void | Promise<void>;
