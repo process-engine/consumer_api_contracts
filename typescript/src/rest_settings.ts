@@ -16,7 +16,7 @@ const paths = {
   processModels: `/process_models`,
   processModelById: `/process_models/${params.processModelId}`,
   processModelByProcessInstanceId: `/process_instance/${params.processInstanceId}/process_model/`,
-  startProcessInstance: `/process_models/${params.processModelId}/start_events/${params.startEventId}/start`,
+  startProcessInstance: `/process_models/${params.processModelId}/start`,
   getOwnProcessInstances: `/process_instances/own`,
   getProcessResultForCorrelation: `/correlations/${params.correlationId}/process_models/${params.processModelId}/results`,
   // Events
