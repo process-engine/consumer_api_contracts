@@ -15,8 +15,8 @@ export const messageParams = {
 
 export const messagePaths = {
   // Generic messages
-  emptyActivityReached: 'manual_task_reached',
-  emptyActivityFinished: 'manual_task_finished',
+  emptyActivityReached: 'empty_activity_reached',
+  emptyActivityFinished: 'empty_activity_finished',
   userTaskReached: 'user_task_reached',
   userTaskFinished: 'user_task_finished',
   manualTaskReached: 'manual_task_reached',
