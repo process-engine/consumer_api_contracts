@@ -4,11 +4,12 @@
     using System;
 
     using EssentialProjects.IAM.Contracts;
+    using ProcessEngine.ConsumerAPI.Contracts.APIs;
 
     /// <summary>
     /// API for starting and managing BMPN processes.
     /// </summary>
-    public interface IConsumerAPI {
+    public interface IConsumerAPI : IEventConsumerApi {
         /// <summary>
         /// Starts an instance a given process definition. Process variables and correlation id may be supplied in the request payload.
         /// </summary>
