@@ -1,11 +1,9 @@
-import {IIdentity} from '@essential-projects/iam_contracts';
-
-import {BaseInternalEventMessage} from '../base_internal_event_message';
+import {BaseEventMessage} from '../base_event_message';
 
 /**
  * The message used to finish a waiting UserTask.
  */
-export class FinishUserTaskMessage extends BaseInternalEventMessage {
+export class FinishUserTaskMessage extends BaseEventMessage {
 
   /**
    * The flow node id of the UserTask being finished.
@@ -22,9 +20,8 @@ export class FinishUserTaskMessage extends BaseInternalEventMessage {
               processInstanceId: string,
               flowNodeId: string,
               flowNodeInstanceId: string,
-              processInstanceOwner: IIdentity,
               currentToken: any) {
-    super(correlationId, processModelId, processInstanceId, flowNodeId, flowNodeInstanceId, processInstanceOwner, currentToken);
+    super(correlationId, processModelId, processInstanceId, flowNodeId, flowNodeInstanceId, currentToken);
 
     this.result = result;
   }
