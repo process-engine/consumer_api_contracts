@@ -1,3 +1,4 @@
+import * as emptyActivities from './empty_activity/index';
 import * as events from './event/index';
 import * as manualTasks from './manual_task/index';
 import * as processModels from './process_model/index';
@@ -9,6 +10,7 @@ import * as processInstance from './process_instance';
 // tslint:disable-next-line:no-namespace
 export namespace DataModels {
   export import CorrelationResult = correlationResult.CorrelationResult;
+  export import EmptyActivities = emptyActivities;
   export import Events = events;
   export import ManualTasks = manualTasks;
   export import ProcessInstance = processInstance.ProcessInstance;

@@ -25,7 +25,7 @@ export interface IUserTaskConsumerApi {
   getUserTasksForProcessModel(identity: IIdentity, processModelId: string): Promise<UserTaskList>;
 
   /**
-   * Retrieves a list of all suspended UserTasks belonging to specific 
+   * Retrieves a list of all suspended UserTasks belonging to specific
    * ProcessInstance.
    *
    * @async

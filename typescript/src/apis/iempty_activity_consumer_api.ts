@@ -1,189 +1,189 @@
 import {Subscription} from '@essential-projects/event_aggregator_contracts';
 import {IIdentity} from '@essential-projects/iam_contracts';
 
-import {ManualTaskList} from '../data_models/manual_task/index';
+import {EmptyActivityList} from '../data_models/empty_activity/index';
 import {Messages} from '../messages/index';
 
 /**
- * The IManualTaskConsumerApi is used to retreive and manage ManualTasks.
+ * The IEmptyActivityConsumerApi is used to retrieve and manage EmptyActivities.
  */
-export interface IManualTaskConsumerApi {
+export interface IEmptyActivityConsumerApi {
 
   /**
-   * Retrieves a list of all suspended ManualTasks belonging to an instance of a
+   * Retrieves a list of all suspended EmptyActivities belonging to an instance of a
    * specific ProcessModel.
    *
    * @async
    * @param identity       The requesting users identity.
    * @param processModelId The ID of the ProcessModel for which to retrieve the
-   *                       ManualTasks.
-   * @returns              A Promise, which resolves with the retrieved ManualTasks,
+   *                       EmptyActivities.
+   * @returns              A Promise, which resolves with the retrieved EmptyActivities,
    *                       or rejects an error, in case the request failed.
    *                       This can happen, if the ProcessModel was not found,
    *                       or the user is not authorized to see it.
    */
-  getManualTasksForProcessModel(identity: IIdentity, processModelId: string): Promise<ManualTaskList>;
+  getEmptyActivitiesForProcessModel(identity: IIdentity, processModelId: string): Promise<EmptyActivityList>;
 
   /**
-   * Retrieves a list of all suspended ManualTasks belonging to an specific
+   * Retrieves a list of all suspended EmptyActivities belonging to a specific
    * ProcessInstance.
    *
    * @async
    * @param identity          The requesting users identity.
    * @param processInstanceId The ID of the ProcessInstance for which to retrieve the
-   *                          ManualTasks.
-   * @returns                 A Promise, which resolves with the retrieved ManualTasks,
+   *                          EmptyActivities.
+   * @returns                 A Promise, which resolves with the retrieved EmptyActivities,
    *                          or rejects an error, in case the request failed.
    *                          This can happen, if the ProcessModel was not found,
    *                          or the user is not authorized to see it.
    */
-  getManualTasksForProcessInstance(identity: IIdentity, processInstanceId: string): Promise<ManualTaskList>;
+  getEmptyActivitiesForProcessInstance(identity: IIdentity, processInstanceId: string): Promise<EmptyActivityList>;
 
   /**
-   * Retrieves a list of all suspended ManualTasks belonging to a specific
+   * Retrieves a list of all suspended EmptyActivities belonging to a specific
    * Correlation.
    *
    * @async
    * @param identity      The requesting users identity.
    * @param correlationId The ID of the Correlation for which to retrieve the
-   *                      ManualTasks.
-   * @returns             A Promise, which resolves with the retrieved ManualTasks,
+   *                      EmptyActivities.
+   * @returns             A Promise, which resolves with the retrieved EmptyActivities,
    *                      or rejects an error, in case the request failed.
    *                      This can happen, if the Correlation was not found,
    *                      or the user is not authorized to see it.
    */
-  getManualTasksForCorrelation(identity: IIdentity, correlationId: string): Promise<ManualTaskList>;
+  getEmptyActivitiesForCorrelation(identity: IIdentity, correlationId: string): Promise<EmptyActivityList>;
 
   /**
-   * Retrieves a list of all suspended ManualTasks belonging to an instance of a
+   * Retrieves a list of all suspended EmptyActivities belonging to an instance of a
    * specific ProcessModel within a Correlation.
    *
    * @async
    * @param identity       The requesting users identity.
    * @param correlationId  The ID of the Correlation for which to retrieve the
-   *                       ManualTasks.
+   *                       EmptyActivities.
    * @param processModelId The ID of the ProcessModel for which to retrieve the
-   *                       ManualTasks.
+   *                       EmptyActivities.
    * @returns              A Promise, which resolves without content,
    *                       or rejects an error, in case the request failed.
    *                       This can happen, if the event, ProcessModel or
    *                       correlation were not found,
    *                       or the user is not authorized to see either.
    */
-  getManualTasksForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<ManualTaskList>;
+  getEmptyActivitiesForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<EmptyActivityList>;
 
   /**
-   * Gets all waiting ManualTasks belonging to the given identity.
+   * Gets all waiting EmptyActivities belonging to the given identity.
    *
    * @async
-   * @param   identity The identity for which to get the ManualTasks.
-   * @returns          The list of ManualTasks.
+   * @param   identity The identity for which to get the EmptyActivities.
+   * @returns          The list of EmptyActivities.
    */
-  getWaitingManualTasksByIdentity(identity: IIdentity): Promise<ManualTaskList>;
+  getWaitingEmptyActivitiesByIdentity(identity: IIdentity): Promise<EmptyActivityList>;
 
   /**
-   * Finishes a ManualTask belonging to an instance of a specific ProcessModel
+   * Finishes a EmptyActivity belonging to an instance of a specific ProcessModel
    * within a Correlation.
    *
    * @async
-   * @param identity             The requesting users identity.
-   * @param processInstanceId    The ID of the ProcessInstance for which to
-   *                             finish a ManualTask.
-   * @param correlationId        The ID of the correlation for which to finish
-   *                             a ManualTask.
-   * @param manualTaskInstanceId The instance ID of a ManualTask to finish.
-   * @param manualTaskResult     Optional: Contains a set of results with which
-   *                             to finish the ManualTask.
-   * @returns                    A Promise, which resolves without content, or
-   *                             rejects an error, in case the request failed.
-   *                             This can happen, if the ManualTask, ProcessModel
-   *                             or correlation were not found, or the user is
-   *                             not authorized to see either.
+   * @param identity                The requesting users identity.
+   * @param processInstanceId       The ID of the ProcessInstance for which to
+   *                                finish a EmptyActivity.
+   * @param correlationId           The ID of the correlation for which to finish
+   *                                a EmptyActivity.
+   * @param emptyActivityInstanceId The instance ID of a EmptyActivity to finish.
+   * @param emptyActivityResult     Optional: Contains a set of results with which
+   *                                to finish the EmptyActivity.
+   * @returns                       A Promise, which resolves without content, or
+   *                                rejects an error, in case the request failed.
+   *                                This can happen, if the EmptyActivity, ProcessModel
+   *                                or correlation were not found, or the user is
+   *                                not authorized to see either.
    */
-  finishManualTask(
+  finishEmptyActivity(
     identity: IIdentity,
     processInstanceId: string,
     correlationId: string,
-    manualTaskInstanceId: string,
+    emptyActivityInstanceId: string,
   ): Promise<void>;
 
   /**
-   * Executes a callback when a ManualTask is reached.
+   * Executes a callback when a EmptyActivity is reached.
    *
    * @async
    * @param   identity      The requesting users identity.
-   * @param   callback      The callback that will be executed when a ManualTask
+   * @param   callback      The callback that will be executed when a EmptyActivity
    *                        is reached.
    *                        The message passed to the callback contains further
-   *                        information about the ManualTask.
+   *                        information about the EmptyActivity.
    * @param   subscribeOnce Optional: If set to true, the Subscription will be
    *                        automatically disposed, after the notification was
    *                        received once.
    * @returns               The Subscription created by the EventAggregator.
    */
-  onManualTaskWaiting(
+  onEmptyActivityWaiting(
     identity: IIdentity,
-    callback: Messages.CallbackTypes.OnManualTaskWaitingCallback,
+    callback: Messages.CallbackTypes.OnEmptyActivityWaitingCallback,
     subscribeOnce?: boolean,
   ): Promise<Subscription>;
 
   /**
-   * Executes a callback when a ManualTask is finished.
+   * Executes a callback when a EmptyActivity is finished.
    *
    * @async
    * @param   identity      The requesting users identity.
-   * @param   callback      The callback that will be executed when a ManualTask
+   * @param   callback      The callback that will be executed when a EmptyActivity
    *                        is finished.
    *                        The message passed to the callback contains further
-   *                        information about the ManualTask.
+   *                        information about the EmptyActivity.
    * @param   subscribeOnce Optional: If set to true, the Subscription will be
    *                        automatically disposed, after the notification was
    *                        received once.
    * @returns               The Subscription created by the EventAggregator.
    */
-  onManualTaskFinished(
+  onEmptyActivityFinished(
     identity: IIdentity,
-    callback: Messages.CallbackTypes.OnManualTaskFinishedCallback,
+    callback: Messages.CallbackTypes.OnEmptyActivityFinishedCallback,
     subscribeOnce?: boolean,
   ): Promise<Subscription>;
 
   /**
-   * Executes a callback when a ManualTask for the given identity is reached.
+   * Executes a callback when a EmptyActivity for the given identity is reached.
    *
    * @async
    * @param identity        The requesting users identity.
-   * @param callback        The callback that will be executed when a ManualTask
+   * @param callback        The callback that will be executed when a EmptyActivity
    *                        is reached.
    *                        The message passed to the callback contains further
-   *                        information about the ManualTask.
+   *                        information about the EmptyActivity.
    * @param   subscribeOnce Optional: If set to true, the Subscription will be
    *                        automatically disposed, after the notification was
    *                        received once.
    * @returns               The Subscription created by the EventAggregator.
    */
-  onManualTaskForIdentityWaiting(
+  onEmptyActivityForIdentityWaiting(
     identity: IIdentity,
-    callback: Messages.CallbackTypes.OnManualTaskWaitingCallback,
+    callback: Messages.CallbackTypes.OnEmptyActivityWaitingCallback,
     subscribeOnce?: boolean,
   ): Promise<Subscription>;
 
   /**
-   * Executes a callback when a ManualTask for the given identity is finished.
+   * Executes a callback when a EmptyActivity for the given identity is finished.
    *
    * @async
    * @param   identity      The requesting users identity.
-   * @param   callback      The callback that will be executed when a ManualTask
+   * @param   callback      The callback that will be executed when a EmptyActivity
    *                        is finished.
    *                        The message passed to the callback contains further
-   *                        information about the ManualTask.
+   *                        information about the EmptyActivity.
    * @param   subscribeOnce Optional: If set to true, the Subscription will be
    *                        automatically disposed, after the notification was
    *                        received once.
    * @returns               The Subscription created by the EventAggregator.
    */
-  onManualTaskForIdentityFinished(
+  onEmptyActivityForIdentityFinished(
     identity: IIdentity,
-    callback: Messages.CallbackTypes.OnManualTaskFinishedCallback,
+    callback: Messages.CallbackTypes.OnEmptyActivityFinishedCallback,
     subscribeOnce?: boolean,
   ): Promise<Subscription>;
 }
