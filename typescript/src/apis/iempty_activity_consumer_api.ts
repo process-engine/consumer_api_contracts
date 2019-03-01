@@ -5,7 +5,7 @@ import {EmptyActivityList} from '../data_models/empty_activity/index';
 import {Messages} from '../messages/index';
 
 /**
- * The IEmptyActivityConsumerApi is used to retreive and manage EmptyActivities.
+ * The IEmptyActivityConsumerApi is used to retrieve and manage EmptyActivities.
  */
 export interface IEmptyActivityConsumerApi {
 
@@ -25,7 +25,7 @@ export interface IEmptyActivityConsumerApi {
   getEmptyActivitiesForProcessModel(identity: IIdentity, processModelId: string): Promise<EmptyActivityList>;
 
   /**
-   * Retrieves a list of all suspended EmptyActivities belonging to an specific
+   * Retrieves a list of all suspended EmptyActivities belonging to a specific
    * ProcessInstance.
    *
    * @async
