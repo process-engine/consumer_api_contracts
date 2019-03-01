@@ -68,7 +68,7 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         /// <returns>
         /// A task that is finished once the event has been triggered.
         /// </returns>
-        Task<EventList> TriggerMessageEvent(IIdentity identity, string messageName);
+        Task TriggerMessageEvent(IIdentity identity, string messageName);
 
         /// <summary>
         /// Triggers a message event.
@@ -79,7 +79,7 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         /// <returns>
         /// A task that is finished once the event has been triggered.
         /// </returns>
-        Task<EventList> TriggerMessageEvent(IIdentity identity, string messageName, object payload);
+        Task TriggerMessageEvent(IIdentity identity, string messageName, object payload);
 
         /// <summary>
         /// Triggers a signal event.
@@ -89,7 +89,7 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         /// <returns>
         /// A task that is finished once the event has been triggered.
         /// </returns>
-        Task<EventList> TriggerSignalEvent(IIdentity identity, string signalName);
+        Task TriggerSignalEvent(IIdentity identity, string signalName);
 
         /// <summary>
         /// Triggers a signal event.
@@ -100,7 +100,7 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         /// <returns>
         /// A task that is finished once the event has been triggered.
         /// </returns>
-        Task<EventList> TriggerSignalEvent(IIdentity identity, string signalName, object payload);
+        Task TriggerSignalEvent(IIdentity identity, string signalName, object payload);
     }
 
 }
