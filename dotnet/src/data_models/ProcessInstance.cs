@@ -1,10 +1,12 @@
-namespace ProcessEngine.ConsumerAPI.Contracts {
+namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
+{
     using EssentialProjects.IAM.Contracts;
 
     /// <summary>
     /// Describes a single ProcessInstance.
     /// </summary>
-    public class ProcessInstance {
+    public class ProcessInstance
+    {
         /// <summary>
         /// The Id of the ProcessInstance.
         /// </summary>
