@@ -1,9 +1,11 @@
-namespace ProcessEngine.ConsumerAPI.Contracts {
+namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
+{
     /// <summary>
     /// Contains a response from the process engine, which will be sent after a
     /// process model was started.
     /// </summary>
-    public class ProcessStartResponsePayload {
+    public class ProcessStartResponsePayload
+    {
         /// <summary>
         /// The ID of the process instance.
         /// </summary>
