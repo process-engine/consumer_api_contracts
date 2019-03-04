@@ -7,10 +7,29 @@ namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
     /// </summary>
     public class EventType
     {
-        public static string MessageEvent = "messageEvent";
-        public static string SignalEvent = "signalEvent";
-        public static string TerminateEvent = "terminateEvent";
-        public static string TimerEvent = "timerEvent";
-        public static string ErrorEvent = "errorEvent";
+        /// <summary>
+        /// The event is a MessageEvent.
+        /// </summary>
+        public static readonly string MessageEvent = "messageEvent";
+
+        /// <summary>
+        /// The event is a SignalEvent.
+        /// </summary>
+        public static readonly string SignalEvent = "signalEvent";
+
+        /// <summary>
+        /// The event is a TerminateEvent.
+        /// </summary>
+        public static readonly string TerminateEvent = "terminateEvent";
+
+        /// <summary>
+        /// The event is a TimerEvent.
+        /// </summary>
+        public static readonly string TimerEvent = "timerEvent";
+
+        /// <summary>
+        /// The event is a ErrorEvent.
+        /// </summary>
+        public static readonly string ErrorEvent = "errorEvent";
     }
 }
