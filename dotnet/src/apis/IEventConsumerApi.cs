@@ -5,6 +5,7 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
 
     using EssentialProjects.IAM.Contracts;
     using ProcessEngine.ConsumerAPI.Contracts.DataModel;
+    using ProcessEngine.ConsumerAPI.Contracts.Exceptions;
 
     /// <summary>
     /// The IEventConsumerApi is used to retrieve waiting events and to trigger
@@ -21,10 +22,15 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         /// The ID of the ProcessModel for which to retrieve the events.
         /// </param>
         /// <returns>
-        /// A task that is finished once the events are retrieved. If any
-        /// errors occur the task fails (e.g. the ProcessModel was not found or
-        /// the user is not authorized).
+        /// The fetched Events.
         /// </returns>
+        /// <exception cref="System.UnauthorizedAccessException">
+        /// Thrown when the identity has insufficient rights to perform the
+        /// operation.
+        /// </exception>
+        /// <exception cref="ProcessNotFoundException">
+        /// Thrown when the ProcessModel could not be found.
+        /// </exception>
         Task<EventList> GetEventsForProcessModel(IIdentity identity, string processModelId);
 
         /// <summary>
@@ -36,10 +42,15 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         /// The ID of the Correlation for which to retrieve the events.
         /// </param>
         /// <returns>
-        /// A task that is finished once the events are retrieved. If any
-        /// errors occur the task fails (e.g. the ProcessModel was not found or
-        /// the user is not authorized).
+        /// The fetched Events.
         /// </returns>
+        /// <exception cref="System.UnauthorizedAccessException">
+        /// Thrown when the identity has insufficient rights to perform the
+        /// operation.
+        /// </exception>
+        /// <exception cref="ProcessNotFoundException">
+        /// Thrown when the Correlation could not be found.
+        /// </exception>
         Task<EventList> GetEventsForCorrelation(IIdentity identity, string correlationId);
 
         /// <summary>
@@ -54,12 +65,17 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         /// The ID of the Correlation for which to retrieve the events.
         /// </param>
         /// <returns>
-        /// A task that is finished once the events are retrieved. If any
-        /// errors occur the task fails (e.g. the ProcessModel was not found or
-        /// the user is not authorized).
+        /// The fetched Events.
         /// </returns>
-
+        /// <exception cref="System.UnauthorizedAccessException">
+        /// Thrown when the identity has insufficient rights to perform the
+        /// operation.
+        /// </exception>
+        /// <exception cref="ProcessNotFoundException">
+        /// Thrown when the ProcessModel or the Correlation could not be found.
+        /// </exception>
         Task<EventList> GetEventsForProcessModelInCorrelation(IIdentity identity, string processModelId, string correlationId);
+
         /// <summary>
         /// Triggers a message event.
         /// </summary>
@@ -68,6 +84,10 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         /// <returns>
         /// A task that is finished once the event has been triggered.
         /// </returns>
+        /// <exception cref="System.UnauthorizedAccessException">
+        /// Thrown when the identity has insufficient rights to perform the
+        /// operation.
+        /// </exception>
         Task TriggerMessageEvent(IIdentity identity, string messageName);
 
         /// <summary>
@@ -79,6 +99,10 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         /// <returns>
         /// A task that is finished once the event has been triggered.
         /// </returns>
+        /// <exception cref="System.UnauthorizedAccessException">
+        /// Thrown when the identity has insufficient rights to perform the
+        /// operation.
+        /// </exception>
         Task TriggerMessageEvent(IIdentity identity, string messageName, object payload);
 
         /// <summary>
@@ -89,6 +113,10 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         /// <returns>
         /// A task that is finished once the event has been triggered.
         /// </returns>
+        /// <exception cref="System.UnauthorizedAccessException">
+        /// Thrown when the identity has insufficient rights to perform the
+        /// operation.
+        /// </exception>
         Task TriggerSignalEvent(IIdentity identity, string signalName);
 
         /// <summary>
@@ -100,6 +128,10 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         /// <returns>
         /// A task that is finished once the event has been triggered.
         /// </returns>
+        /// <exception cref="System.UnauthorizedAccessException">
+        /// Thrown when the identity has insufficient rights to perform the
+        /// operation.
+        /// </exception>
         Task TriggerSignalEvent(IIdentity identity, string signalName, object payload);
     }
 
