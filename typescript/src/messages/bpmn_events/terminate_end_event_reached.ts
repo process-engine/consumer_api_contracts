@@ -1,10 +1,10 @@
-import {BasePublicEventMessage} from '../base_public_event_message';
+import {BaseEventMessage} from '../base_event_message';
 
 /**
  * Encapsulates a Message for the EventAggregator, describing a
  * MessageEvent.
  */
-export class EndEventReachedMessage extends BasePublicEventMessage {
+export class TerminateEndEventReachedMessage extends BaseEventMessage {
 
   constructor(correlationId: string,
               processModelId: string,

@@ -1,16 +1,14 @@
-import {UserTaskResult} from '../../../data_models/user_task/user_task_result';
-
-import {BasePublicEventMessage} from '../base_public_event_message';
+import {BaseEventMessage} from '../base_event_message';
 
 /**
- * The message sent when a UserTask has been finished.
+ * The message used to finish a waiting EmptyActivity.
  */
-export class UserTaskReachedMessage extends BasePublicEventMessage {
+export class FinishEmptyActivityMessage extends BaseEventMessage {
 
   /**
-   * The result the UserTask was finished with.
+   * The flow node id of the EmptyActivity being finished.
    */
-  public userTaskResult: UserTaskResult;
+  public manualTaskId: string;
 
   constructor(correlationId: string,
               processModelId: string,
