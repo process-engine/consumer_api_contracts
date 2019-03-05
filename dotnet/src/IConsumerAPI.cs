@@ -13,5 +13,6 @@
         IProcessModelConsumerApi,
         IUserTaskConsumerApi,
         IEventConsumerApi
+        IManualTaskConsumerApi
     { }
 }
