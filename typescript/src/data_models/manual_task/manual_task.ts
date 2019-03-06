@@ -3,17 +3,17 @@
  */
 export class ManualTask {
   /**
-   * The id of the ManualTask.
+   * The Model ID of the ManualTask as it is declared in the ProcessModel.
    */
   public id: string;
   /**
-   * The instance id of the UserTask.
-   */
-  public flowNodeInstanceId?: string;
-  /**
-   * The name of the ManualTask.
+   * The name of the ManualTask as it is declared in the ProcessModel.
    */
   public name: string;
+  /**
+   * The Instance ID of the ManualTask.
+   */
+  public flowNodeInstanceId?: string;
   /**
    * The ID of the correlation that the ManualTask belongs to.
    */

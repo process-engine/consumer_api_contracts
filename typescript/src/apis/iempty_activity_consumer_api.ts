@@ -14,13 +14,16 @@ export interface IEmptyActivityConsumerApi {
    * specific ProcessModel.
    *
    * @async
-   * @param identity       The requesting users identity.
-   * @param processModelId The ID of the ProcessModel for which to retrieve the
-   *                       EmptyActivities.
-   * @returns              A Promise, which resolves with the retrieved EmptyActivities,
-   *                       or rejects an error, in case the request failed.
-   *                       This can happen, if the ProcessModel was not found,
-   *                       or the user is not authorized to see it.
+   * @param   identity           The requesting users identity.
+   * @param   processModelId     The ID of the ProcessModel for which to
+   *                             retrieve the EmptyActivities.
+   * @returns                    A list of waiting EmptActivities for the given
+   *                             ProcessModel.
+   *                             Will be empty, if non are available.
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the User is not allowed to access the
+   *                             ProcessModel.
    */
   getEmptyActivitiesForProcessModel(identity: IIdentity, processModelId: string): Promise<EmptyActivityList>;
 
@@ -29,13 +32,16 @@ export interface IEmptyActivityConsumerApi {
    * ProcessInstance.
    *
    * @async
-   * @param identity          The requesting users identity.
-   * @param processInstanceId The ID of the ProcessInstance for which to retrieve the
-   *                          EmptyActivities.
-   * @returns                 A Promise, which resolves with the retrieved EmptyActivities,
-   *                          or rejects an error, in case the request failed.
-   *                          This can happen, if the ProcessModel was not found,
-   *                          or the user is not authorized to see it.
+   * @param  identity            The requesting users identity.
+   * @param  processInstanceId   The ID of the ProcessInstance for which to
+   *                             retrieve the EmptyActivities.
+   * @returns                    A list of waiting EmptActivities for the given
+   *                             ProcessInstance.
+   *                             Will be empty, if non are available.
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the User is not allowed to access the
+   *                             ProcessInstance.
    */
   getEmptyActivitiesForProcessInstance(identity: IIdentity, processInstanceId: string): Promise<EmptyActivityList>;
 
@@ -44,13 +50,16 @@ export interface IEmptyActivityConsumerApi {
    * Correlation.
    *
    * @async
-   * @param identity      The requesting users identity.
-   * @param correlationId The ID of the Correlation for which to retrieve the
-   *                      EmptyActivities.
-   * @returns             A Promise, which resolves with the retrieved EmptyActivities,
-   *                      or rejects an error, in case the request failed.
-   *                      This can happen, if the Correlation was not found,
-   *                      or the user is not authorized to see it.
+   * @param   identity           The requesting users identity.
+   * @param   correlationId      The ID of the Correlation for which to
+   *                             retrieve the EmptyActivities.
+   * @returns                    A list of waiting EmptActivities for the given
+   *                             Correlation.
+   *                             Will be empty, if non are available.
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the User is not allowed to access the
+   *                             Correlation.
    */
   getEmptyActivitiesForCorrelation(identity: IIdentity, correlationId: string): Promise<EmptyActivityList>;
 
@@ -59,16 +68,18 @@ export interface IEmptyActivityConsumerApi {
    * specific ProcessModel within a Correlation.
    *
    * @async
-   * @param identity       The requesting users identity.
-   * @param correlationId  The ID of the Correlation for which to retrieve the
-   *                       EmptyActivities.
-   * @param processModelId The ID of the ProcessModel for which to retrieve the
-   *                       EmptyActivities.
-   * @returns              A Promise, which resolves without content,
-   *                       or rejects an error, in case the request failed.
-   *                       This can happen, if the event, ProcessModel or
-   *                       correlation were not found,
-   *                       or the user is not authorized to see either.
+   * @param   identity           The requesting users identity.
+   * @param   correlationId      The ID of the Correlation for which to
+   *                             retrieve the EmptyActivities.
+   * @param   processModelId     The ID of the ProcessModel for which to
+   *                             retrieve the EmptyActivities.
+   * @returns                    A list of waiting EmptActivities for the given
+   *                             ProcessModel and Correlation.
+   *                             Will be empty, if non are available.
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the User is not allowed to access the
+   *                             Correlation or the ProcessModel.
    */
   getEmptyActivitiesForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<EmptyActivityList>;
 
@@ -76,8 +87,13 @@ export interface IEmptyActivityConsumerApi {
    * Gets all waiting EmptyActivities belonging to the given identity.
    *
    * @async
-   * @param   identity The identity for which to get the EmptyActivities.
-   * @returns          The list of EmptyActivities.
+   * @param   identity           The identity for which to get the
+   *                             EmptyActivities.
+   * @returns                    The list of EmptyActivities that the identity
+   *                             can access.
+   *                             Will be empty, if none are available.
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
    */
   getWaitingEmptyActivitiesByIdentity(identity: IIdentity): Promise<EmptyActivityList>;
 
@@ -86,19 +102,19 @@ export interface IEmptyActivityConsumerApi {
    * within a Correlation.
    *
    * @async
-   * @param identity                The requesting users identity.
-   * @param processInstanceId       The ID of the ProcessInstance for which to
-   *                                finish a EmptyActivity.
-   * @param correlationId           The ID of the correlation for which to finish
-   *                                a EmptyActivity.
-   * @param emptyActivityInstanceId The instance ID of a EmptyActivity to finish.
-   * @param emptyActivityResult     Optional: Contains a set of results with which
-   *                                to finish the EmptyActivity.
-   * @returns                       A Promise, which resolves without content, or
-   *                                rejects an error, in case the request failed.
-   *                                This can happen, if the EmptyActivity, ProcessModel
-   *                                or correlation were not found, or the user is
-   *                                not authorized to see either.
+   * @param  identity                The requesting users identity.
+   * @param  processInstanceId       The ID of the ProcessInstance for which to
+   *                                 finish a EmptyActivity.
+   * @param  correlationId           The ID of the correlation for which to finish
+   *                                 a EmptyActivity.
+   * @param  emptyActivityInstanceId The instance ID of a EmptyActivity to finish.
+   *
+   * @throws {UnauthorizedError}     If the given identity does not contain a
+   *                                 valid auth token.
+   * @throws {ForbiddenError}        If the User is not allowed to access the
+   *                                 EmptyActivity.
+   * @throws {NotFoundError}         If the ProcessInstance, the Correlation,
+   *                                 or the EmptyActivity was not found.
    */
   finishEmptyActivity(
     identity: IIdentity,
@@ -111,15 +127,20 @@ export interface IEmptyActivityConsumerApi {
    * Executes a callback when a EmptyActivity is reached.
    *
    * @async
-   * @param   identity      The requesting users identity.
-   * @param   callback      The callback that will be executed when a EmptyActivity
-   *                        is reached.
-   *                        The message passed to the callback contains further
-   *                        information about the EmptyActivity.
-   * @param   subscribeOnce Optional: If set to true, the Subscription will be
-   *                        automatically disposed, after the notification was
-   *                        received once.
-   * @returns               The Subscription created by the EventAggregator.
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when a
+   *                             new EmptyActivity is waiting.
+   *                             The message passed to the callback contains
+   *                             further information about the EmptyActivity.
+   * @param   subscribeOnce      Optional: If set to true, the Subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The Subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the User is not allowed to create
+   *                             event subscriptions.
    */
   onEmptyActivityWaiting(
     identity: IIdentity,
@@ -131,15 +152,20 @@ export interface IEmptyActivityConsumerApi {
    * Executes a callback when a EmptyActivity is finished.
    *
    * @async
-   * @param   identity      The requesting users identity.
-   * @param   callback      The callback that will be executed when a EmptyActivity
-   *                        is finished.
-   *                        The message passed to the callback contains further
-   *                        information about the EmptyActivity.
-   * @param   subscribeOnce Optional: If set to true, the Subscription will be
-   *                        automatically disposed, after the notification was
-   *                        received once.
-   * @returns               The Subscription created by the EventAggregator.
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when an
+   *                             EmptyActivity is finished.
+   *                             The message passed to the callback contains
+   *                             further information about the EmptyActivity.
+   * @param   subscribeOnce      Optional: If set to true, the Subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The Subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the User is not allowed to create
+   *                             event subscriptions.
    */
   onEmptyActivityFinished(
     identity: IIdentity,
@@ -151,15 +177,20 @@ export interface IEmptyActivityConsumerApi {
    * Executes a callback when a EmptyActivity for the given identity is reached.
    *
    * @async
-   * @param identity        The requesting users identity.
-   * @param callback        The callback that will be executed when a EmptyActivity
-   *                        is reached.
-   *                        The message passed to the callback contains further
-   *                        information about the EmptyActivity.
-   * @param   subscribeOnce Optional: If set to true, the Subscription will be
-   *                        automatically disposed, after the notification was
-   *                        received once.
-   * @returns               The Subscription created by the EventAggregator.
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when a new
+   *                             EmptyActivity for the identity is waiting.
+   *                             The message passed to the callback contains
+   *                             further information about the EmptyActivity.
+   * @param   subscribeOnce      Optional: If set to true, the Subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The Subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the User is not allowed to create
+   *                             event subscriptions.
    */
   onEmptyActivityForIdentityWaiting(
     identity: IIdentity,
@@ -171,15 +202,20 @@ export interface IEmptyActivityConsumerApi {
    * Executes a callback when a EmptyActivity for the given identity is finished.
    *
    * @async
-   * @param   identity      The requesting users identity.
-   * @param   callback      The callback that will be executed when a EmptyActivity
-   *                        is finished.
-   *                        The message passed to the callback contains further
-   *                        information about the EmptyActivity.
-   * @param   subscribeOnce Optional: If set to true, the Subscription will be
-   *                        automatically disposed, after the notification was
-   *                        received once.
-   * @returns               The Subscription created by the EventAggregator.
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when an
+   *                             EmptyActivity for the identity is finished.
+   *                             The message passed to the callback contains
+   *                             further information about the EmptyActivity.
+   * @param   subscribeOnce      Optional: If set to true, the Subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The Subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the User is not allowed to create
+   *                             event subscriptions.
    */
   onEmptyActivityForIdentityFinished(
     identity: IIdentity,

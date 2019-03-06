@@ -1,29 +1,29 @@
 /**
- * Determines the type of a UserTasks form field.
+ * Determines the type of a UserTasks FormField.
  */
 export enum UserTaskFormFieldType {
   /**
-   * The form field is a boolean.
+   * The FormField is a boolean.
    */
   boolean = 'boolean',
   /**
-   * The form field is a boolean.
+   * The FormField is a date.
    */
   date = 'date',
   /**
-   * The form field is an enumeration.
+   * The FormField is an enumeration.
    */
   enum = 'enum',
   /**
-   * The form field is long-type numerical.
+   * The FormField is long-type numerical.
    */
   long = 'long',
   /**
-   * The form field is a number.
+   * The FormField is a number.
    */
   number = 'number',
   /**
-   * The form field is a string.
+   * The FormField is a string.
    */
   string = 'string',
 }
