@@ -41,6 +41,7 @@ namespace ProcessEngine.ConsumerAPI.Contracts.RestSettings
         public static string FinishUserTask { get { return $"/processes/{Params.ProcessInstanceId}/correlations/{Params.CorrelationId}/usertasks/{Params.UserTaskInstanceId}/finish"; } }
         // ManualTask
         public static string ProcessModelManualTasks { get { return $"/process_models/{Params.ProcessModelId}/manual_tasks"; } }
+        public static string ProcessInstanceManualTasks { get { return $"/process_instances/{Params.ProcessInstanceId}/manual_tasks"; } }
         public static string CorrelationManualTasks { get { return $"/correlations/{Params.CorrelationId}/manual_tasks"; } }
         public static string ProcessModelCorrelationManualTasks { get { return $"/process_models/{Params.ProcessModelId}/correlations/{Params.CorrelationId}/manual_tasks"; } }
         public static string GetOwnManualTasks { get { return $"/manual_tasks/own"; } }
