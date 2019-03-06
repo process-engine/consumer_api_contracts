@@ -182,7 +182,7 @@ export interface IEmptyActivityConsumerApi {
    *                             EmptyActivity for the identity is waiting.
    *                             The message passed to the callback contains
    *                             further information about the EmptyActivity.
-   * @param   subscribeOnce      Optional: If set to true, the Subscription will
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
    *                             be automatically disposed, after the notification
    *                             was received once.
    * @returns                    The Subscription created by the EventAggregator.
