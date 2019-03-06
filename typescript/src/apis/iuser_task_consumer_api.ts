@@ -126,7 +126,7 @@ export interface IUserTaskConsumerApi {
   ): Promise<void>;
 
   /**
-   * Executes a callback when a UserTask is reached.
+   * Executes the provided callback when a UserTask is reached.
    *
    * @async
    * @param   identity           The requesting users identity.
@@ -151,7 +151,7 @@ export interface IUserTaskConsumerApi {
   ): Promise<Subscription>;
 
   /**
-   * Executes a callback when a UserTask is finished.
+   * Executes the provided callback when a UserTask is finished.
    *
    * @async
    * @param   identity           The requesting users identity.
@@ -176,7 +176,7 @@ export interface IUserTaskConsumerApi {
   ): Promise<Subscription>;
 
   /**
-   * Executes a callback when a UserTask for the given identity is reached.
+   * Executes the provided callback when a UserTask for the given identity is reached.
    *
    * @async
    * @param   identity           The requesting users identity.
@@ -201,7 +201,7 @@ export interface IUserTaskConsumerApi {
   ): Promise<Subscription>;
 
   /**
-   * Executes a callback when a UserTask for the given identity is finished.
+   * Executes the provided callback when a UserTask for the given identity is finished.
    *
    * @async
    * @param   identity           The requesting users identity.

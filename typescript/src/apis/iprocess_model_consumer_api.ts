@@ -124,7 +124,7 @@ export interface IProcessModelConsumerApi {
   getProcessInstancesByIdentity(identity: IIdentity): Promise<Array<DataModels.ProcessInstance>>;
 
   /**
-   * Executes a callback when a ProcessInstance is started.
+   * Executes the provided callback when a ProcessInstance is started.
    *
    * @async
    * @param   identity           The requesting users identity.
@@ -149,7 +149,7 @@ export interface IProcessModelConsumerApi {
   ): Promise<Subscription>;
 
   /**
-   * Executes a callback when a new ProcessInstance for a given ProcessModelId
+   * Executes the provided callback when a new ProcessInstance for a given ProcessModelId
    * was started.
    *
    * @async
@@ -177,7 +177,7 @@ export interface IProcessModelConsumerApi {
   ): Promise<Subscription>;
 
   /**
-   * Executes a callback when a ProcessInstance is terminated.
+   * Executes the provided callback when a ProcessInstance is terminated.
    *
    * @async
    * @param   identity           The requesting users identity.
@@ -202,7 +202,7 @@ export interface IProcessModelConsumerApi {
   ): Promise<Subscription>;
 
   /**
-   * Executes a callback when a ProcessInstance ends.
+   * Executes the provided callback when a ProcessInstance ends.
    *
    * @async
    * @param   identity           The requesting users identity.

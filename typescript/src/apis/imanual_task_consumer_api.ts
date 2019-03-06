@@ -125,7 +125,7 @@ export interface IManualTaskConsumerApi {
   ): Promise<void>;
 
   /**
-   * Executes a callback when a ManualTask is reached.
+   * Executes the provided callback when a ManualTask is reached.
    *
    * @async
    * @param   identity           The requesting users identity.
@@ -150,7 +150,7 @@ export interface IManualTaskConsumerApi {
   ): Promise<Subscription>;
 
   /**
-   * Executes a callback when a ManualTask is finished.
+   * Executes the provided callback when a ManualTask is finished.
    *
    * @async
    * @param   identity           The requesting users identity.
@@ -175,7 +175,7 @@ export interface IManualTaskConsumerApi {
   ): Promise<Subscription>;
 
   /**
-   * Executes a callback when a ManualTask for the given identity is reached.
+   * Executes the provided callback when a ManualTask for the given identity is reached.
    *
    * @async
    * @param   identity           The requesting users identity.
@@ -200,7 +200,7 @@ export interface IManualTaskConsumerApi {
   ): Promise<Subscription>;
 
   /**
-   * Executes a callback when a ManualTask for the given identity is finished.
+   * Executes the provided callback when a ManualTask for the given identity is finished.
    *
    * @async
    * @param   identity           The requesting users identity.

@@ -98,16 +98,16 @@ export interface IEmptyActivityConsumerApi {
   getWaitingEmptyActivitiesByIdentity(identity: IIdentity): Promise<EmptyActivityList>;
 
   /**
-   * Finishes a EmptyActivity belonging to an instance of a specific ProcessModel
+   * Finishes an EmptyActivity belonging to an instance of a specific ProcessModel
    * within a Correlation.
    *
    * @async
    * @param  identity                The requesting users identity.
    * @param  processInstanceId       The ID of the ProcessInstance for which to
-   *                                 finish a EmptyActivity.
+   *                                 finish an EmptyActivity.
    * @param  correlationId           The ID of the Correlation for which to finish
-   *                                 a EmptyActivity.
-   * @param  emptyActivityInstanceId The instance ID of a EmptyActivity to finish.
+   *                                 an EmptyActivity.
+   * @param  emptyActivityInstanceId The instance ID of an EmptyActivity to finish.
    *
    * @throws {UnauthorizedError}     If the given identity does not contain a
    *                                 valid auth token.
@@ -124,7 +124,7 @@ export interface IEmptyActivityConsumerApi {
   ): Promise<void>;
 
   /**
-   * Executes a callback when a EmptyActivity is reached.
+   * Executes the provided callback when an EmptyActivity is reached.
    *
    * @async
    * @param   identity           The requesting users identity.
@@ -149,7 +149,7 @@ export interface IEmptyActivityConsumerApi {
   ): Promise<Subscription>;
 
   /**
-   * Executes a callback when a EmptyActivity is finished.
+   * Executes the provided callback when an EmptyActivity is finished.
    *
    * @async
    * @param   identity           The requesting users identity.
@@ -174,7 +174,7 @@ export interface IEmptyActivityConsumerApi {
   ): Promise<Subscription>;
 
   /**
-   * Executes a callback when a EmptyActivity for the given identity is reached.
+   * Executes the provided callback when an EmptyActivity for the given identity is reached.
    *
    * @async
    * @param   identity           The requesting users identity.
@@ -199,7 +199,7 @@ export interface IEmptyActivityConsumerApi {
   ): Promise<Subscription>;
 
   /**
-   * Executes a callback when a EmptyActivity for the given identity is finished.
+   * Executes the provided callback when an EmptyActivity for the given identity is finished.
    *
    * @async
    * @param   identity           The requesting users identity.
