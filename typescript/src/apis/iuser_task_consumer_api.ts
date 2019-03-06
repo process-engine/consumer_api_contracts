@@ -22,7 +22,7 @@ export interface IUserTaskConsumerApi {
    *                             Will be empty, if non are available.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to access the
+   * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             ProcessModel.
    */
   getUserTasksForProcessModel(identity: IIdentity, processModelId: string): Promise<UserTaskList>;
@@ -40,7 +40,7 @@ export interface IUserTaskConsumerApi {
    *                             Will be empty, if non are available.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to access the
+   * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             ProcessInstance.
    */
   getUserTasksForProcessInstance(identity: IIdentity, processInstanceId: string): Promise<UserTaskList>;
@@ -58,7 +58,7 @@ export interface IUserTaskConsumerApi {
    *                             Will be empty, if non are available.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to access the
+   * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             Correlation.
    */
   getUserTasksForCorrelation(identity: IIdentity, correlationId: string): Promise<UserTaskList>;
@@ -78,7 +78,7 @@ export interface IUserTaskConsumerApi {
    *                             Will be empty, if non are available.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to access the
+   * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             Correlation or the ProcessModel.
    */
   getUserTasksForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<UserTaskList>;
@@ -112,7 +112,7 @@ export interface IUserTaskConsumerApi {
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to access the
+   * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             UserTask.
    * @throws {NotFoundError}     If the ProcessInstance, the Correlation,
    *                             or the UserTask was not found.
@@ -141,7 +141,7 @@ export interface IUserTaskConsumerApi {
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to create
+   * @throws {ForbiddenError}    If the user is not allowed to create
    *                             event subscriptions.
    */
   onUserTaskWaiting(
@@ -166,7 +166,7 @@ export interface IUserTaskConsumerApi {
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to create
+   * @throws {ForbiddenError}    If the user is not allowed to create
    *                             event subscriptions.
    */
   onUserTaskFinished(
@@ -191,7 +191,7 @@ export interface IUserTaskConsumerApi {
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to create
+   * @throws {ForbiddenError}    If the user is not allowed to create
    *                             event subscriptions.
    */
   onUserTaskForIdentityWaiting(
@@ -216,7 +216,7 @@ export interface IUserTaskConsumerApi {
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to create
+   * @throws {ForbiddenError}    If the user is not allowed to create
    *                             event subscriptions.
    */
   onUserTaskForIdentityFinished(

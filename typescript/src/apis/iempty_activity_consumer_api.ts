@@ -22,7 +22,7 @@ export interface IEmptyActivityConsumerApi {
    *                             Will be empty, if non are available.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to access the
+   * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             ProcessModel.
    */
   getEmptyActivitiesForProcessModel(identity: IIdentity, processModelId: string): Promise<EmptyActivityList>;
@@ -40,7 +40,7 @@ export interface IEmptyActivityConsumerApi {
    *                             Will be empty, if non are available.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to access the
+   * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             ProcessInstance.
    */
   getEmptyActivitiesForProcessInstance(identity: IIdentity, processInstanceId: string): Promise<EmptyActivityList>;
@@ -58,7 +58,7 @@ export interface IEmptyActivityConsumerApi {
    *                             Will be empty, if non are available.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to access the
+   * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             Correlation.
    */
   getEmptyActivitiesForCorrelation(identity: IIdentity, correlationId: string): Promise<EmptyActivityList>;
@@ -78,7 +78,7 @@ export interface IEmptyActivityConsumerApi {
    *                             Will be empty, if non are available.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to access the
+   * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             Correlation or the ProcessModel.
    */
   getEmptyActivitiesForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<EmptyActivityList>;
@@ -111,7 +111,7 @@ export interface IEmptyActivityConsumerApi {
    *
    * @throws {UnauthorizedError}     If the given identity does not contain a
    *                                 valid auth token.
-   * @throws {ForbiddenError}        If the User is not allowed to access the
+   * @throws {ForbiddenError}        If the user is not allowed to access the
    *                                 EmptyActivity.
    * @throws {NotFoundError}         If the ProcessInstance, the Correlation,
    *                                 or the EmptyActivity was not found.
@@ -139,7 +139,7 @@ export interface IEmptyActivityConsumerApi {
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to create
+   * @throws {ForbiddenError}    If the user is not allowed to create
    *                             event subscriptions.
    */
   onEmptyActivityWaiting(
@@ -164,7 +164,7 @@ export interface IEmptyActivityConsumerApi {
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to create
+   * @throws {ForbiddenError}    If the user is not allowed to create
    *                             event subscriptions.
    */
   onEmptyActivityFinished(
@@ -189,7 +189,7 @@ export interface IEmptyActivityConsumerApi {
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to create
+   * @throws {ForbiddenError}    If the user is not allowed to create
    *                             event subscriptions.
    */
   onEmptyActivityForIdentityWaiting(
@@ -214,7 +214,7 @@ export interface IEmptyActivityConsumerApi {
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to create
+   * @throws {ForbiddenError}    If the user is not allowed to create
    *                             event subscriptions.
    */
   onEmptyActivityForIdentityFinished(

@@ -30,7 +30,7 @@ export interface IProcessModelConsumerApi {
    * @returns                    The retrieved ProcessModel.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to access the
+   * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             ProcessModel.
    * @throws {NotFoundError}     If ProcessModel was not found.
    */
@@ -46,7 +46,7 @@ export interface IProcessModelConsumerApi {
    * @returns                    The retrieved ProcessModel.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to access the
+   * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             ProcessModel.
    */
   getProcessModelByProcessInstanceId(identity: IIdentity, processInstanceId: string): Promise<DataModels.ProcessModels.ProcessModel>;
@@ -77,7 +77,7 @@ export interface IProcessModelConsumerApi {
    * @returns                    The final result of the request.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to access the
+   * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             ProcessModel.
    * @throws {NotFoundError}     If ProcessModel was not found.
    */
@@ -104,7 +104,7 @@ export interface IProcessModelConsumerApi {
    * @returns                    The retrieved results.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to access the
+   * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             Correlation.
    * @throws {NotFoundError}     If the Correlation or the ProcessModel was not
    *                             found.
@@ -139,7 +139,7 @@ export interface IProcessModelConsumerApi {
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to create
+   * @throws {ForbiddenError}    If the user is not allowed to create
    *                             event subscriptions.
    */
   onProcessStarted(
@@ -166,7 +166,7 @@ export interface IProcessModelConsumerApi {
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to create
+   * @throws {ForbiddenError}    If the user is not allowed to create
    *                             event subscriptions.
    */
   onProcessWithProcessModelIdStarted(
@@ -192,7 +192,7 @@ export interface IProcessModelConsumerApi {
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to create
+   * @throws {ForbiddenError}    If the user is not allowed to create
    *                             event subscriptions.
    */
   onProcessTerminated(
@@ -217,7 +217,7 @@ export interface IProcessModelConsumerApi {
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to create
+   * @throws {ForbiddenError}    If the user is not allowed to create
    *                             event subscriptions.
    */
   onProcessEnded(

@@ -20,7 +20,7 @@ export interface IEventConsumerApi {
    *                             Will be empty, if non are available.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to access the
+   * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             ProcessModel.
    */
   getEventsForProcessModel(identity: IIdentity, processModelId: string): Promise<EventList>;
@@ -37,7 +37,7 @@ export interface IEventConsumerApi {
    *                             Will be empty, if non are available.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to access the
+   * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             Correlation.
    */
   getEventsForCorrelation(identity: IIdentity, correlationId: string): Promise<EventList>;
@@ -57,7 +57,7 @@ export interface IEventConsumerApi {
    *                             Will be empty, if non are available.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to access the
+   * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             Correlation or the ProcessModel.
    */
   getEventsForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<EventList>;
@@ -71,7 +71,7 @@ export interface IEventConsumerApi {
    * @param payload              The payload with which to trigger the message.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to trigger events.
+   * @throws {ForbiddenError}    If the user is not allowed to trigger events.
    */
   triggerMessageEvent(identity: IIdentity, messageName: string, payload?: EventTriggerPayload): Promise<void>;
 
@@ -84,7 +84,7 @@ export interface IEventConsumerApi {
    * @param payload              The payload with which to trigger the signal.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to trigger events.
+   * @throws {ForbiddenError}    If the user is not allowed to trigger events.
    */
   triggerSignalEvent(identity: IIdentity, signalName: string, payload?: EventTriggerPayload): Promise<void>;
 }

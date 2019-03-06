@@ -22,7 +22,7 @@ export interface IManualTaskConsumerApi {
    *                             Will be empty, if non are available.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to access the
+   * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             ProcessModel.
    */
   getManualTasksForProcessModel(identity: IIdentity, processModelId: string): Promise<ManualTaskList>;
@@ -40,7 +40,7 @@ export interface IManualTaskConsumerApi {
    *                             Will be empty, if non are available.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to access the
+   * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             ProcessInstance.
    */
   getManualTasksForProcessInstance(identity: IIdentity, processInstanceId: string): Promise<ManualTaskList>;
@@ -58,7 +58,7 @@ export interface IManualTaskConsumerApi {
    *                             Will be empty, if non are available.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to access the
+   * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             Correlation.
    */
   getManualTasksForCorrelation(identity: IIdentity, correlationId: string): Promise<ManualTaskList>;
@@ -78,7 +78,7 @@ export interface IManualTaskConsumerApi {
    *                             Will be empty, if non are available.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to access the
+   * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             Correlation or the ProcessModel.
    */
   getManualTasksForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<ManualTaskList>;
@@ -112,7 +112,7 @@ export interface IManualTaskConsumerApi {
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to access the
+   * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             ManualTask.
    * @throws {NotFoundError}     If the ProcessInstance, the Correlation,
    *                             or the ManualTask was not found.
@@ -140,7 +140,7 @@ export interface IManualTaskConsumerApi {
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to create
+   * @throws {ForbiddenError}    If the user is not allowed to create
    *                             event subscriptions.
    */
   onManualTaskWaiting(
@@ -165,7 +165,7 @@ export interface IManualTaskConsumerApi {
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to create
+   * @throws {ForbiddenError}    If the user is not allowed to create
    *                             event subscriptions.
    */
   onManualTaskFinished(
@@ -190,7 +190,7 @@ export interface IManualTaskConsumerApi {
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to create
+   * @throws {ForbiddenError}    If the user is not allowed to create
    *                             event subscriptions.
    */
   onManualTaskForIdentityWaiting(
@@ -215,7 +215,7 @@ export interface IManualTaskConsumerApi {
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
-   * @throws {ForbiddenError}    If the User is not allowed to create
+   * @throws {ForbiddenError}    If the user is not allowed to create
    *                             event subscriptions.
    */
   onManualTaskForIdentityFinished(
