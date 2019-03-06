@@ -9,7 +9,7 @@ namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
         /// <summary>
         /// The ID of the process instance.
         /// </summary>
-        /// public string ProcessInstanceId { get; set; }
+        public string ProcessInstanceId { get; set; }
 
         /// <summary>
         /// The ID of the correlation in which the started process model runs.
