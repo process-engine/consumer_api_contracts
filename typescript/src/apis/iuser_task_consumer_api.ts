@@ -98,13 +98,13 @@ export interface IUserTaskConsumerApi {
 
   /**
    * Finishes a UserTask belonging to an instance of a specific ProcessModel
-   * within a correlation.
+   * within a Correlation.
    *
    * @async
    * @param  identity           The requesting users identity.
    * @param  processInstanceId  The ID of the ProcessInstance for which to finish
    *                            a UserTask.
-   * @param  correlationId      The ID of the correlation for which to finish a
+   * @param  correlationId      The ID of the Correlation for which to finish a
    *                            UserTask.
    * @param  userTaskInstanceId The instance ID of UserTask to finish.
    * @param  userTaskResult     Contains a set of results with which to finish
@@ -134,10 +134,10 @@ export interface IUserTaskConsumerApi {
    *                             new UserTask is waiting.
    *                             The message passed to the callback contains
    *                             further information about the UserTask.
-   * @param   subscribeOnce      Optional: If set to true, the Subscription will
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
    *                             be automatically disposed, after the notification
    *                             was received once.
-   * @returns                    The Subscription created by the EventAggregator.
+   * @returns                    The subscription created by the EventAggregator.
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
@@ -159,10 +159,10 @@ export interface IUserTaskConsumerApi {
    *                             UserTask is finished.
    *                             The message passed to the callback contains
    *                             further information about the UserTask.
-   * @param   subscribeOnce      Optional: If set to true, the Subscription will
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
    *                             be automatically disposed, after the notification
    *                             was received once.
-   * @returns                    The Subscription created by the EventAggregator.
+   * @returns                    The subscription created by the EventAggregator.
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
@@ -184,10 +184,10 @@ export interface IUserTaskConsumerApi {
    *                             UserTask for the identity is waiting.
    *                             The message passed to the callback contains
    *                             further information about the UserTask.
-   * @param   subscribeOnce      Optional: If set to true, the Subscription will
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
    *                             be automatically disposed, after the notification
    *                             was received once.
-   * @returns                    The Subscription created by the EventAggregator.
+   * @returns                    The subscription created by the EventAggregator.
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
@@ -209,10 +209,10 @@ export interface IUserTaskConsumerApi {
    *                             UserTask for the identity is finished.
    *                             The message passed to the callback contains
    *                             further information about the UserTask.
-   * @param   subscribeOnce      Optional: If set to true, the Subscription will
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
    *                             be automatically disposed, after the notification
    *                             was received once.
-   * @returns                    The Subscription created by the EventAggregator.
+   * @returns                    The subscription created by the EventAggregator.
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.

@@ -1,5 +1,5 @@
 /**
- * Describes a MaualTask that belongs to an active correlation.
+ * Describes a MaualTask that belongs to an active Correlation.
  */
 export class ManualTask {
   /**
@@ -15,7 +15,7 @@ export class ManualTask {
    */
   public flowNodeInstanceId?: string;
   /**
-   * The ID of the correlation that the ManualTask belongs to.
+   * The ID of the Correlation that the ManualTask belongs to.
    */
   public correlationId: string;
   /**

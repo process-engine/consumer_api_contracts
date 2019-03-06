@@ -104,7 +104,7 @@ export interface IManualTaskConsumerApi {
    * @param identity             The requesting users identity.
    * @param processInstanceId    The ID of the ProcessInstance for which to
    *                             finish a ManualTask.
-   * @param correlationId        The ID of the correlation for which to finish
+   * @param correlationId        The ID of the Correlation for which to finish
    *                             a ManualTask.
    * @param manualTaskInstanceId The instance ID of a ManualTask to finish.
    * @param manualTaskResult     Optional: Contains a set of results with which
@@ -133,10 +133,10 @@ export interface IManualTaskConsumerApi {
    *                             new ManualTask is waiting.
    *                             The message passed to the callback contains
    *                             further information about the ManualTask.
-   * @param   subscribeOnce      Optional: If set to true, the Subscription will
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
    *                             be automatically disposed, after the notification
    *                             was received once.
-   * @returns                    The Subscription created by the EventAggregator.
+   * @returns                    The subscription created by the EventAggregator.
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
@@ -158,10 +158,10 @@ export interface IManualTaskConsumerApi {
    *                             ManualTask is finished.
    *                             The message passed to the callback contains
    *                             further information about the ManualTask.
-   * @param   subscribeOnce      Optional: If set to true, the Subscription will
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
    *                             be automatically disposed, after the notification
    *                             was received once.
-   * @returns                    The Subscription created by the EventAggregator.
+   * @returns                    The subscription created by the EventAggregator.
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
@@ -183,10 +183,10 @@ export interface IManualTaskConsumerApi {
    *                             ManualTask for the identity is waiting.
    *                             The message passed to the callback contains
    *                             further information about the ManualTask.
-   * @param   subscribeOnce      Optional: If set to true, the Subscription will
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
    *                             be automatically disposed, after the notification
    *                             was received once.
-   * @returns                    The Subscription created by the EventAggregator.
+   * @returns                    The subscription created by the EventAggregator.
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
@@ -208,10 +208,10 @@ export interface IManualTaskConsumerApi {
    *                             ManualTask for the identity is finished.
    *                             The message passed to the callback contains
    *                             further information about the ManualTask.
-   * @param   subscribeOnce      Optional: If set to true, the Subscription will
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
    *                             be automatically disposed, after the notification
    *                             was received once.
-   * @returns                    The Subscription created by the EventAggregator.
+   * @returns                    The subscription created by the EventAggregator.
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.

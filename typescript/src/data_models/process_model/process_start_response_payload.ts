@@ -1,6 +1,6 @@
 /**
  * Contains a response from the ProcessEngine, which will be send after a ProcessModel was started.
- * Depending on the type of start callback used, this will also contain information about the correlation result.
+ * Depending on the type of start callback used, this will also contain information about the Correlation result.
  */
 export class ProcessStartResponsePayload {
   /**
@@ -8,7 +8,7 @@ export class ProcessStartResponsePayload {
    */
   public processInstanceId?: string;
   /**
-   * The ID of the correlation in which the started ProcessModel runs.
+   * The ID of the Correlation in which the started ProcessModel runs.
    */
   public correlationId: string;
   /**

@@ -26,7 +26,7 @@ export interface IEventConsumerApi {
   getEventsForProcessModel(identity: IIdentity, processModelId: string): Promise<EventList>;
 
   /**
-   * Retrieves a list of all triggerable events belonging to a correlation.
+   * Retrieves a list of all triggerable events belonging to a Correlation.
    *
    * @async
    * @param identity             The requesting users identity.

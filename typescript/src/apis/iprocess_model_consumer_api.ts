@@ -97,7 +97,7 @@ export interface IProcessModelConsumerApi {
    *
    * @async
    * @param   identity           The requesting users identity.
-   * @param   correlationId      The ID of the correlation for which to
+   * @param   correlationId      The ID of the Correlation for which to
    *                             retrieve the result.
    * @param   processModelId     The ID of the ProcessModel for which to
    *                             retrieve the result.
@@ -132,10 +132,10 @@ export interface IProcessModelConsumerApi {
    *                             ProcessInstance was started.
    *                             The message passed to the callback contains
    *                             further information about the ProcessInstance.
-   * @param   subscribeOnce      Optional: If set to true, the Subscription will
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
    *                             be automatically disposed, after the notification
    *                             was received once.
-   * @returns                    The Subscription created by the EventAggregator.
+   * @returns                    The subscription created by the EventAggregator.
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
@@ -159,10 +159,10 @@ export interface IProcessModelConsumerApi {
    *                             The message passed to the callback contains
    *                             further information about the ProcessInstance.
    * @param   processModelId     The ID of the ProcessModel to listen for.
-   * @param   subscribeOnce      Optional: If set to true, the Subscription will
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
    *                             be automatically disposed, after the notification
    *                             was received once.
-   * @returns                    The Subscription created by the EventAggregator.
+   * @returns                    The subscription created by the EventAggregator.
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
@@ -185,10 +185,10 @@ export interface IProcessModelConsumerApi {
    *                             ProcessInstance was terminated.
    *                             The message passed to the callback contains
    *                             further information about the ProcessInstance.
-   * @param   subscribeOnce      Optional: If set to true, the Subscription will
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
    *                             be automatically disposed, after the notification
    *                             was received once.
-   * @returns                    The Subscription created by the EventAggregator.
+   * @returns                    The subscription created by the EventAggregator.
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
@@ -210,10 +210,10 @@ export interface IProcessModelConsumerApi {
    *                             ProcessInstance was finished.
    *                             The message passed to the callback contains
    *                             further information about the ProcessInstance.
-   * @param   subscribeOnce      Optional: If set to true, the Subscription will
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
    *                             be automatically disposed, after the notification
    *                             was received once.
-   * @returns                    The Subscription created by the EventAggregator.
+   * @returns                    The subscription created by the EventAggregator.
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.

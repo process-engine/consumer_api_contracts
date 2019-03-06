@@ -1,17 +1,17 @@
 /**
- * Contains information about the result with which a correlation has finished execution.
+ * Contains information about the result with which a Correlation has finished execution.
  */
 export class CorrelationResult {
   /**
-   * The id of the correlation that was finished.
+   * The id of the Correlation that was finished.
    */
   public correlationId: string;
   /**
-   * The id of the EndEvent with which the correlation was finished.
+   * The id of the EndEvent with which the Correlation was finished.
    */
   public endEventId: string;
   /**
-   * Contains the final result with which a correlation was finished.
+   * Contains the final result with which a Correlation was finished.
    */
   public tokenPayload: string;
 }

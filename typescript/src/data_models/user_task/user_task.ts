@@ -17,7 +17,7 @@ export class UserTask {
    */
   public flowNodeInstanceId?: string;
   /**
-   * The ID of the correlation that the UserTask belongs to.
+   * The ID of the Correlation that the UserTask belongs to.
    */
   public correlationId: string;
   /**

@@ -105,7 +105,7 @@ export interface IEmptyActivityConsumerApi {
    * @param  identity                The requesting users identity.
    * @param  processInstanceId       The ID of the ProcessInstance for which to
    *                                 finish a EmptyActivity.
-   * @param  correlationId           The ID of the correlation for which to finish
+   * @param  correlationId           The ID of the Correlation for which to finish
    *                                 a EmptyActivity.
    * @param  emptyActivityInstanceId The instance ID of a EmptyActivity to finish.
    *
@@ -132,10 +132,10 @@ export interface IEmptyActivityConsumerApi {
    *                             new EmptyActivity is waiting.
    *                             The message passed to the callback contains
    *                             further information about the EmptyActivity.
-   * @param   subscribeOnce      Optional: If set to true, the Subscription will
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
    *                             be automatically disposed, after the notification
    *                             was received once.
-   * @returns                    The Subscription created by the EventAggregator.
+   * @returns                    The subscription created by the EventAggregator.
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
@@ -157,10 +157,10 @@ export interface IEmptyActivityConsumerApi {
    *                             EmptyActivity is finished.
    *                             The message passed to the callback contains
    *                             further information about the EmptyActivity.
-   * @param   subscribeOnce      Optional: If set to true, the Subscription will
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
    *                             be automatically disposed, after the notification
    *                             was received once.
-   * @returns                    The Subscription created by the EventAggregator.
+   * @returns                    The subscription created by the EventAggregator.
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
@@ -185,7 +185,7 @@ export interface IEmptyActivityConsumerApi {
    * @param   subscribeOnce      Optional: If set to true, the subscription will
    *                             be automatically disposed, after the notification
    *                             was received once.
-   * @returns                    The Subscription created by the EventAggregator.
+   * @returns                    The subscription created by the EventAggregator.
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
@@ -207,10 +207,10 @@ export interface IEmptyActivityConsumerApi {
    *                             EmptyActivity for the identity is finished.
    *                             The message passed to the callback contains
    *                             further information about the EmptyActivity.
-   * @param   subscribeOnce      Optional: If set to true, the Subscription will
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
    *                             be automatically disposed, after the notification
    *                             was received once.
-   * @returns                    The Subscription created by the EventAggregator.
+   * @returns                    The subscription created by the EventAggregator.
    *
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
