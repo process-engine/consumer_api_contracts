@@ -5,15 +5,15 @@ import {UserTaskConfig} from './user_task_config';
  */
 export class UserTask {
   /**
-   * The Model ID of the UserTask as it is declared in the ProcessModel.
+   * The model ID of the UserTask, as it is declared in the ProcessModel.
    */
   public id: string;
   /**
-   * The name of the UserTask as it is declared in the ProcessModel.
+   * The name of the UserTask, as it is declared in the ProcessModel.
    */
   public name: string;
   /**
-   * The Instance ID of the UserTask.
+   * The instance ID of the UserTask.
    */
   public flowNodeInstanceId?: string;
   /**

@@ -3,15 +3,15 @@
  */
 export class ManualTask {
   /**
-   * The Model ID of the ManualTask as it is declared in the ProcessModel.
+   * The model ID of the ManualTask, as it is declared in the ProcessModel.
    */
   public id: string;
   /**
-   * The name of the ManualTask as it is declared in the ProcessModel.
+   * The name of the ManualTask, as it is declared in the ProcessModel.
    */
   public name: string;
   /**
-   * The Instance ID of the ManualTask.
+   * The instance ID of the ManualTask.
    */
   public flowNodeInstanceId?: string;
   /**

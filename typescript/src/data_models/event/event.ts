@@ -6,11 +6,11 @@ import {EventType} from './event_type';
 
 export class Event {
   /**
-   * The Model ID of the Event as it is declared in the ProcessModel.
+   * The model ID of the event, as it is declared in the ProcessModel.
    */
   public id: string;
   /**
-   * The name of the Event as it is declared in the ProcessModel.
+   * The name of the event, as it is declared in the ProcessModel.
    */
   public eventName: string;
   /**
@@ -22,19 +22,19 @@ export class Event {
    */
   public eventType: EventType;
   /**
-   * The Instance ID of the Event.
+   * The instance ID of the event.
    */
   public flowNodeInstanceId?: string;
   /**
-   * The ID of the Correlation that the Event belongs to.
+   * The ID of the Correlation that the event belongs to.
    */
   public correlationId: string;
   /**
-   * The ID of the ProcessModel that the Event belongs to.
+   * The ID of the ProcessModel that the event belongs to.
    */
   public processModelId: string;
   /**
-   * The ID of the ProcessInstance that the Event belongs to.
+   * The ID of the ProcessInstance that the event belongs to.
    */
   public processInstanceId?: string;
 }
