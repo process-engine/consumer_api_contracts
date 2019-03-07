@@ -17,7 +17,7 @@ export interface IEventConsumerApi {
    *                             retrieve the events.
    * @returns                    A list of triggerable events for the given
    *                             ProcessModel.
-   *                             Will be empty, if non are available.
+   *                             Will be empty, if none are available.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
    * @throws {ForbiddenError}    If the user is not allowed to access the
@@ -34,7 +34,7 @@ export interface IEventConsumerApi {
    *                             the events.
    * @returns                    A list of triggerable events for the given
    *                             Correlation.
-   *                             Will be empty, if non are available.
+   *                             Will be empty, if none are available.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
    * @throws {ForbiddenError}    If the user is not allowed to access the
@@ -54,7 +54,7 @@ export interface IEventConsumerApi {
    *                             the events.
    * @returns                    A list of triggerable events for the given
    *                             ProcessModel and Correlation.
-   *                             Will be empty, if non are available.
+   *                             Will be empty, if none are available.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
    * @throws {ForbiddenError}    If the user is not allowed to access the

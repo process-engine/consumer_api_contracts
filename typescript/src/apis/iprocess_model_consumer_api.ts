@@ -15,7 +15,7 @@ export interface IProcessModelConsumerApi {
    * @async
    * @param   identity           The requesting users identity.
    * @returns                    A list of accessible ProcessModels.
-   *                             Will be empty, if non are available.
+   *                             Will be empty, if none are available.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
    */
