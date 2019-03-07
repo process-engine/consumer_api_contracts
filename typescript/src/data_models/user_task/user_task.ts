@@ -1,35 +1,36 @@
 import {UserTaskConfig} from './user_task_config';
 
 /**
- * Describes a UserTask that belongs to an active correlation.
+ * Describes a waiting UserTask.
  */
 export class UserTask {
   /**
-   * The id of the UserTask.
+   * The model ID of the UserTask, as it is declared in the ProcessModel.
    */
   public id: string;
   /**
-   * The instance id of the UserTask.
-   */
-  public flowNodeInstanceId?: string;
-  /**
-   * The name of the UserTask.
+   * The name of the UserTask, as it is declared in the ProcessModel.
    */
   public name: string;
   /**
-   * The id of the correlation that the UserTask belongs to.
+   * The instance ID of the UserTask.
+   */
+  public flowNodeInstanceId?: string;
+  /**
+   * The ID of the Correlation that the UserTask belongs to.
    */
   public correlationId: string;
   /**
-   * The id of the ProcessModel that the UserTask belongs to.
+   * The ID of the ProcessModel that the UserTask belongs to.
    */
   public processModelId: string;
   /**
-   * The id of the ProcessInstance that the UserTask belongs to.
+   * The ID of the ProcessInstance that the UserTask belongs to.
    */
   public processInstanceId?: string;
   /**
-   * Contains information about the UserTask configuration, such as the form fields that can be addressed.
+   * Contains information about the UserTasks configuration,
+   * such as the FormFields that can be accessed.
    */
   public data: UserTaskConfig;
   /**

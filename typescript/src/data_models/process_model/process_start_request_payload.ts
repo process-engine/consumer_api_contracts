@@ -3,16 +3,18 @@
  */
 export class ProcessStartRequestPayload {
   /**
-   * Optional: If set, the ProcessEngine will use this as the id for the correlation in which the ProcessModel will be executed.
-   * If not provided, the ProcessEngine will generate a CorrelationId by itself.
+   * Optional: If set, the ProcessEngine will use this as the ID for the
+   * Correlation in which the ProcessModel will be executed.
+   * If not provided, the ProcessEngine will generate a CorrelationId automatically.
    */
   public correlationId?: string;
    /**
-    * Optional: Contains a ProcessInstanceId and must only ever be set, when a subprocess is to be started.
+    * Optional: If a Subprocess is to be started, this will contain the ID of
+    * the ProcessInstance that started it.
     */
   public callerId?: string;
   /**
-   * Contains the arguments with which to start the ProcessModel.
+   * Contains the arguments with which to start the ProcessInstance.
    */
   public inputValues: any;
 }

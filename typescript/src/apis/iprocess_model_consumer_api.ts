@@ -13,9 +13,11 @@ export interface IProcessModelConsumerApi {
    * authorized to see.
    *
    * @async
-   * @param identity The requesting users identity.
-   * @returns        A Promise, which resolves with the ProcessModel list,
-   *                 or rejects an error, in case the request failed.
+   * @param   identity           The requesting users identity.
+   * @returns                    A list of accessible ProcessModels.
+   *                             Will be empty, if none are available.
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
    */
   getProcessModels(identity: IIdentity): Promise<DataModels.ProcessModels.ProcessModelList>;
 
@@ -23,12 +25,14 @@ export interface IProcessModelConsumerApi {
    * Retrieves a ProcessModel by its ID.
    *
    * @async
-   * @param identity       The requesting users identity.
-   * @param processModelId The ID of the ProcessModel to retrieve.
-   * @returns              A Promise, which resolves with the ProcessModel,
-   *                       or rejects an error, in case the request failed.
-   *                       This can happen, if the ProcessModel was not found,
-   *                       or the user is not authorized to see it.
+   * @param   identity           The requesting users identity.
+   * @param   processModelId     The ID of the ProcessModel to retrieve.
+   * @returns                    The retrieved ProcessModel.
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to access the
+   *                             ProcessModel.
+   * @throws {NotFoundError}     If ProcessModel was not found.
    */
   getProcessModelById(identity: IIdentity, processModelId: string): Promise<DataModels.ProcessModels.ProcessModel>;
 
@@ -36,12 +40,14 @@ export interface IProcessModelConsumerApi {
    * Retrieves a ProcessModel by a ProcessInstanceID.
    *
    * @async
-   * @param identity          The requesting users identity.
-   * @param processInstanceId The ProcessInstanceID of the ProcessModel to retrieve.
-   * @returns                 A Promise, which resolves with the ProcessModel,
-   *                          or rejects an error, in case the request failed.
-   *                          This can happen, if the ProcessModel was not found,
-   *                          or the user is not authorized to see it.
+   * @param   identity           The requesting users identity.
+   * @param   processInstanceId  The ID of the ProcessInstance for which to
+   *                             retrieve the ProcessModel.
+   * @returns                    The retrieved ProcessModel.
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to access the
+   *                             ProcessModel.
    */
   getProcessModelByProcessInstanceId(identity: IIdentity, processInstanceId: string): Promise<DataModels.ProcessModels.ProcessModel>;
 
@@ -54,50 +60,54 @@ export interface IProcessModelConsumerApi {
    * during execution.
    *
    * @async
-   * @param identity          The requesting users identity.
-   * @param processModelId    The ID of the ProcessModel to retrieve.
-   * @param payload           Contains parameters to pass to the ProcessInstance.
-   *                          Can optionally define a CorrelationId to use.
-   * @param startCallbackType The type of start callback use. Depending on the
-   *                          value used, the function will either resolve right
-   *                          after starting the ProcessInstance,
-   *                          or after reaching an EndEvent.
-   * @param startEventId      The ID of the StartEvent through which to start
-   *                          the ProcessInstance.
-   * @param endEventId        Contains the ID of the EndEvent that the
-   *                          ProcessEngine should wait for, before resolving.
-   *                          Works only in conjunction with the startCallbackType
-   *                          "CallbackOnEndEventReached".
-   * @returns                 A Promise, which resolves with the execution result,
-   *                          or rejects an error, in case the request failed.
-   *                          This can happen, if the ProcessModel was not found,
-   *                          or the user is not authorized to see it, or if
-   *                          the ProcessInstance was interrupted prematurely because of an error.
+   * @param   identity           The requesting users identity.
+   * @param   processModelId     The ID of the ProcessModel to retrieve.
+   * @param   payload            Contains parameters to pass to the ProcessInstance.
+   *                             Can optionally define a CorrelationId to use.
+   * @param   startCallbackType  The type of start callback use. Depending on
+   *                             the value used, the function will either resolve
+   *                             right after starting the ProcessInstance,
+   *                             or after reaching an EndEvent.
+   * @param   startEventId       The ID of the StartEvent through which to
+   *                             start the ProcessInstance.
+   * @param   endEventId         The ID of the EndEvent that the ProcessEngine
+   *                             should wait for, before resolving.
+   *                             Works only in conjunction with the
+   *                             startCallbackType "CallbackOnEndEventReached".
+   * @returns                    The final result of the request.
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to access the
+   *                             ProcessModel.
+   * @throws {NotFoundError}     If ProcessModel was not found.
    */
-  startProcessInstance(identity: IIdentity,
-                       processModelId: string,
-                       payload: DataModels.ProcessModels.ProcessStartRequestPayload,
-                       startCallbackType: DataModels.ProcessModels.StartCallbackType,
-                       startEventId?: string,
-                       endEventId?: string,
-                       processEndedCallback?: Messages.CallbackTypes.OnProcessEndedCallback,
-                      ): Promise<DataModels.ProcessModels.ProcessStartResponsePayload>;
+  startProcessInstance(
+    identity: IIdentity,
+    processModelId: string,
+    payload: DataModels.ProcessModels.ProcessStartRequestPayload,
+    startCallbackType: DataModels.ProcessModels.StartCallbackType,
+    startEventId?: string,
+    endEventId?: string,
+    processEndedCallback?: Messages.CallbackTypes.OnProcessEndedCallback,
+  ): Promise<DataModels.ProcessModels.ProcessStartResponsePayload>;
 
   /**
    * Retrieves the result of a specific ProcessModel within a Correlation.
    * This only works for ProcessInstances that have finished execution.
    *
    * @async
-   * @param identity       The requesting users identity.
-   * @param correlationId  The ID of the correlation for which to retrieve
-   *                       the result.
-   * @param processModelId The ID of the ProcessModel for which to retrieve
-   *                       the result.
-   * @returns              A Promise, which resolves with the correlation result,
-   *                       or rejects an error, in case the request failed.
-   *                       This can happen, if the ProcessModel or correlation
-   *                       were not found, or the user is not authorized to see
-   *                       the result.
+   * @param   identity           The requesting users identity.
+   * @param   correlationId      The ID of the Correlation for which to
+   *                             retrieve the result.
+   * @param   processModelId     The ID of the ProcessModel for which to
+   *                             retrieve the result.
+   * @returns                    The retrieved results.
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to access the
+   *                             Correlation.
+   * @throws {NotFoundError}     If the Correlation or the ProcessModel was not
+   *                             found.
    */
   getProcessResultForCorrelation(identity: IIdentity, correlationId: string, processModelId: string): Promise<Array<DataModels.CorrelationResult>>;
 
@@ -105,24 +115,32 @@ export interface IProcessModelConsumerApi {
    * Gets all active ProcessInstances belonging to the given identity.
    *
    * @async
-   * @param   identity The identity for which to get the ProcessInstances.
-   * @returns          The list of ProcessInstances.
+   * @param   identity           The identity for which to get the
+   *                             ProcessInstances.
+   * @returns                    The list of ProcessInstances.
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
    */
   getProcessInstancesByIdentity(identity: IIdentity): Promise<Array<DataModels.ProcessInstance>>;
 
   /**
-   * Executes a callback when a process started.
+   * Executes the provided callback when a ProcessInstance is started.
    *
    * @async
-   * @param   identity      The requesting users identity.
-   * @param   callback      The callback that will be executed when a new
-   *                        ProcessInstance was started.
-   *                        The message passed to the callback contains further
-   *                        information about the started process.
-   * @param   subscribeOnce Optional: If set to true, the Subscription will be
-   *                        automatically disposed, after the notification was
-   *                        received once.
-   * @returns               The Subscription created by the EventAggregator.
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when a new
+   *                             ProcessInstance was started.
+   *                             The message passed to the callback contains
+   *                             further information about the ProcessInstance.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
    */
   onProcessStarted(
     identity: IIdentity,
@@ -131,21 +149,25 @@ export interface IProcessModelConsumerApi {
   ): Promise<Subscription>;
 
   /**
-   * Executes a callback when a new ProcessInstance for a given ProcessModelId
+   * Executes the provided callback when a new ProcessInstance for a given ProcessModelId
    * was started.
    *
    * @async
-   * @param   identity       The requesting users identity.
-   * @param   callback       The callback that will be executed when a new
-   *                         ProcessInstance was started.
-   *                         The message passed to the callback contains further
-   *                         information about the started ProcessInstance.
-   * @param   processModelId The ID of the ProcessModel for which to receive
-   *                         notifications.
-   * @param   subscribeOnce  Optional: If set to true, the Subscription will be
-   *                         automatically disposed, after the notification was
-   *                         received once.
-   * @returns                The Subscription created by the EventAggregator.
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when a new
+   *                             ProcessInstance was started.
+   *                             The message passed to the callback contains
+   *                             further information about the ProcessInstance.
+   * @param   processModelId     The ID of the ProcessModel to listen for.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
    */
   onProcessWithProcessModelIdStarted(
     identity: IIdentity,
@@ -155,18 +177,23 @@ export interface IProcessModelConsumerApi {
   ): Promise<Subscription>;
 
   /**
-   * Executes a callback when a ProcessInstance is terminated.
+   * Executes the provided callback when a ProcessInstance is terminated.
    *
    * @async
-   * @param   identity      The requesting users identity.
-   * @param   callback      The callback that will be executed when a
-   *                        ProcessInstance is terminated.
-   *                         The message passed to the callback contains further
-   *                         information about the ProcessInstance terminated.
-   * @param   subscribeOnce Optional: If set to true, the Subscription will be
-   *                        automatically disposed, after the notification was
-   *                        received once.
-   * @returns               The Subscription created by the EventAggregator.
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when a
+   *                             ProcessInstance was terminated.
+   *                             The message passed to the callback contains
+   *                             further information about the ProcessInstance.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
    */
   onProcessTerminated(
     identity: IIdentity,
@@ -175,18 +202,23 @@ export interface IProcessModelConsumerApi {
   ): Promise<Subscription>;
 
   /**
-   * Executes a callback when a ProcessInstance ends.
+   * Executes the provided callback when a ProcessInstance ends.
    *
    * @async
-   * @param identity        The requesting users identity.
-   * @param callback        The callback that will be executed when a
-   *                        ProcessInstance is finished.
-   *                        The message passed to the callback contains further
-   *                        information about the finished ProcessInstance.
-   * @param   subscribeOnce Optional: If set to true, the Subscription will be
-   *                        automatically disposed, after the notification was
-   *                        received once.
-   * @returns               The Subscription created by the EventAggregator.
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when a
+   *                             ProcessInstance was finished.
+   *                             The message passed to the callback contains
+   *                             further information about the ProcessInstance.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
    */
   onProcessEnded(
     identity: IIdentity,

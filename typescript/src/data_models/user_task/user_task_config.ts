@@ -5,11 +5,11 @@ import {UserTaskFormField} from './user_task_form_field';
  */
 export class UserTaskConfig {
   /**
-   * A list of accessible form fields for the UserTask.
+   * A list of accessible FormFields for the UserTask.
    */
   public formFields: Array<UserTaskFormField> = [];
   /**
-   * The perferred type of control for the form field.
+   * The perferred type of control for the FormField.
    */
   public preferredControl?: string;
   /**
