@@ -70,7 +70,7 @@ export interface IConsumerApiHttpController {
   getEventsForProcessModel(request: HttpRequestWithIdentity, response: Response): Promise<void>;
 
   /**
-   * Retrieves a list of all triggerable events belonging to a correlation.
+   * Retrieves a list of all triggerable events belonging to a Correlation.
    *
    * @async
    * @param request  The HttpRequest object containing all request infos.
@@ -175,7 +175,7 @@ export interface IConsumerApiHttpController {
 
   /**
    * Finishes a UserTask belonging to an instance of a specific ProcessModel
-   * within a correlation.
+   * within a Correlation.
    *
    * @async
    * @param request  The HttpRequest object containing all request infos.

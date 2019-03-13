@@ -1,30 +1,21 @@
 /**
- * Describes a MaualTask that belongs to an active correlation.
+ * Describes a suspended ManualTask that is waiting to be finished.
  */
 export class ManualTask {
   /**
-   * The id of the ManualTask.
+   * The model ID of the ManualTask, as it is declared in the ProcessModel.
    */
   public id: string;
   /**
-   * The instance id of the UserTask.
-   */
-  public flowNodeInstanceId?: string;
-  /**
-   * The name of the ManualTask.
+   * The name of the ManualTask, as it is declared in the ProcessModel.
    */
   public name: string;
   /**
-   * The ID of the correlation that the ManualTask belongs to.
+   * The instance ID of the ManualTask.
    */
+  public flowNodeInstanceId?: string;
   public correlationId: string;
-  /**
-   * The ID of the ProcessModel that the ManualTask belongs to.
-   */
   public processModelId: string;
-  /**
-   * The ID of the ProcessInstance that the ManualTask belongs to.
-   */
   public processInstanceId?: string;
   /**
    * The token payload the ManualTask got suspended with.
