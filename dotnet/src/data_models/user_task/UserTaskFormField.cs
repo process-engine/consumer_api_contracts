@@ -3,38 +3,39 @@ namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
     using System.Collections.Generic;
 
     /// <summary>
-    /// Contains information about a UserTasks form field.
+    /// Contains information about a UserTasks FormField.
     /// </summary>
     public class UserTaskFormField
     {
         /// <summary>
-        /// The ID of the form field.
+        /// The ID of the FormField
         /// </summary>
         public string Id { get; set; }
 
         /// <summary>
-        /// The type of the form field.
+        /// The <see cref="UserTaskFormFieldType">type</see> of the FormField.
         /// </summary>
-        public string Type { get; set; }
+        public UserTaskFormFieldType Type { get; set; }
 
         /// <summary>
-        /// Optional: If the form field is an enumeration, this will contain the values for that enumeration.
+        /// Optional: If the FormField is an enumeration, this will contain the
+        /// values for that enumeration.
         /// </summary>
         public IEnumerable<UserTaskEnumValue> EnumValues { get; set; }
 
         /// <summary>
-        /// The label of the form field.
+        /// The label of the FormField.
         /// </summary>
         public string Label { get; set; }
 
         /// <summary>
-        /// The default value of the form field.
+        /// The default value of the FormField.
         /// </summary>
         public object DefaultValue { get; set; }
 
         /// <summary>
-        /// The perferred type of control for the form field.
+        /// The perferred type of control for the FormField.
         /// </summary>
         public string PreferredControl { get; set; }
-    }
+}
 }

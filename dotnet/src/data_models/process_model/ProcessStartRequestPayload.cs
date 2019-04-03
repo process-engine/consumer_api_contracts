@@ -8,21 +8,21 @@ namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
     public class ProcessStartRequestPayload<TInputValues>
     {
         /// <summary>
-        /// Optional: If set, the process engine will use this as the id for the
-        /// correlation in which the process model will be executed. If not
-        /// provided, the process engine will generate a correlation id by
-        /// itself.
+        /// Optional: If set, the ProcessEngine will use this as the ID for the
+        /// Correlation in which the ProcessModel will be executed. If not
+        /// provided, the ProcessEngine will generate a CorrelationId
+        /// automatically.
         /// </summary>
         public string CorrelationId { get; set; }
 
         /// <summary>
-        /// Optional: Contains a process instance id and must only ever be set,
-        /// when a subprocess is to be started.
+        /// Optional: If a Subprocess is to be started, this will contain the ID
+        /// of the ProcessInstance that started it.
         /// </summary>
         public string CallerId { get; set; }
 
         /// <summary>
-        /// Contains the arguments with which to start the process model.
+        /// Contains the arguments with which to start the ProcessInstance.
         /// </summary>
         public TInputValues InputValues { get; set; }
     }

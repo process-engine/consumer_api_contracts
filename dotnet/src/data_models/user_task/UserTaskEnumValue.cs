@@ -1,7 +1,8 @@
 namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
 {
     /// <summary>
-    /// If a UserTask's form field is an enumeration, this will contain information about the values contained within that enumeration.
+    /// If a UserTask's FormField is an enumeration, this will contain
+    /// information about the values contained within that enumeration.
     /// </summary>
     public class UserTaskEnumValue
     {

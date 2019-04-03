@@ -1,37 +1,37 @@
 namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
 {
     /// <summary>
-    /// Determines the type of a UserTask's form field.
+    /// Determines the type of a UserTask's FormField.
     /// </summary>
     public enum UserTaskFormFieldType
     {
         /// <summary>
-        /// The form field is a boolean.
+        /// The FormField is a boolean.
         /// </summary>
         Boolean,
 
         /// <summary>
-        /// The form field is a date.
+        /// The FormField is a date.
         /// </summary>
         Date,
 
         /// <summary>
-        /// The form field is an enumeration.
+        /// The FormField is an enumeration.
         /// </summary>
         Enum,
 
         /// <summary>
-        /// The form field is long-type numerical.
+        /// The FormField is long-type numerical.
         /// </summary>
         Long,
 
         /// <summary>
-        /// The form field is a number.
+        /// The FormField is a number.
         /// </summary>
         Number,
 
         /// <summary>
-        /// The form field is a string.
+        /// The FormField is a string.
         /// </summary>
         String
     }
