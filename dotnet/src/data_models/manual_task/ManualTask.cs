@@ -6,19 +6,19 @@ namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
     public class ManualTask
     {
         /// <summary>
-        /// The ID of the ManualTask.
+        /// The model ID of the ManualTask, as it is declared in the ProcessModel.
         /// </summary>
         public string Id { get; set; }
 
         /// <summary>
-        /// The FlowNodeInstance ID of the ManualTask.
-        /// </summary>
-        public string FlowNodeInstanceId { get; set; }
-
-        /// <summary>
-        /// The name of the ManualTask.
+        /// The name of the ManualTask, as it is declared in the ProcessModel.
         /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// The instance ID of the ManualTask.
+        /// </summary>
+        public string FlowNodeInstanceId { get; set; }
 
         /// <summary>
         /// The ID of the Correlation that the ManualTask belongs to.

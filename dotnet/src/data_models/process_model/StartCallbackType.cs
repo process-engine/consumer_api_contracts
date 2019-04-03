@@ -1,20 +1,26 @@
 namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
 {
     /// <summary>
-    /// Determines when the ProcessEngine will resolve, after a new ProcessInstance was started.
+    /// Determines when the ProcessEngine will finish the returned Task after a
+    /// new ProcessInstance was started.
     /// </summary>
     public enum StartCallbackType : byte
     {
         /// <summary>
-        /// The ProcessEngine will resolve immediately after the ProcessInstance was started.
+        /// The ProcessEngine will finish the Task immediately after the
+        /// ProcessInstance was started.
         /// </summary>
         CallbackOnProcessInstanceCreated = 1,
 
-        // TODO: cb - Sollte erst vorhanden sein, wenn die Implementierung auch vorhanden ist.
-        // CallbackOnProcessInstanceFinished = 2,
+        /// <summary>
+        /// The ProcessEngine will finish the Task after the first EndEvent was
+        /// reached.
+        /// </summary>
+        CallbackOnProcessInstanceFinished = 2,
 
         /// <summary>
-        /// The ProcessEngine will resolve after a specific end event was reached.
+        /// The ProcessEngine will finish the Task after a specific EndEvent was
+        /// reached.
         /// </summary>
         CallbackOnEndEventReached = 3,
     }
