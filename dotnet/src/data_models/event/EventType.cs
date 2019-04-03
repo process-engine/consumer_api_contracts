@@ -10,26 +10,26 @@ namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
         /// <summary>
         /// The event is a MessageEvent.
         /// </summary>
-        messageEvent,
+        MessageEvent,
 
         /// <summary>
         /// The event is a SignalEvent.
         /// </summary>
-        signalEvent,
+        SignalEvent,
 
         /// <summary>
         /// The event is a TerminateEvent.
         /// </summary>
-        terminateEvent,
+        TerminateEvent,
 
         /// <summary>
         /// The event is a TimerEvent.
         /// </summary>
-        timerEvent,
+        TimerEvent,
 
         /// <summary>
         /// The event is a ErrorEvent.
         /// </summary>
-        errorEvent,
+        ErrorEvent,
     }
 }
