@@ -5,31 +5,31 @@ namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
     /// <summary>
     /// Contains the possible types of events.
     /// </summary>
-    public class EventType
+    public enum EventType
     {
         /// <summary>
         /// The event is a MessageEvent.
         /// </summary>
-        public static readonly string MessageEvent = "messageEvent";
+        messageEvent,
 
         /// <summary>
         /// The event is a SignalEvent.
         /// </summary>
-        public static readonly string SignalEvent = "signalEvent";
+        signalEvent,
 
         /// <summary>
         /// The event is a TerminateEvent.
         /// </summary>
-        public static readonly string TerminateEvent = "terminateEvent";
+        terminateEvent,
 
         /// <summary>
         /// The event is a TimerEvent.
         /// </summary>
-        public static readonly string TimerEvent = "timerEvent";
+        timerEvent,
 
         /// <summary>
         /// The event is a ErrorEvent.
         /// </summary>
-        public static readonly string ErrorEvent = "errorEvent";
+        errorEvent,
     }
 }
