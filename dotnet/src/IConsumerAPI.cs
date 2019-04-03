@@ -12,7 +12,7 @@
     public interface IConsumerAPI :
         IProcessModelConsumerApi,
         IUserTaskConsumerApi,
-        IEventConsumerApi
+        IEventConsumerApi,
         IManualTaskConsumerApi
     { }
 }
