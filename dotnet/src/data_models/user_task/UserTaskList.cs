@@ -10,6 +10,6 @@ namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
         /// <summary>
         /// The UserTask list.
         /// </summary>
-        IEnumerable<UserTask> UserTasks { get; set; }
+        public IEnumerable<UserTask> UserTasks { get; set; }
     }
 }
