@@ -23,7 +23,7 @@ namespace ProcessEngine.ConsumerAPI.Contracts.RestSettings
     {
         public static string ProcessModels { get { return "/process_models"; } }
         public static string ProcessModelById { get { return $"/process_models/{Params.ProcessModelId}"; } }
-        public static string StartProcessInstance { get { return $"/process_models/{Params.ProcessModelId}/start_events/{Params.StartEventId}/start"; } }
+        public static string StartProcessInstance { get { return $"/process_models/{Params.ProcessModelId}/start"; } }
         public static string GetOwnProcessInstances { get { return "/process_instances/own"; } }
         public static string GetProcessResultForCorrelation { get { return $"/correlations/{Params.CorrelationId}/process_models/{Params.ProcessModelId}/results"; } }
         // Events
@@ -34,12 +34,14 @@ namespace ProcessEngine.ConsumerAPI.Contracts.RestSettings
         public static string TriggerSignalEvent { get { return $"/signal/{Params.EventName}/trigger"; } }
         // UserTasks
         public static string ProcessModelUserTasks { get { return $"/process_models/{Params.ProcessModelId}/user_tasks"; } }
+        public static string ProcessInstanceUserTasks { get { return $"/process_instances/{Params.ProcessInstanceId}/user_tasks"; } }
         public static string CorrelationUserTasks { get { return $"/correlations/{Params.CorrelationId}/user_tasks"; } }
         public static string ProcessModelCorrelationUserTasks { get { return $"/process_models/{Params.ProcessModelId}/correlations/{Params.CorrelationId}/user_tasks"; } }
         public static string GetOwnUserTasks { get { return "/user_tasks/own"; } }
         public static string FinishUserTask { get { return $"/processes/{Params.ProcessInstanceId}/correlations/{Params.CorrelationId}/usertasks/{Params.UserTaskInstanceId}/finish"; } }
         // ManualTask
         public static string ProcessModelManualTasks { get { return $"/process_models/{Params.ProcessModelId}/manual_tasks"; } }
+        public static string ProcessInstanceManualTasks { get { return $"/process_instances/{Params.ProcessInstanceId}/manual_tasks"; } }
         public static string CorrelationManualTasks { get { return $"/correlations/{Params.CorrelationId}/manual_tasks"; } }
         public static string ProcessModelCorrelationManualTasks { get { return $"/process_models/{Params.ProcessModelId}/correlations/{Params.CorrelationId}/manual_tasks"; } }
         public static string GetOwnManualTasks { get { return $"/manual_tasks/own"; } }
