@@ -1,24 +1,25 @@
-﻿namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
+﻿
+namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
 {
     /// <summary>
-    /// Contains information about the result with which a correlation has finished execution.
+    /// Contains information about the result with which a Correlation has finished execution.
     /// </summary>
     public class CorrelationResult<TPayload>
     {
         /// <summary>
-        /// Contains the final result with which a correlation was finished.
-        /// </summary>
-        /// <value>The token payload.</value>
-        public TPayload TokenPayload { get; set; }
-
-        /// <summary>
-        /// The Id of the correlation that was finished.
+        /// The Id of the Correlation that was finished.
         /// </summary>
         public string CorrelationId { get; set; }
 
         /// <summary>
-        /// The Id of the end event with which the correlation was finished.
+        /// The Id of the end event with which the Correlation was finished.
         /// </summary>
         public string EndEventId { get; set; }
+
+        /// <summary>
+        /// Contains the final result with which a Correlation was finished.
+        /// </summary>
+        /// <value>The type of the token payload.</value>
+        public TPayload TokenPayload { get; set; }
     }
 }

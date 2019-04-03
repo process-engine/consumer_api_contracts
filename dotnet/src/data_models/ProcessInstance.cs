@@ -28,7 +28,7 @@ namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
         public string ProcessModelId { get; set; }
 
         /// <summary>
-        /// The Id of the ProcessInstance that started this ProcessInstance.
+        /// Optional: The Id of the ProcessInstance that started this ProcessInstance.
         /// </summary>
         public string ParentProcessInstanceId { get; set; }
     }

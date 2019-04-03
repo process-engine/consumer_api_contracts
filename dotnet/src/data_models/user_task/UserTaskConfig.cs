@@ -1,17 +1,19 @@
 namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// Contains information about a UserTasks configuration.
     /// </summary>
     public class UserTaskConfig
     {
         /// <summary>
-        /// A list of accessible form fields for the UserTask.
+        /// A list of accessible FormFields for the UserTask.
         /// </summary>
-        public UserTaskFormField[] FormFields { get; set; }
+        public IEnumerable<UserTaskFormField> FormFields { get; set; }
 
         /// <summary>
-        /// The perferred type of control for the form field.
+        /// The perferred type of control for the FormField.
         /// </summary>
         public string PreferredControl { get; set; }
 

@@ -3,13 +3,13 @@ namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
     using System.Collections.Generic;
 
     /// <summary>
-    /// Describes a list of UserTasks.
+    /// Describes a list of ManualTasks.
     /// </summary>
-    public class UserTaskList
+    public class ManualTaskList
     {
         /// <summary>
-        /// The UserTask list.
+        /// The ManualTask list.
         /// </summary>
-        public IEnumerable<UserTask> UserTasks { get; set; }
+        public IEnumerable<ManualTask> ManualTasks { get; set; }
     }
 }
