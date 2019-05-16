@@ -10,6 +10,7 @@ export interface IConsumerApi
           APIs.ICallActivityConsumerApi,
           APIs.IEmptyActivityConsumerApi,
           APIs.IEventConsumerApi,
+          APIs.IIntermediateEventConsumerApi,
           APIs.IManualTaskConsumerApi,
           APIs.INotificationConsumerApi,
           APIs.IProcessModelConsumerApi,
