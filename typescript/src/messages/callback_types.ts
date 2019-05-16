@@ -1,5 +1,7 @@
 import {EndEventReachedMessage, TerminateEndEventReachedMessage} from './bpmn_events';
 import {
+  BoundaryEventFinishedMessage,
+  BoundaryEventReachedMessage,
   CallActivityFinishedMessage,
   CallActivityReachedMessage,
   EmptyActivityFinishedMessage,
@@ -10,6 +12,9 @@ import {
   UserTaskFinishedMessage,
   UserTaskReachedMessage,
 } from './system_events';
+
+export type OnBoundaryEventWaitingCallback = (boundaryEventWaiting: BoundaryEventReachedMessage) => void | Promise<void>;
+export type OnBoundaryEventFinishedCallback = (boundaryEventFinished: BoundaryEventFinishedMessage) => void | Promise<void>;
 
 export type OnCallActivityWaitingCallback = (callActivityWaiting: CallActivityReachedMessage) => void | Promise<void>;
 export type OnCallActivityFinishedCallback = (callActivityFinished: CallActivityFinishedMessage) => void | Promise<void>;
