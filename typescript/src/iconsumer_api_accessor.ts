@@ -7,5 +7,5 @@ import {IConsumerApi} from './iconsumer_api';
  * perform the same type of requests, regardless of which type of ProcessEngine
  * is used.
  */
-// tslint:disable-next-line:no-empty-interface
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface IConsumerApiAccessor extends IConsumerApi {}
