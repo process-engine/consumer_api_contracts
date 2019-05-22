@@ -2,6 +2,7 @@
  * Contains information about the result with which a Correlation has finished execution.
  */
 export class CorrelationResult {
+
   /**
    * The id of the Correlation that was finished.
    */
@@ -14,4 +15,5 @@ export class CorrelationResult {
    * Contains the final result with which a Correlation was finished.
    */
   public tokenPayload: string;
+
 }

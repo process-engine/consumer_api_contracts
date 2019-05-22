@@ -1,4 +1,3 @@
-// tslint:disable:typedef
 const pathParams = {
   processModelId: 'process_model_id',
   userId: 'user_id',
@@ -18,12 +17,12 @@ const paths = {
   manualTaskFinished: 'manual_task_finished',
   manualTaskForIdentityFinished: `manual_task_finished/user_id/${pathParams.userId}`,
   processEnded: 'process_ended',
-  processStarted: `process_started`,
+  processStarted: 'process_started',
   processTerminated: 'process_terminated',
   processInstanceStarted: `/process_instance_started/${pathParams.processModelId}`,
 };
 
-const namespace: string = 'consumer_api';
+const namespace = 'consumer_api';
 
 export const socketSettings = {
   namespace: namespace,

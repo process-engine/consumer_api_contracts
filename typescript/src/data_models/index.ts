@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import * as emptyActivities from './empty_activity/index';
 import * as events from './event/index';
 import * as manualTasks from './manual_task/index';
@@ -7,7 +8,6 @@ import * as userTasks from './user_task/index';
 import * as correlationResult from './correlation_result';
 import * as processInstance from './process_instance';
 
-// tslint:disable-next-line:no-namespace
 export namespace DataModels {
   export import CorrelationResult = correlationResult.CorrelationResult;
   export import EmptyActivities = emptyActivities;

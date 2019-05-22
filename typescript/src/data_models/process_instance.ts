@@ -4,6 +4,7 @@ import {IIdentity} from '@essential-projects/iam_contracts';
  * Describes a single ProcessInstance.
  */
 export class ProcessInstance {
+
   public readonly id: string;
   public readonly owner: IIdentity;
   public readonly correlationId: string;
@@ -17,4 +18,5 @@ export class ProcessInstance {
     this.owner = owner;
     this.parentProcessInstanceId = parentProcessInstanceId;
   }
+
 }
