@@ -8,12 +8,12 @@ import {Messages} from '../messages/index';
  */
 export interface IBoundaryEventConsumerApi {
   /**
-   * Executes the provided callback when a BoundaryEvent is reached.
+   * Executes the provided callback when a BoundaryEvent is triggered.
    *
    * @async
    * @param   identity           The requesting users identity.
    * @param   callback           The callback that will be executed when a
-   *                             new BoundaryEvent is waiting.
+   *                             new BoundaryEvent is triggered.
    *                             The message passed to the callback contains
    *                             further information about the BoundaryEvent.
    * @param   subscribeOnce      Optional: If set to true, the subscription will
@@ -26,34 +26,9 @@ export interface IBoundaryEventConsumerApi {
    * @throws {ForbiddenError}    If the user is not allowed to create
    *                             event subscriptions.
    */
-  onBoundaryEventWaiting(
+  onBoundaryEventTriggered(
     identity: IIdentity,
-    callback: Messages.CallbackTypes.OnBoundaryEventWaitingCallback,
-    subscribeOnce?: boolean,
-  ): Promise<Subscription>;
-
-  /**
-   * Executes the provided callback when a BoundaryEvent is finished.
-   *
-   * @async
-   * @param   identity           The requesting users identity.
-   * @param   callback           The callback that will be executed when an
-   *                             BoundaryEvent is finished.
-   *                             The message passed to the callback contains
-   *                             further information about the BoundaryEvent.
-   * @param   subscribeOnce      Optional: If set to true, the subscription will
-   *                             be automatically disposed, after the notification
-   *                             was received once.
-   * @returns                    The subscription created by the EventAggregator.
-   *
-   * @throws {UnauthorizedError} If the given identity does not contain a
-   *                             valid auth token.
-   * @throws {ForbiddenError}    If the user is not allowed to create
-   *                             event subscriptions.
-   */
-  onBoundaryEventFinished(
-    identity: IIdentity,
-    callback: Messages.CallbackTypes.OnBoundaryEventFinishedCallback,
+    callback: Messages.CallbackTypes.OnBoundaryEventTriggeredCallback,
     subscribeOnce?: boolean,
   ): Promise<Subscription>;
 }
