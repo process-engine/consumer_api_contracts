@@ -8,12 +8,12 @@ import {Messages} from '../messages/index';
  */
 export interface IIntermediateEventConsumerApi {
   /**
-   * Executes the provided callback when a IntermediateEvent is reached.
+   * Executes the provided callback when a IntermediateEvent is triggered.
    *
    * @async
    * @param   identity           The requesting users identity.
    * @param   callback           The callback that will be executed when a
-   *                             new IntermediateEvent is waiting.
+   *                             new IntermediateEvent is triggered.
    *                             The message passed to the callback contains
    *                             further information about the IntermediateEvent.
    * @param   subscribeOnce      Optional: If set to true, the subscription will
@@ -26,9 +26,9 @@ export interface IIntermediateEventConsumerApi {
    * @throws {ForbiddenError}    If the user is not allowed to create
    *                             event subscriptions.
    */
-  onIntermediateEventWaiting(
+  onIntermediateEventTriggered(
     identity: IIdentity,
-    callback: Messages.CallbackTypes.OnIntermediateEventWaitingCallback,
+    callback: Messages.CallbackTypes.OnIntermediateEventTriggeredCallback,
     subscribeOnce?: boolean,
   ): Promise<Subscription>;
 
@@ -51,9 +51,9 @@ export interface IIntermediateEventConsumerApi {
    * @throws {ForbiddenError}    If the user is not allowed to create
    *                             event subscriptions.
    */
-  onIntermediateEventFinished(
+  onIntermediateCatchEventFinished(
     identity: IIdentity,
-    callback: Messages.CallbackTypes.OnIntermediateEventFinishedCallback,
+    callback: Messages.CallbackTypes.OnIntermediateCatchEventFinishedCallback,
     subscribeOnce?: boolean,
   ): Promise<Subscription>;
 }
