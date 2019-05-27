@@ -7,11 +7,11 @@ import {APIs} from './apis/index';
  */
 export interface IConsumerApi
   extends APIs.IBoundaryEventConsumerApi,
-          APIs.ICallActivityConsumerApi,
-          APIs.IEmptyActivityConsumerApi,
-          APIs.IEventConsumerApi,
-          APIs.IIntermediateEventConsumerApi,
-          APIs.IManualTaskConsumerApi,
-          APIs.INotificationConsumerApi,
-          APIs.IProcessModelConsumerApi,
-          APIs.IUserTaskConsumerApi {}
+  APIs.ICallActivityConsumerApi,
+  APIs.IEmptyActivityConsumerApi,
+  APIs.IEventConsumerApi,
+  APIs.IIntermediateEventConsumerApi,
+  APIs.IManualTaskConsumerApi,
+  APIs.INotificationConsumerApi,
+  APIs.IProcessModelConsumerApi,
+  APIs.IUserTaskConsumerApi {}
