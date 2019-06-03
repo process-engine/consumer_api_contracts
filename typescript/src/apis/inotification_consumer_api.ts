@@ -92,7 +92,7 @@ export interface INotificationConsumerApi {
   ): Promise<Subscription>;
 
   /**
-   * Executes the provided callback when a IntermediateThrowEvent is triggered.
+   * Executes the provided callback when an IntermediateThrowEvent is triggered.
    *
    * @async
    * @param   identity           The requesting users identity.
@@ -117,7 +117,7 @@ export interface INotificationConsumerApi {
   ): Promise<Subscription>;
 
   /**
-   * Executes the provided callback when a IntermediateCatchEvent is reached.
+   * Executes the provided callback when an IntermediateCatchEvent is reached.
    *
    * @async
    * @param   identity           The requesting users identity.
@@ -142,7 +142,7 @@ export interface INotificationConsumerApi {
   ): Promise<Subscription>;
 
   /**
-   * Executes the provided callback when a IntermediateCatchEvent is finished.
+   * Executes the provided callback when an IntermediateCatchEvent is finished.
    *
    * @async
    * @param   identity           The requesting users identity.
