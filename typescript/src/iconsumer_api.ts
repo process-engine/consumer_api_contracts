@@ -6,9 +6,7 @@ import {APIs} from './apis/index';
  * communicate with the ProcessEngine.
  */
 export interface IConsumerApi
-  extends APIs.IBoundaryEventConsumerApi,
-  APIs.ICallActivityConsumerApi,
-  APIs.IEmptyActivityConsumerApi,
+  extends APIs.IEmptyActivityConsumerApi,
   APIs.IEventConsumerApi,
   APIs.IManualTaskConsumerApi,
   APIs.INotificationConsumerApi,
