@@ -4,10 +4,16 @@ const pathParams = {
 };
 
 const paths = {
+  boundaryEventTriggered: 'boundary_event_triggered',
+  callActivityWaiting: 'call_activity_waiting',
+  callActivityFinished: 'call_activity_finished',
   emptyActivityWaiting: 'empty_activity_waiting',
   emptyActivityForIdentityWaiting: `empty_activity_waiting/user_id/${pathParams.userId}`,
   emptyActivityFinished: 'empty_activity_finished',
   emptyActivityForIdentityFinished: `empty_activity_finished/user_id/${pathParams.userId}`,
+  intermediateThrowEventTriggered: 'intermediate_throw_event_triggered',
+  intermediateCatchEventReached: 'intermediate_catch_event_reached',
+  intermediateCatchEventFinished: 'intermediate_catch_event_finished',
   userTaskWaiting: 'user_task_waiting',
   userTaskForIdentityWaiting: `user_task_waiting/user_id/${pathParams.userId}`,
   userTaskFinished: 'user_task_finished',
