@@ -6,7 +6,8 @@ import {
   EmptyActivityFinishedMessage,
   EmptyActivityReachedMessage,
   IntermediateCatchEventFinishedMessage,
-  IntermediateEventTriggeredMessage,
+  IntermediateCatchEventReachedMessage,
+  IntermediateThrowEventTriggeredMessage,
   ManualTaskFinishedMessage,
   ManualTaskReachedMessage,
   ProcessStartedMessage,
@@ -16,7 +17,11 @@ import {
 
 export type OnBoundaryEventTriggeredCallback = (boundaryEventTriggered: BoundaryEventTriggeredMessage) => void | Promise<void>;
 
-export type OnIntermediateEventTriggeredCallback = (intermediateEventTriggered: IntermediateEventTriggeredMessage) => void | Promise<void>;
+export type OnIntermediateThrowEventTriggeredCallback =
+  (intermediateThrowEventTriggered: IntermediateThrowEventTriggeredMessage) => void | Promise<void>;
+
+export type OnIntermediateCatchEventReachedCallback =
+  (intermediateCatchEventReached: IntermediateCatchEventReachedMessage) => void | Promise<void>;
 export type OnIntermediateCatchEventFinishedCallback =
   (intermediateCatchEventFinished: IntermediateCatchEventFinishedMessage) => void | Promise<void>;
 
