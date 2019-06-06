@@ -5,8 +5,8 @@ const pathParams = {
 
 const paths = {
   boundaryEventTriggered: 'boundary_event_triggered',
-  callActivityWaiting: 'call_activity_waiting',
-  callActivityFinished: 'call_activity_finished',
+  activityReached: 'activity_reached',
+  activityFinished: 'activity_finished',
   emptyActivityWaiting: 'empty_activity_waiting',
   emptyActivityForIdentityWaiting: `empty_activity_waiting/user_id/${pathParams.userId}`,
   emptyActivityFinished: 'empty_activity_finished',
