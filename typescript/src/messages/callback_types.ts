@@ -1,8 +1,8 @@
 import {EndEventReachedMessage, TerminateEndEventReachedMessage} from './bpmn_events';
 import {
+  ActivityFinishedMessage,
+  ActivityReachedMessage,
   BoundaryEventTriggeredMessage,
-  CallActivityFinishedMessage,
-  CallActivityReachedMessage,
   EmptyActivityFinishedMessage,
   EmptyActivityReachedMessage,
   IntermediateCatchEventFinishedMessage,
@@ -26,8 +26,8 @@ export type OnIntermediateCatchEventReachedCallback =
 export type OnIntermediateCatchEventFinishedCallback =
   (intermediateCatchEventFinished: IntermediateCatchEventFinishedMessage) => void | Promise<void>;
 
-export type OnCallActivityWaitingCallback = (callActivityWaiting: CallActivityReachedMessage) => void | Promise<void>;
-export type OnCallActivityFinishedCallback = (callActivityFinished: CallActivityFinishedMessage) => void | Promise<void>;
+export type OnActivityReachedCallback = (callActivityWaiting: ActivityReachedMessage) => void | Promise<void>;
+export type OnActivityFinishedCallback = (callActivityFinished: ActivityFinishedMessage) => void | Promise<void>;
 
 export type OnEmptyActivityWaitingCallback = (userTaskWaiting: EmptyActivityReachedMessage) => void | Promise<void>;
 export type OnEmptyActivityFinishedCallback = (userTaskFinished: EmptyActivityFinishedMessage) => void | Promise<void>;
