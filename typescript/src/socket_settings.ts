@@ -24,6 +24,7 @@ const paths = {
   manualTaskForIdentityFinished: `manual_task_finished/user_id/${pathParams.userId}`,
   processEnded: 'process_ended',
   processStarted: 'process_started',
+  processError: 'process_error',
   processTerminated: 'process_terminated',
   processInstanceStarted: `/process_instance_started/${pathParams.processModelId}`,
 };
