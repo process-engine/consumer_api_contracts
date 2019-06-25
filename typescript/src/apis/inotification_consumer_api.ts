@@ -67,14 +67,14 @@ export interface INotificationConsumerApi {
   ): Promise<Subscription>;
 
   /**
-   * Executes the provided callback when an CallActivity is reached.
+   * Executes the provided callback when a CallActivity is reached.
    *
    * @deprecated This function will be removed with the next major Release! Use onActivityReached instead!
    *
    * @async
    * @param   identity           The requesting users identity.
-   * @param   callback           The callback that will be executed when an
-   *                             CallActivity is reached.
+   * @param   callback           The callback that will be executed when a
+   *                             new CallActivity is waiting.
    *                             The message passed to the callback contains
    *                             further information about the CallActivity.
    * @param   subscribeOnce      Optional: If set to true, the subscription will
@@ -94,13 +94,13 @@ export interface INotificationConsumerApi {
   ): Promise<Subscription>;
 
   /**
-   * Executes the provided callback when an CallActivity is finished.
+   * Executes the provided callback when a CallActivity is finished.
    *
    * @deprecated This function will be removed with the next major Release! Use onActivityFinished instead!
    *
    * @async
    * @param   identity           The requesting users identity.
-   * @param   callback           The callback that will be executed when an
+   * @param   callback           The callback that will be executed when a
    *                             CallActivity is finished.
    *                             The message passed to the callback contains
    *                             further information about the CallActivity.
@@ -116,7 +116,7 @@ export interface INotificationConsumerApi {
    */
   onCallActivityFinished(
     identity: IIdentity,
-    callback: Messages.CallbackTypes.OnActivityFinishedCallback,
+    callback: Messages.CallbackTypes.OnCallActivityFinishedCallback,
     subscribeOnce?: boolean,
   ): Promise<Subscription>;
 
