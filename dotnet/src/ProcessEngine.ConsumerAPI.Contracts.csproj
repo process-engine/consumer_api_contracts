@@ -6,7 +6,7 @@
     <RootNamespace>ProcessEngine.ConsumerAPI.Contracts</RootNamespace>
     <AssemblyName>ProcessEngine.ConsumerAPI.Contracts</AssemblyName>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Authors>Thomas Konrad;Sebastian Meier</Authors>
+    <Authors>Christian Werner;Thomas Konrad;Sebastian Meier</Authors>
     <Company>5Minds IT-Solutions GmbH &amp; Co. KG</Company>
     <Description />
     <Copyright>Copyright © 5Minds IT-Solutions GmbH &amp; Co. KG 2018</Copyright>
