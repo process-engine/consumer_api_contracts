@@ -12,6 +12,7 @@ namespace ProcessEngine.ConsumerAPI.Contracts.RestSettings
         public static string ProcessModelId { get { return ":process_model_id"; } }
         public static string CorrelationId { get { return ":correlation_id"; } }
         public static string StartEventId { get { return ":start_event_id"; } }
+        public static string EmptyActivityInstanceId { get { return ":empty_activity_instance_id"; } }
         public static string EndEventId { get { return ":end_event_id"; } }
         public static string EventId { get { return ":event_id"; } }
         public static string EventName { get { return ":event_name"; } }
@@ -32,6 +33,13 @@ namespace ProcessEngine.ConsumerAPI.Contracts.RestSettings
         public static string ProcessModelCorrelationEvents { get { return $"/process_models/{Params.ProcessModelId}/correlations/{Params.CorrelationId}/events"; } }
         public static string TriggerMessageEvent { get { return $"/message/{Params.EventName}/trigger"; } }
         public static string TriggerSignalEvent { get { return $"/signal/{Params.EventName}/trigger"; } }
+        // EmptyActivities
+        public static string ProcessModelEmptyActivities { get { return $"/process_models/{Params.ProcessModelId}/empty_activities"; } }
+        public static string ProcessInstanceEmptyActivities { get { return $"/process_instances/{Params.ProcessInstanceId}/empty_activities"; } }
+        public static string CorrelationEmptyActivities { get { return $"/correlations/{Params.CorrelationId}/empty_activities"; } }
+        public static string ProcessModelCorrelationEmptyActivities { get { return $"/process_models/{Params.ProcessModelId}/correlations/{Params.CorrelationId}/empty_activities"; } }
+        public static string GetOwnEmptyActivities { get { return "/empty_activities/own"; } }
+        public static string FinishEmptyActivity { get { return $"/processes/{Params.ProcessInstanceId}/correlations/{Params.CorrelationId}/empty_activities/{Params.EmptyActivityInstanceId}/finish"; } }
         // UserTasks
         public static string ProcessModelUserTasks { get { return $"/process_models/{Params.ProcessModelId}/user_tasks"; } }
         public static string ProcessInstanceUserTasks { get { return $"/process_instances/{Params.ProcessInstanceId}/user_tasks"; } }
