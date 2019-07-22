@@ -67,10 +67,10 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         /// <param name="identity">The requesting users <see cref="EssentialProjects.IAM.Contracts.IIdentity">identity</see>. Should usually contain an auth token.</param>
         /// <param name="processInstanceId">The ID of the ProcessInstance that the EmptyActivity belongs to.</param>
         /// <param name="correlationId">The ID of the Correlation that the EmptyActivity belongs to.</param>
-        /// <param name="EmptyActivityInstanceId">The instance ID of the EmptyActivity to finish.</param>
+        /// <param name="emptyActivityInstanceId">The instance ID of the EmptyActivity to finish.</param>
         /// <exception cref="System.UnauthorizedAccessException">Thrown when the identity has insufficient rights to perform the operation.</exception>
         /// <exception cref="ProcessNotFoundException"> Thrown when the ProcessInstance, Correlation or EmptyActivityInstance could not be found.</exception>
-        Task FinishEmptyActivity(IIdentity identity, string processInstanceId, string correlationId, string EmptyActivityInstanceId);
+        Task FinishEmptyActivity(IIdentity identity, string processInstanceId, string correlationId, string emptyActivityInstanceId);
     }
 
 }
