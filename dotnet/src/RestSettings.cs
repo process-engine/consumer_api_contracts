@@ -24,7 +24,7 @@ namespace ProcessEngine.ConsumerAPI.Contracts.RestSettings
     {
         public static string ProcessModels { get { return "/process_models"; } }
         public static string ProcessModelById { get { return $"/process_models/{Params.ProcessModelId}"; } }
-        public static string ProcessModelByProcessInstanceId { get { return $"/process_instance/${Params.ProcessInstanceId}/process_model/"; } }
+        public static string ProcessModelByProcessInstanceId { get { return $"/process_instance/{Params.ProcessInstanceId}/process_model/"; } }
         public static string StartProcessInstance { get { return $"/process_models/{Params.ProcessModelId}/start"; } }
         public static string GetOwnProcessInstances { get { return "/process_instances/own"; } }
         public static string GetProcessResultForCorrelation { get { return $"/correlations/{Params.CorrelationId}/process_models/{Params.ProcessModelId}/results"; } }
