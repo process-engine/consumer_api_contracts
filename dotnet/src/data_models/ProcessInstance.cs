@@ -15,7 +15,7 @@ namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
         /// <summary>
         /// The identity of the ProcessInstance owner.
         /// </summary>
-        public IIdentity Owner { get; set; }
+        public Identity Owner { get; set; }
 
         /// <summary>
         /// The Id of the correlation the ProcessInstance belongs to.

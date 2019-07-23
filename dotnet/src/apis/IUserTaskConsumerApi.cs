@@ -18,6 +18,14 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         Task<UserTaskList> GetUserTasksForProcessModel(IIdentity identity, string processModelId);
 
         /// <summary>
+        /// Retrieves a list of all suspended UserTasks belonging to the given ProcessInstance.
+        /// </summary>
+        /// <returns>The fetched UserTasks.</returns>
+        /// <param name="identity">The requesting users <see cref="EssentialProjects.IAM.Contracts.IIdentity">identity</see>. Should usually contain an auth token.</param>
+        /// <param name="processInstanceId">The ID of the ProcessInstance for which to get the UserTasks.</param>
+        Task<UserTaskList> GetUserTasksForProcessInstance(IIdentity identity, string processInstanceId);
+
+        /// <summary>
         /// Retrieves a list of all suspended UserTasks belonging to a specific Correlation.
         /// </summary>
         /// <returns>The fetched UserTasks.</returns>
