@@ -3,7 +3,7 @@ import {HttpRequestWithIdentity} from '@essential-projects/http_contracts';
 import {Response} from 'express';
 
 /**
- * Describes a HTTPController for managing HttpRequests related to EmptyActivities.
+ * Describes a HttpController for managing HttpRequests related to EmptyActivities.
  */
 export interface IEmptyActivityHttpController {
 
