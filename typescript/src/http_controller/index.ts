@@ -1,0 +1,14 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import * as emptyActivityHttpController from './iempty_activity_http_controller';
+import * as eventHttpController from './ievent_http_controller';
+import * as manualTaskHttpController from './imanual_task_http_controller';
+import * as processModelHttpController from './iprocess_model_http_controller';
+import * as userTaskHttpController from './iuser_task_http_controller';
+
+export namespace HttpController {
+  export import IEmptyActivityHttpController = emptyActivityHttpController.IEmptyActivityHttpController;
+  export import IEventHttpController = eventHttpController.IEventHttpController;
+  export import IManualTaskHttpController = manualTaskHttpController.IManualTaskHttpController;
+  export import IProcessModelHttpController = processModelHttpController.IProcessModelHttpController;
+  export import IUserTaskHttpController = userTaskHttpController.IUserTaskHttpController;
+}
