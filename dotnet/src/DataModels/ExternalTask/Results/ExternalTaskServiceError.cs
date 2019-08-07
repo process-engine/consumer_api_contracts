@@ -1,15 +1,15 @@
 namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
 {
     /// <summary>
-    /// Contains the result set for an ExternalTask that failed with a System error.
+    /// Contains the result set for an ExternalTask that failed with a service error.
     /// </summary>
-    public class ExternalTaskSystemError<TDetails> : ExternalTaskResultBase
+    public class ExternalTaskServiceError<TDetails> : ExternalTaskResultBase
     {
         /// <summary></summary>
         /// <param name="externalTaskId"></param>
         /// <param name="errorMessage"></param>
         /// <param name="errorDetails"></param>
-        public ExternalTaskSystemError(string externalTaskId, string errorMessage, TDetails errorDetails)
+        public ExternalTaskServiceError(string externalTaskId, string errorMessage, TDetails errorDetails)
             : base(externalTaskId)
         {
             this.errorMessage = errorMessage;
