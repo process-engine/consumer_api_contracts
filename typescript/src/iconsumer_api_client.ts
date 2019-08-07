@@ -6,6 +6,7 @@ import {APIs} from './apis/index';
 export interface IConsumerApiClient
   extends APIs.IEmptyActivityConsumerApi,
   APIs.IEventConsumerApi,
+  APIs.IExternalTaskConsumerApi,
   APIs.IManualTaskConsumerApi,
   APIs.INotificationConsumerApi,
   APIs.IProcessModelConsumerApi,
