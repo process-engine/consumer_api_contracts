@@ -81,9 +81,6 @@ export interface IExternalTaskConsumerApi {
   /**
    *
    * Reports a failure to execute an ExternalTask with a specific ID.
-   * A number of retries and a timout, after which task execution is finally
-   * aborted, can be specified.
-   * If retries are set to 0, an incident for this task is created.
    *
    * @async
    * @param identity       The requesting users identity.
