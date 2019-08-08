@@ -5,6 +5,8 @@ export * from './call_activity_finished';
 export * from './call_activity_reached';
 export * from './empty_activity_finished';
 export * from './empty_activity_reached';
+export * from './external_task_error';
+export * from './external_task_success';
 export * from './finish_empty_activity';
 export * from './finish_manual_task';
 export * from './finish_user_task';
