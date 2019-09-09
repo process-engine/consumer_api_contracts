@@ -84,8 +84,8 @@ export interface IProcessModelConsumerApi {
   startProcessInstance(
     identity: IIdentity,
     processModelId: string,
-    payload: DataModels.ProcessModels.ProcessStartRequestPayload,
-    startCallbackType: DataModels.ProcessModels.StartCallbackType,
+    payload?: DataModels.ProcessModels.ProcessStartRequestPayload,
+    startCallbackType?: DataModels.ProcessModels.StartCallbackType,
     startEventId?: string,
     endEventId?: string,
     processEndedCallback?: Messages.CallbackTypes.OnProcessEndedCallback,
