@@ -17,11 +17,12 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         /// </summary>
         /// <returns>The fetched EmptyActivities.</returns>
         /// <param name="identity">The requesting users <see cref="EssentialProjects.IAM.Contracts.IIdentity">identity</see>. Should usually contain an auth token.</param>
-        /// <param name="processModelId">The ID of the ProcessDefinition for
-        /// which to retrieve the EmptyActivities.</param>
+        /// <param name="processModelId">The ID of the ProcessDefinition for which to retrieve the EmptyActivities.</param>
+        /// <param name="offset">Optional: The number of records to skip.</param>
+        /// <param name="limit">Optional: The max. number of records to get.</param>
         /// <exception cref="System.UnauthorizedAccessException">Thrown when the identity has insufficient rights to perform the operation.</exception>
         /// <exception cref="ProcessNotFoundException"> Thrown when the ProcessModel could not be found.</exception>
-        Task<EmptyActivityList> GetEmptyActivitiesForProcessModel(IIdentity identity, string processModelId);
+        Task<EmptyActivityList> GetEmptyActivitiesForProcessModel(IIdentity identity, string processModelId, int offset = 0, int limit = 0);
 
         /// <summary>
         /// Retrieves a list of all suspended EmptyActivities belonging to an instance of a specific ProcessModel within a Correlation.
@@ -29,9 +30,11 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         /// <returns>The fetched EmptyActivities.</returns>
         /// <param name="identity">The requesting users <see cref="EssentialProjects.IAM.Contracts.IIdentity">identity</see>. Should usually contain an auth token.</param>
         /// <param name="processInstanceId">The ID of the ProcessInstance for which to retrieve the EmptyActivities.</param>
+        /// <param name="offset">Optional: The number of records to skip.</param>
+        /// <param name="limit">Optional: The max. number of records to get.</param>
         /// <exception cref="System.UnauthorizedAccessException">Thrown when the identity has insufficient rights to perform the operation.</exception>
         /// <exception cref="ProcessNotFoundException"> Thrown when the ProcessInstance could not be found.</exception>
-        Task<EmptyActivityList> GetEmptyActivitiesForProcessInstance(IIdentity identity, string processInstanceId);
+        Task<EmptyActivityList> GetEmptyActivitiesForProcessInstance(IIdentity identity, string processInstanceId, int offset = 0, int limit = 0);
 
         /// <summary>
         /// Retrieves a list of all suspended EmptyActivities belonging to a specific Correlation.
@@ -39,9 +42,11 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         /// <returns>The fetched EmptyActivities.</returns>
         /// <param name="identity">The requesting users <see cref="EssentialProjects.IAM.Contracts.IIdentity">identity</see>. Should usually contain an auth token.</param>
         /// <param name="correlationId">The ID of the Correlation for which to retrieve the EmptyActivities.</param>
+        /// <param name="offset">Optional: The number of records to skip.</param>
+        /// <param name="limit">Optional: The max. number of records to get.</param>
         /// <exception cref="System.UnauthorizedAccessException">Thrown when the identity has insufficient rights to perform the operation.</exception>
         /// <exception cref="ProcessNotFoundException"> Thrown when the Correlation could not be found.</exception>
-        Task<EmptyActivityList> GetEmptyActivitiesForCorrelation(IIdentity identity, string correlationId);
+        Task<EmptyActivityList> GetEmptyActivitiesForCorrelation(IIdentity identity, string correlationId, int offset = 0, int limit = 0);
 
         /// <summary>
         /// Retrieves a list of all suspended EmptyActivities belonging to an instance of a specific ProcessModel within a Correlation.
@@ -50,16 +55,20 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         /// <param name="identity">The requesting users <see cref="EssentialProjects.IAM.Contracts.IIdentity">identity</see>. Should usually contain an auth token.</param>
         /// <param name="processModelId">The ID of the ProcessDefinition for which to retrieve the EmptyActivities.</param>
         /// <param name="correlationId">The ID of the Correlation for which to retrieve the EmptyActivities.</param>
+        /// <param name="offset">Optional: The number of records to skip.</param>
+        /// <param name="limit">Optional: The max. number of records to get.</param>
         /// <exception cref="System.UnauthorizedAccessException">Thrown when the identity has insufficient rights to perform the operation.</exception>
         /// <exception cref="ProcessNotFoundException"> Thrown when the ProcessModel or Correlation could not be found.</exception>
-        Task<EmptyActivityList> GetEmptyActivitiesForProcessModelInCorrelation(IIdentity identity, string processModelId, string correlationId);
+        Task<EmptyActivityList> GetEmptyActivitiesForProcessModelInCorrelation(IIdentity identity, string processModelId, string correlationId, int offset = 0, int limit = 0);
 
         /// <summary>
         /// Gets all waiting EmptyActivities belonging to the given identity.
         /// </summary>
         /// <returns>The fetched EmptyActivities.</returns>
         /// <param name="identity">The requesting users <see cref="EssentialProjects.IAM.Contracts.IIdentity">identity</see>. Should usually contain an auth token.</param>
-        Task<EmptyActivityList> GetWaitingEmptyActivitiesByIdentity(IIdentity identity);
+        /// <param name="offset">Optional: The number of records to skip.</param>
+        /// <param name="limit">Optional: The max. number of records to get.</param>
+        Task<EmptyActivityList> GetWaitingEmptyActivitiesByIdentity(IIdentity identity, int offset = 0, int limit = 0);
 
         /// <summary>
         /// Finishes a EmptyActivity belonging to an instance of a specific ProcessModel within a correlation.

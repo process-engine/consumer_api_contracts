@@ -19,7 +19,9 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         /// <returns>A list of accessible ProcessModels.</returns>
         /// <exception cref="System.UnauthorizedAccessException">Thrown when the identity has insufficient rights to perform the operation.</exception>
         /// <exception cref="ProcessNotFoundException"> Thrown when the ProcessModel could not be found.</exception>
-        Task<ProcessModelList> GetProcessModels(IIdentity identity);
+        /// <param name="offset">Optional: The number of records to skip.</param>
+        /// <param name="limit">Optional: The max. number of records to get.</param>
+        Task<ProcessModelList> GetProcessModels(IIdentity identity, int offset = 0, int limit = 0);
 
         /// <summary>
         /// Retrieves a ProcessModel by its ID.
@@ -45,10 +47,12 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         /// Gets all active ProcessInstances belonging to the given identity.
         /// </summary>
         /// <param name="identity">The identity for which to get the ProcessInstances.</param>
+        /// <param name="offset">Optional: The number of records to skip.</param>
+        /// <param name="limit">Optional: The max. number of records to get.</param>
         /// <returns>The list of ProcessInstances.</returns>
         /// <exception cref="System.UnauthorizedAccessException">Thrown when the identity has insufficient rights to perform the operation.</exception>
         /// <exception cref="ProcessNotFoundException"> Thrown when the ProcessModel could not be found.</exception>
-        Task<IEnumerable<ProcessInstance>> GetProcessInstancesByIdentity(IIdentity identity);
+        Task<IEnumerable<ProcessInstance>> GetProcessInstancesByIdentity(IIdentity identity, int offset = 0, int limit = 0);
 
 
         /// <summary>
