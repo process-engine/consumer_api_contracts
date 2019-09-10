@@ -14,12 +14,14 @@ export interface IProcessModelConsumerApi {
    *
    * @async
    * @param   identity           The requesting users identity.
+   * @param   offset             Optional: The number of records to skip.
+   * @param   limit              Optional: The max. number of records to get.
    * @returns                    A list of accessible ProcessModels.
    *                             Will be empty, if none are available.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
    */
-  getProcessModels(identity: IIdentity): Promise<DataModels.ProcessModels.ProcessModelList>;
+  getProcessModels(identity: IIdentity, offset?: number, limit?: number): Promise<DataModels.ProcessModels.ProcessModelList>;
 
   /**
    * Retrieves a ProcessModel by its ID.
