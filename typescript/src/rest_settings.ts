@@ -55,6 +55,12 @@ const paths = {
   processModelCorrelationUserTasks: `/process_models/${params.processModelId}/correlations/${params.correlationId}/user_tasks`,
   getOwnUserTasks: '/user_tasks/own',
   finishUserTask: `/processes/${params.processInstanceId}/correlations/${params.correlationId}/usertasks/${params.userTaskInstanceId}/finish`,
+  // Task
+  allSuspendedTasks: '/suspended_tasks',
+  processModelTasks: `/process_models/${params.processModelId}/tasks`,
+  processInstanceTasks: `/process_instances/${params.processInstanceId}/tasks`,
+  correlationTasks: `/correlations/${params.correlationId}/tasks`,
+  processModelCorrelationTasks: `/process_models/${params.processModelId}/correlations/${params.correlationId}/tasks`,
 };
 
 export const restSettings = {
