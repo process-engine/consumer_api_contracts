@@ -8,8 +8,7 @@ import {Response} from 'express';
 export interface ITaskHttpController {
 
   /**
-   * Retrieves a list of all suspended Tasks belonging to an instance of a
-   * specific ProcessModel.
+   * Retrieves a list of all suspended Tasks.
    *
    * @async
    * @param request  The HttpRequest object containing all request infos.
