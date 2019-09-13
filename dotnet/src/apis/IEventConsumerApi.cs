@@ -18,9 +18,9 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         /// of a specific ProcessModel.
         /// </summary>
         /// <param name="identity">The requesting users identity.</param>
-        /// <param name="processModelId">
-        /// The ID of the ProcessModel for which to retrieve the events.
-        /// </param>
+        /// <param name="processModelId">The ID of the ProcessModel for which to retrieve the events.</param>
+        /// <param name="offset">Optional: The number of records to skip.</param>
+        /// <param name="limit">Optional: The max. number of records to get.</param>
         /// <returns>
         /// The fetched Events.
         /// </returns>
@@ -31,16 +31,16 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         /// <exception cref="ProcessNotFoundException">
         /// Thrown when the ProcessModel could not be found.
         /// </exception>
-        Task<EventList> GetEventsForProcessModel(IIdentity identity, string processModelId);
+        Task<EventList> GetEventsForProcessModel(IIdentity identity, string processModelId, int offset = 0, int limit = 0);
 
         /// <summary>
         /// Retrieves a list of all triggerable events belonging to an instance
         /// of a specific ProcessModel.
         /// </summary>
         /// <param name="identity">The requesting users identity.</param>
-        /// <param name="correlationId">
-        /// The ID of the Correlation for which to retrieve the events.
-        /// </param>
+        /// <param name="correlationId">The ID of the Correlation for which to retrieve the events.</param>
+        /// <param name="offset">Optional: The number of records to skip.</param>
+        /// <param name="limit">Optional: The max. number of records to get.</param>
         /// <returns>
         /// The fetched Events.
         /// </returns>
@@ -51,19 +51,17 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         /// <exception cref="ProcessNotFoundException">
         /// Thrown when the Correlation could not be found.
         /// </exception>
-        Task<EventList> GetEventsForCorrelation(IIdentity identity, string correlationId);
+        Task<EventList> GetEventsForCorrelation(IIdentity identity, string correlationId, int offset = 0, int limit = 0);
 
         /// <summary>
         /// Retrieves a list of all triggerable events belonging to an instance
         /// of a specific ProcessModel within a Correlation.
         /// </summary>
         /// <param name="identity">The requesting users identity.</param>
-        /// <param name="processModelId">
-        /// The ID of the ProcessModel for which to retrieve the events.
-        /// </param>
-        /// <param name="correlationId">
-        /// The ID of the Correlation for which to retrieve the events.
-        /// </param>
+        /// <param name="processModelId">The ID of the ProcessModel for which to retrieve the events.</param>
+        /// <param name="correlationId">The ID of the Correlation for which to retrieve the events.</param>
+        /// <param name="offset">Optional: The number of records to skip.</param>
+        /// <param name="limit">Optional: The max. number of records to get.</param>
         /// <returns>
         /// The fetched Events.
         /// </returns>
@@ -74,7 +72,7 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         /// <exception cref="ProcessNotFoundException">
         /// Thrown when the ProcessModel or the Correlation could not be found.
         /// </exception>
-        Task<EventList> GetEventsForProcessModelInCorrelation(IIdentity identity, string processModelId, string correlationId);
+        Task<EventList> GetEventsForProcessModelInCorrelation(IIdentity identity, string processModelId, string correlationId, int offset = 0, int limit = 0);
 
         /// <summary>
         /// Triggers a message event.
