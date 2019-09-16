@@ -7,12 +7,12 @@ namespace ProcessEngine.ConsumerAPI.Contracts
     /// <summary>
     /// Definition of the HandleExternalTask Callback.
     /// </summary>
-    public delegate Task<ExternalTaskResultBase> HandleExternalTaskAction<TPayload>(ExternalTask<TPayload> externalTask);
+    public delegate Task<ExternalTaskResultBase> HandleExternalTaskAction<TPayload, TResult>(ExternalTask<TPayload> externalTask);
 
     /// <summary>
     /// Periodically fetches, locks and processes ExternalTasks for a given topic.
     /// </summary>
-    public interface IExternalTaskWorker<TExternalTaskPayload>
+    public interface IExternalTaskWorker
     {
         /// <summary>
         /// The Id of the worker

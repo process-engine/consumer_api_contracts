@@ -3,7 +3,7 @@ import {ExternalTask, ExternalTaskResultBase} from './data_models/external_task/
 /**
  * Definition of the HandleExternalTask Callback.
  */
-export type HandleExternalTaskAction<TPayload> = (externalTask: ExternalTask<TPayload>) => Promise<ExternalTaskResultBase>
+export type HandleExternalTaskAction<TPayload, TResult> = (externalTask: ExternalTask<TPayload>) => Promise<ExternalTaskResultBase>
 
 /**
  * Periodically fetches, locks and processes ExternalTasks for a given topic.
