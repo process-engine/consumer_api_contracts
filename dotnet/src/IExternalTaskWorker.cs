@@ -2,7 +2,6 @@ namespace ProcessEngine.ConsumerAPI.Contracts
 {
     using System.Threading.Tasks;
 
-    using EssentialProjects.IAM.Contracts;
     using ProcessEngine.ConsumerAPI.Contracts.DataModel;
 
     /// <summary>
@@ -21,20 +20,13 @@ namespace ProcessEngine.ConsumerAPI.Contracts
         string WorkerId { get; }
 
         /// <summary>
-        /// Periodically fetches, locks and processes available ExternalTasks with a given topic,
-        /// using the given callback as a processing function.
+        /// Tells the worker to start polling for ExternalTasks.
         /// </summary>
-        /// <param name="identity">The identity to use for fetching and processing ExternalTasks.</param>
-        /// <param name="topic">The topic by which to look for and process ExternalTasks.</param>
-        /// <param name="maxTasks">Max. number of ExternalTasks to fetch.</param>
-        /// <param name="longpollingTimeout">Longpolling Timeout in ms.</param>
-        /// <param name="handleAction">The function for processing the ExternalTasks.</param>
-        Task WaitForHandle<TPayload>(
-            IIdentity identity,
-            string topic,
-            int maxTasks,
-            int longpollingTimeout,
-            HandleExternalTaskAction<TPayload> handleAction
-          ) where TPayload : new();
+        void start();
+
+        /// <summary>
+        /// Tells the worker to stop polling for ExternalTasks.
+        /// </summary>
+        void stop();
     }
 }
