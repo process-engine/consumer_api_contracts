@@ -57,10 +57,10 @@ const paths = {
   finishUserTask: `/processes/${params.processInstanceId}/correlations/${params.correlationId}/usertasks/${params.userTaskInstanceId}/finish`,
   // Task
   allSuspendedTasks: '/suspended_tasks',
-  processModelTasks: `/process_models/${params.processModelId}/tasks`,
-  processInstanceTasks: `/process_instances/${params.processInstanceId}/tasks`,
-  correlationTasks: `/correlations/${params.correlationId}/tasks`,
-  processModelCorrelationTasks: `/process_models/${params.processModelId}/correlations/${params.correlationId}/tasks`,
+  suspendedProcessModelTasks: `/process_models/${params.processModelId}/tasks`,
+  suspendedProcessInstanceTasks: `/process_instances/${params.processInstanceId}/tasks`,
+  suspendedCorrelationTasks: `/correlations/${params.correlationId}/tasks`,
+  suspendedProcessModelCorrelationTasks: `/process_models/${params.processModelId}/correlations/${params.correlationId}/tasks`,
 };
 
 export const restSettings = {

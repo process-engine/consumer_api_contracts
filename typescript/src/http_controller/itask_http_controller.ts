@@ -24,7 +24,7 @@ export interface ITaskHttpController {
    * @param request  The HttpRequest object containing all request infos.
    * @param response The HttpResponse object to use for sending a Http response.
    */
-  getTasksForProcessModel(request: HttpRequestWithIdentity, response: Response): Promise<void>;
+  getSuspendedTasksForProcessModel(request: HttpRequestWithIdentity, response: Response): Promise<void>;
 
   /**
    * Retrieves a list of all suspended Tasks belonging to specific
@@ -34,7 +34,7 @@ export interface ITaskHttpController {
    * @param request  The HttpRequest object containing all request infos.
    * @param response The HttpResponse object to use for sending a Http response.
    */
-  getTasksForProcessInstance(request: HttpRequestWithIdentity, response: Response): Promise<void>;
+  getSuspendedTasksForProcessInstance(request: HttpRequestWithIdentity, response: Response): Promise<void>;
 
   /**
    * Retrieves a list of all suspended Tasks belonging to a specific
@@ -44,7 +44,7 @@ export interface ITaskHttpController {
    * @param request  The HttpRequest object containing all request infos.
    * @param response The HttpResponse object to use for sending a Http response.
    */
-  getTasksForCorrelation(request: HttpRequestWithIdentity, response: Response): Promise<void>;
+  getSuspendedTasksForCorrelation(request: HttpRequestWithIdentity, response: Response): Promise<void>;
 
   /**
    * Retrieves a list of all suspended Tasks belonging to an instance of a
@@ -54,5 +54,5 @@ export interface ITaskHttpController {
    * @param request  The HttpRequest object containing all request infos.
    * @param response The HttpResponse object to use for sending a Http response.
    */
-  getTasksForProcessModelInCorrelation(request: HttpRequestWithIdentity, response: Response): Promise<void>;
+  getSuspendedTasksForProcessModelInCorrelation(request: HttpRequestWithIdentity, response: Response): Promise<void>;
 }

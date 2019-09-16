@@ -37,7 +37,7 @@ export interface ITaskConsumerApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             ProcessModel.
    */
-  getTasksForProcessModel(identity: IIdentity, processModelId: string): Promise<TaskList>;
+  getSuspendedTasksForProcessModel(identity: IIdentity, processModelId: string): Promise<TaskList>;
 
   /**
    * Retrieves a list of all suspended Tasks belonging to specific
@@ -55,7 +55,7 @@ export interface ITaskConsumerApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             ProcessInstance.
    */
-  getTasksForProcessInstance(identity: IIdentity, processInstanceId: string): Promise<TaskList>;
+  getSuspendedTasksForProcessInstance(identity: IIdentity, processInstanceId: string): Promise<TaskList>;
 
   /**
    * Retrieves a list of all suspended Tasks belonging to a specific
@@ -73,7 +73,7 @@ export interface ITaskConsumerApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             Correlation.
    */
-  getTasksForCorrelation(identity: IIdentity, correlationId: string): Promise<TaskList>;
+  getSuspendedTasksForCorrelation(identity: IIdentity, correlationId: string): Promise<TaskList>;
 
   /**
    * Retrieves a list of all suspended Tasks belonging to an instance of a
@@ -93,5 +93,5 @@ export interface ITaskConsumerApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             Correlation or the ProcessModel.
    */
-  getTasksForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<TaskList>;
+  getSuspendedTasksForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<TaskList>;
 }
