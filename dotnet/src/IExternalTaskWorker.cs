@@ -12,7 +12,7 @@ namespace ProcessEngine.ConsumerAPI.Contracts
     /// <summary>
     /// Periodically fetches, locks and processes ExternalTasks for a given topic.
     /// </summary>
-    public interface IExternalTaskWorker
+    public interface IExternalTaskWorker<TExternalTaskPayload>
     {
         /// <summary>
         /// The Id of the worker
