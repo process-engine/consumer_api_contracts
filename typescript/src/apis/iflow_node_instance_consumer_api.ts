@@ -2,9 +2,9 @@ import {IIdentity} from '@essential-projects/iam_contracts';
 
 import {TaskList} from '../data_models/flow_node_instance/index';
 /**
- * The ITaskConsumerApi is used to retreive Tasks.
+ * The IFlowNodeInstanceConsumerApi is used to retreive FlowNodeInstances.
  */
-export interface ITaskConsumerApi {
+export interface IFlowNodeInstanceConsumerApi {
 
   /**
    * Retrieves a list of all suspended Tasks.
