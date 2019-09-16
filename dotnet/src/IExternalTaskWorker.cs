@@ -22,11 +22,11 @@ namespace ProcessEngine.ConsumerAPI.Contracts
         /// <summary>
         /// Tells the worker to start polling for ExternalTasks.
         /// </summary>
-        void start();
+        void Start();
 
         /// <summary>
         /// Tells the worker to stop polling for ExternalTasks.
         /// </summary>
-        void stop();
+        void Stop();
     }
 }
