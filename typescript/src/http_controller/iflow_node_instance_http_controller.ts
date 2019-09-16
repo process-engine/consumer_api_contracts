@@ -5,7 +5,7 @@ import {Response} from 'express';
 /**
  * Describes a HTTPController for managing HttpRequests related to Tasks.
  */
-export interface ITaskHttpController {
+export interface IFlowNodeInstanceHttpController {
 
   /**
    * Retrieves a list of all suspended Tasks.

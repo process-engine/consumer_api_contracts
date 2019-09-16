@@ -1,6 +1,6 @@
 import {IIdentity} from '@essential-projects/iam_contracts';
 
-import {TaskList} from '../data_models/task/index';
+import {TaskList} from '../data_models/flow_node_instance/index';
 /**
  * The ITaskConsumerApi is used to retreive Tasks.
  */
