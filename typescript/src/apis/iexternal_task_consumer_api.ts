@@ -1,6 +1,6 @@
 import {IIdentity} from '@essential-projects/iam_contracts';
 
-import {ExternalTask} from '../data_models/external_task/index';
+import {ExternalTask, ExternalTaskList} from '../data_models/external_task/index';
 
 /**
  * Service for ProcessEngine ExternalTask execution.
@@ -39,7 +39,7 @@ export interface IExternalTaskConsumerApi {
     topicName: string,
     maxTasks: number,
     longPollingTimeout: number,
-    lockDuration: number): Promise<Array<ExternalTask<TPayloadType>>>;
+    lockDuration: number): Promise<ExternalTaskList<TPayloadType>>;
 
   /**
    *

@@ -8,16 +8,20 @@ import * as userTasks from './user_task/index';
 
 import * as bpmnType from './bpmn_type';
 import * as correlationResult from './correlation_result';
+import * as correlationResultList from './correlation_result_list';
 import * as processInstance from './process_instance';
+import * as processInstanceList from './process_instance_list';
 
 export namespace DataModels {
   export import BpmnType = bpmnType.BpmnType;
   export import CorrelationResult = correlationResult.CorrelationResult;
+  export import CorrelationResultList = correlationResultList.CorrelationResultList;
   export import EmptyActivities = emptyActivities;
   export import Events = events;
   export import ExternalTask = externalTask;
   export import ManualTasks = manualTasks;
   export import ProcessInstance = processInstance.ProcessInstance;
+  export import ProcessInstanceList = processInstanceList.ProcessInstanceList;
   export import ProcessModels = processModels;
   export import UserTasks = userTasks;
 }
