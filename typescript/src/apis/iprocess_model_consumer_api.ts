@@ -111,7 +111,11 @@ export interface IProcessModelConsumerApi {
    * @throws {NotFoundError}     If the Correlation or the ProcessModel was not
    *                             found.
    */
-  getProcessResultForCorrelation(identity: IIdentity, correlationId: string, processModelId: string): Promise<Array<DataModels.CorrelationResult>>;
+  getProcessResultForCorrelation(
+    identity: IIdentity,
+    correlationId: string,
+    processModelId: string,
+  ): Promise<DataModels.Correlations.CorrelationResultList>;
 
   /**
    * Gets all active ProcessInstances belonging to the given identity.
@@ -125,7 +129,7 @@ export interface IProcessModelConsumerApi {
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
    */
-  getProcessInstancesByIdentity(identity: IIdentity, offset?: number, limit?: number): Promise<Array<DataModels.ProcessInstance>>;
+  getProcessInstancesByIdentity(identity: IIdentity, offset?: number, limit?: number): Promise<DataModels.ProcessModels.ProcessInstanceList>;
 
   /**
    * Executes the provided callback when a ProcessInstance is started.
