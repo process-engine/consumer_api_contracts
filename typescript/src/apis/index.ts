@@ -6,6 +6,7 @@ import * as manualTaskApi from './imanual_task_consumer_api';
 import * as notificationApi from './inotification_consumer_api';
 import * as processModelApi from './iprocess_model_consumer_api';
 import * as userTaskApi from './iuser_task_consumer_api';
+import * as flowNodeInstanceApi from './iflow_node_instance_consumer_api';
 
 export namespace APIs {
   export import IEmptyActivityConsumerApi = emptyActivityApi.IEmptyActivityConsumerApi;
@@ -15,4 +16,5 @@ export namespace APIs {
   export import INotificationConsumerApi = notificationApi.INotificationConsumerApi;
   export import IProcessModelConsumerApi = processModelApi.IProcessModelConsumerApi;
   export import IUserTaskConsumerApi = userTaskApi.IUserTaskConsumerApi;
+  export import IFlowNodeInstanceConsumerApi = flowNodeInstanceApi.IFlowNodeInstanceConsumerApi;
 }

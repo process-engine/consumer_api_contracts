@@ -10,4 +10,5 @@ export interface IConsumerApiClient
   APIs.IManualTaskConsumerApi,
   APIs.INotificationConsumerApi,
   APIs.IProcessModelConsumerApi,
-  APIs.IUserTaskConsumerApi {}
+  APIs.IUserTaskConsumerApi,
+  APIs.IFlowNodeInstanceConsumerApi {}

@@ -6,6 +6,7 @@ import * as externalTask from './external_task/index';
 import * as manualTasks from './manual_task/index';
 import * as processModels from './process_model/index';
 import * as userTasks from './user_task/index';
+import * as flowNodeInstances from './flow_node_instance/index';
 
 import * as bpmnType from './bpmn_type';
 
@@ -18,4 +19,5 @@ export namespace DataModels {
   export import ManualTasks = manualTasks;
   export import ProcessModels = processModels;
   export import UserTasks = userTasks;
+  export import FlowNodeInstances = flowNodeInstances;
 }
