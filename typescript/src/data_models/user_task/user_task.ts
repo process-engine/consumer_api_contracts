@@ -1,3 +1,4 @@
+import {BpmnType} from '../bpmn_type';
 import {UserTaskConfig} from './user_task_config';
 
 /**
@@ -5,6 +6,7 @@ import {UserTaskConfig} from './user_task_config';
  */
 export class UserTask {
 
+  public readonly flowNodeType: BpmnType = BpmnType.userTask;
   /**
    * The model ID of the UserTask, as it is declared in the ProcessModel.
    */
