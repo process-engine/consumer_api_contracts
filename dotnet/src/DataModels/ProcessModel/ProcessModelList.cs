@@ -11,5 +11,11 @@ namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
         /// The ProcessModelList.
         /// </summary>
         public IEnumerable<ProcessModel> ProcessModels { get; set; }
+
+        /// <summary>
+        /// The total amount of records, before pagination was applied.
+        /// </summary>
+        /// <value></value>
+        public int TotalCount { get; set; }
     }
 }

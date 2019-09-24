@@ -11,5 +11,11 @@ namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
         /// The UserTask list.
         /// </summary>
         public IEnumerable<UserTask> UserTasks { get; set; }
+
+        /// <summary>
+        /// The total amount of records, before pagination was applied.
+        /// </summary>
+        /// <value></value>
+        public int TotalCount { get; set; }
     }
 }

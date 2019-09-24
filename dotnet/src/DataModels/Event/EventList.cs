@@ -11,5 +11,11 @@ namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
         /// The event list.
         /// </summary>
         public IEnumerable<Event> Events { get; set; }
+
+        /// <summary>
+        /// The total amount of records, before pagination was applied.
+        /// </summary>
+        /// <value></value>
+        public int TotalCount { get; set; }
     }
 }
