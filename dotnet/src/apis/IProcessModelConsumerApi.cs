@@ -1,6 +1,5 @@
 namespace ProcessEngine.ConsumerAPI.Contracts.APIs
 {
-    using System.Collections.Generic;
     using System.Threading.Tasks;
 
     using EssentialProjects.IAM.Contracts;
@@ -52,7 +51,7 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         /// <returns>The list of ProcessInstances.</returns>
         /// <exception cref="System.UnauthorizedAccessException">Thrown when the identity has insufficient rights to perform the operation.</exception>
         /// <exception cref="ProcessNotFoundException"> Thrown when the ProcessModel could not be found.</exception>
-        Task<IEnumerable<ProcessInstance>> GetProcessInstancesByIdentity(IIdentity identity, int offset = 0, int limit = 0);
+        Task<ProcessInstanceList> GetProcessInstancesByIdentity(IIdentity identity, int offset = 0, int limit = 0);
 
 
         /// <summary>
@@ -82,7 +81,7 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         /// <param name="correlationId">The ID of the Correlation for which to get the results.</param>
         /// <param name="processModelId">The ID of the ProcessDefinition for which to get the results.</param>
         /// <typeparam name="TPayload">The type that holds the definition for the Correlation result's payload.</typeparam>
-        Task<IEnumerable<CorrelationResult<TPayload>>> GetProcessResultForCorrelation<TPayload>(
+        Task<CorrelationResultList<TPayload>> GetProcessResultForCorrelation<TPayload>(
             IIdentity identity,
             string correlationId,
             string processModelId)
