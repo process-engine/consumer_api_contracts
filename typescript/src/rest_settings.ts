@@ -1,14 +1,25 @@
 const params = {
+  // Id of a Correlation.
   correlationId: ':correlation_id',
+  // Instance Id of an EmptyActivity.
   emptyActivityInstanceId: ':empty_activity_instance_id',
+  // Id of an EndEvent.
   endEventId: ':end_event_id',
+  // Id of an Event.
   eventId: ':event_id',
+  // Name of an Event.
   eventName: ':event_name',
+  // Id of an ExternalTask.
   externalTaskId: ':external_task_id',
+  // Id of a ManualTask.
   manualTaskInstanceId: ':manual_task_instance_id',
+  // Instance Id of a Process.
   processInstanceId: ':process_instance_id',
+  // Id of a ProcessModel.
   processModelId: ':process_model_id',
+  // Id of a StartEvent.
   startEventId: ':start_event_id',
+  // Id of an UserTaskInstance.
   userTaskInstanceId: ':user_task_instance_id',
 };
 
