@@ -19,7 +19,7 @@ const params = {
   processModelId: ':process_model_id',
   // Id of a StartEvent.
   startEventId: ':start_event_id',
-  // Id of an UserTaskInstance.
+  // Id of a UserTaskInstance.
   userTaskInstanceId: ':user_task_instance_id',
 };
 
@@ -57,7 +57,7 @@ const paths = {
    */
   getOwnEmptyActivities: '/empty_activities/own',
   /*
-   * Finishs a specific EmptyActivity by its ProcessInstanceId, CorrelationId and its EmptyActivityInstanceId.
+   * Finishes a specific EmptyActivity by its ProcessInstanceId, CorrelationId and its EmptyActivityInstanceId.
    * @tag EmptyActivity
    * @method get
    */
@@ -79,7 +79,7 @@ const paths = {
    */
   correlationEvents: `/correlations/${params.correlationId}/events`,
   /*
-   * Gets all  Events for a specific ProcessModel and Correlation.
+   * Gets all Events for a specific ProcessModel and Correlation.
    * @tag Event
    * @method get
    */
@@ -100,15 +100,15 @@ const paths = {
   // ExternalTasks
 
   /*
-   * Fetches the tasks available for a particular (external) service and locks
+   * Fetches the tasks available for an ExternalTaskWorker and locks
    * them for a defined time.
-   * @tag ExternakTask
+   * @tag ExternalTask
    * @method post
    */
   fetchAndLockExternalTasks: '/fetch_and_lock',
   /*
-   * Extends the timeout of a lock by a given amount of time.
-   * @tag ExternakTask
+   * Extends the lock duration of an ExternalTask by a given amount of time.
+   * @tag ExternalTask
    * @method post
    */
   extendExternalTaskLock: `/task/${params.externalTaskId}/extend_lock`,
@@ -116,19 +116,19 @@ const paths = {
    * Reports a business error in the context of a running ExternalTask
    * with a specific ID.
    * The error code must be specified to identify the BPMN error handler.
-   * @tag ExternakTask
+   * @tag ExternalTask
    * @method post
    */
   finishExternalTaskWithBpmnError: `/task/${params.externalTaskId}/handle_bpmn_error`,
   /*
    * Reports a failure to execute an ExternalTask with a specific ID.
-   * @tag ExternakTask
+   * @tag ExternalTask
    * @method post
    */
   finishExternalTaskWithServiceError: `/task/${params.externalTaskId}/handle_service_error`,
   /*
-   * Completes an ExternalTask by its ID.
-   * @tag ExternakTask
+   * Finishes the ExternalTask with the given ID.
+   * @tag ExternalTask
    * @method post
    */
   finishExternalTask: `/task/${params.externalTaskId}/finish`,
@@ -136,37 +136,37 @@ const paths = {
   // ManualTask
 
   /*
-   * Gets all ManualTask for a specific ProcessModel.
+   * Gets all ManualTasks for a specific ProcessModel.
    * @tag ManualTask
    * @method get
    */
   processModelManualTasks: `/process_models/${params.processModelId}/manual_tasks`,
   /*
-   * Gets all ManualTask for a specific ProcessInstance.
+   * Gets all ManualTasks for a specific ProcessInstance.
    * @tag ManualTask
    * @method get
    */
   processInstanceManualTasks: `/process_instances/${params.processInstanceId}/manual_tasks`,
   /*
-   * Gets all ManualTask for a specific Correlation.
+   * Gets all ManualTasks for a specific Correlation.
    * @tag ManualTask
    * @method get
    */
   correlationManualTasks: `/correlations/${params.correlationId}/manual_tasks`,
   /*
-   * Gets all ManualTask for a specific ProcessModel and Correlation.
+   * Gets all ManualTasks for a specific ProcessModel and Correlation.
    * @tag ManualTask
    * @method get
    */
   processModelCorrelationManualTasks: `/process_models/${params.processModelId}/correlations/${params.correlationId}/manual_tasks`,
   /*
-   * Gets all ManualTask for the logged in user.
+   * Gets all ManualTasks for the logged in user.
    * @tag ManualTask
    * @method get
    */
   getOwnManualTasks: '/manual_tasks/own',
   /*
-   * Finishs a specific ManualTask by its ProcessInstanceId, CorrelationId and its ManualTaskInstanceId.
+   * Finishes a specific ManualTask by its ProcessInstanceId, CorrelationId and its ManualTaskInstanceId.
    * @tag ManualTask
    * @method post
    */
@@ -176,7 +176,7 @@ const paths = {
   // ProcessModels
 
   /*
-   * Gets all ProcessModels.
+   * Gets all ProcessModels the requesting user is allowed to see.
    * @tag ProcessModel
    * @method get
    */
@@ -188,13 +188,13 @@ const paths = {
    */
   processModelById: `/process_models/${params.processModelId}`,
   /*
-   * Gets a ProcessModel by a ProcessInstance.
+   * Gets the ProcessModel for a given ProcessInstance.
    * @tag ProcessModel
    * @method get
    */
   processModelByProcessInstanceId: `/process_instance/${params.processInstanceId}/process_model/`,
   /*
-   * Starts a ProcessDefinition by its name.
+   * Starts a new instance for a ProcessModel with the given ID.
    * @tag ProcessModel
    * @method post
    */
@@ -245,7 +245,7 @@ const paths = {
    */
   getOwnUserTasks: '/user_tasks/own',
   /*
-   * Finishs a specific UserTask by its ProcessInstanceId, CorrelationId and its UserTaskInstanceId.
+   * Finishes a specific UserTask by its ProcessInstanceId, CorrelationId and its UserTaskInstanceId.
    * @tag UserTask
    * @method post
    */
@@ -266,7 +266,7 @@ const paths = {
    */
   suspendedProcessModelTasks: `/process_models/${params.processModelId}/tasks`,
   /*
-   * Gets all suspended Tasks for a specific PRocessInstance.
+   * Gets all suspended Tasks for a specific ProcessInstance.
    * @tag Task
    * @method get
    */
