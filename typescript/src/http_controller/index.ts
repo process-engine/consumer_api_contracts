@@ -6,6 +6,7 @@ import * as manualTaskHttpController from './imanual_task_http_controller';
 import * as processModelHttpController from './iprocess_model_http_controller';
 import * as userTaskHttpController from './iuser_task_http_controller';
 import * as flowNodeInstanceHttpController from './iflow_node_instance_http_controller';
+import * as swaggerHttpController from './iswagger_http_controller';
 
 export namespace HttpController {
   export import IEmptyActivityHttpController = emptyActivityHttpController.IEmptyActivityHttpController;
@@ -15,4 +16,5 @@ export namespace HttpController {
   export import IProcessModelHttpController = processModelHttpController.IProcessModelHttpController;
   export import IUserTaskHttpController = userTaskHttpController.IUserTaskHttpController;
   export import IFlowNodeInstanceHttpController = flowNodeInstanceHttpController.IFlowNodeInstanceHttpController;
+  export import ISwaggerHttpController = swaggerHttpController.ISwaggerHttpController;
 }
