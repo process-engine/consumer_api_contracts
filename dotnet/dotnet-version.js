@@ -36,8 +36,6 @@ function run(originalArgv) {
 
   const [commandName, restArgs] = args;
 
-  console.log(commandName, restArgs);
-
   COMMAND_HANDLERS[commandName](restArgs);
 }
 
