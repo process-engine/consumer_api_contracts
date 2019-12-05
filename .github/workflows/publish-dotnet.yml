@@ -52,3 +52,7 @@ jobs:
       run: node dotnet-version.js set-package-version $NEW_VERSION
       env:
         NEW_VERSION: ${{ steps.prepare_version.outputs.version }}-${{ steps.escaped_branch.outputs.escaped_branch }}
+
+    - name: 'Build'
+      working-directory: ./dotnet
+      run: dotnet build --configuration Release src
