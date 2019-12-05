@@ -47,6 +47,7 @@ jobs:
         BRANCH: ${{ steps.escaped_branch.outputs.escaped_branch }}
 
     - name: 'Set Package Version'
+      working-directory: ./dotnet
       if: "!contains(github.ref, 'master')"
       run: node dotnet-version.js set-package-version $NEW_VERSION
       env:
