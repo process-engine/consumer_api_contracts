@@ -41,11 +41,13 @@ jobs:
 
 
     - name: 'Show Escaped Branch'
+      if: "!contains(github.ref, 'master')"
       run: echo $BRANCH
       env:
         BRANCH: ${{ steps.escaped_branch.outputs.escaped_branch }}
-  #  - name: 'Set Package Version'
-  #    if: !contains(github.ref, 'master')
-  #    run: echo $VERSION
-  #    env:
-  #      VERSION: ${{ steps.prepare_version.outputs.version }}
+
+    - name: 'Set Package Version'
+      if: "!contains(github.ref, 'master')"
+      run: node dotnet-version.js set-package-version $NEW_VERSION
+      env:
+        NEW_VERSION: ${{ steps.prepare_version.outputs.version }}-${{ steps.escaped_branch.outputs.escaped_branch }}
