@@ -31,3 +31,21 @@ jobs:
       run: echo $VERSION
       env:
         VERSION: ${{ steps.prepare_version.outputs.version }}
+
+    - name: 'Get Escaped Branch Name'
+      if: !contains(github.ref, 'master')
+      id: escaped_branch
+      run: echo "##[set-output name=escaped_branch;]$(BRANCH=$BRANCH node --print --eval "process.env.BRANCH.replace('/', '-').replace('_', '-')")"
+      env:
+        BRANCH: ${{ github.ref }}
+
+
+    - name: 'Show Escaped Branch'
+      run: echo $BRANCH
+      env:
+        BRANCH: ${{ steps.escaped_branch.outputs.escaped_branch }}
+  #  - name: 'Set Package Version'
+  #    if: !contains(github.ref, 'master')
+  #    run: echo $VERSION
+  #    env:
+  #      VERSION: ${{ steps.prepare_version.outputs.version }}
