@@ -63,7 +63,7 @@ jobs:
       env:
         NUGETFEEDURL: https://5minds.myget.org/F/process_engine_public/api/v3/index.json
         PACKAGE: ProcessEngine.ConsumerAPI.Contracts
-        VERSION: '14.2.0'
+        VERSION: ${{ steps.prepare_version.outputs.version }}-${{ steps.escaped_branch.outputs.escaped_branch }}
       run: |
         npm i @process-engine/ci_tools
         echo "##[set-output name=package_published;]$(./node_modules/.bin/is-nuget-package-published $NUGETFEEDURL $PACKAGE $VERSION)"
@@ -72,4 +72,18 @@ jobs:
       run: echo $PUBLISHED
       env:
         PUBLISHED: ${{ steps.package_published.outputs.package_published }}
+
+    - name: 'Publish Info'
+      if: "steps.package_published.outputs.package_published && !contains(github.ref, 'master')"
+      run: echo "Package version was already published, overriding version."
+
+    - name: 'Publish Info'
+      if: "steps.package_published.outputs.package_published && contains(github.ref, 'master')"
+      run: echo "Package version was already published, skipping publish."
+
+    - name: 'Publish'
+      if: "!contains(github.ref, 'master') || !steps.package_published.outputs.package_published"
+      run: dotnet nuget push src/bin/Release/ProcessEngine.ConsumerAPI.Contracts.*.nupkg --api-key $PROCESS_ENGINE_PUBLIC --source https://5minds.myget.org/F/process_engine_public/api/v2
+      env:
+        PROCESS_ENGINE_PUBLIC: ''
       #./node_modules/.bin/is-nuget-package-published https://5minds.myget.org/F/process_engine_public/api/v3/index.json ProcessEngine.ConsumerAPI.Contracts 14.2.1
