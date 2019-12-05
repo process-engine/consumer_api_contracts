@@ -15,9 +15,19 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
+    - name: 'Install Dependencies'
+      working-directory: ./dotnet
+      run: npm i
+
     - name: 'Prepare Version'
       working-directory: ./dotnet
+      id: prepare_version
       run: |
         dotnet --version
         dotnet restore src
+        echo "##[set-output name=version;]$(node dotnet-version.js get-package-version)"
 
+    - name: 'Show Version'
+      run: echo $VERSION
+      env:
+        VERSION: ${{ steps.prepare_version.outputs.version }}
