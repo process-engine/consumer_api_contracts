@@ -33,7 +33,7 @@ jobs:
         VERSION: ${{ steps.prepare_version.outputs.version }}
 
     - name: 'Get Escaped Branch Name'
-      if: !contains(github.ref, 'master')
+      if: "!contains(github.ref, 'master')"
       id: escaped_branch
       run: echo "##[set-output name=escaped_branch;]$(BRANCH=$BRANCH node --print --eval "process.env.BRANCH.replace('/', '-').replace('_', '-')")"
       env:
