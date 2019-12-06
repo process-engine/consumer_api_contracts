@@ -74,14 +74,15 @@ jobs:
         PUBLISHED: ${{ steps.package_published.outputs.package_published }}
 
     - name: 'Publish Info'
-      if: "steps.package_published.outputs.package_published && !contains(github.ref, 'master')"
+      if: "Boolean(steps.package_published.outputs.package_published) && !contains(github.ref, 'master')"
       run: echo "Package version was already published, overriding version."
 
     - name: 'Publish Info'
-      if: "steps.package_published.outputs.package_published && contains(github.ref, 'master')"
+      if: "Boolean(steps.package_published.outputs.package_published) && contains(github.ref, 'master')"
       run: echo "Package version was already published, skipping publish."
 
     - name: 'Publish'
+      working-directory: ./dotnet
       if: "!contains(github.ref, 'master') || !steps.package_published.outputs.package_published"
       run: dotnet nuget push src/bin/Release/ProcessEngine.ConsumerAPI.Contracts.*.nupkg --api-key $PROCESS_ENGINE_PUBLIC --source https://5minds.myget.org/F/process_engine_public/api/v2
       env:
