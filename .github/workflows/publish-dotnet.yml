@@ -83,8 +83,7 @@ jobs:
 
     - name: 'Publish'
       working-directory: ./dotnet
-      if: "!contains(github.ref, 'master') || !steps.package_published.outputs.package_published"
-      run: dotnet nuget push src/bin/Release/ProcessEngine.ConsumerAPI.Contracts.*.nupkg --api-key $PROCESS_ENGINE_PUBLIC --source https://5minds.myget.org/F/process_engine_public/api/v2
+      if: "!contains(github.ref, 'master') || contains(steps.package_published.outputs.package_published, 'false')"
+      run: dotnet nuget push src/bin/Release/ProcessEngine.ConsumerAPI.Contracts.*.nupkg --api-key $MYGET_TOKEN --source https://5minds.myget.org/F/process_engine_public/api/v2
       env:
-        PROCESS_ENGINE_PUBLIC: ''
-      #./node_modules/.bin/is-nuget-package-published https://5minds.myget.org/F/process_engine_public/api/v3/index.json ProcessEngine.ConsumerAPI.Contracts 14.2.1
+        MYGET_TOKEN: ${{ secrets.MYGET_TOKEN }}
