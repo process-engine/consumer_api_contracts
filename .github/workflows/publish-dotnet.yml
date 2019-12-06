@@ -74,11 +74,11 @@ jobs:
         PUBLISHED: ${{ steps.package_published.outputs.package_published }}
 
     - name: 'Publish Info'
-      if: "Boolean(steps.package_published.outputs.package_published) && !contains(github.ref, 'master')"
+      if: "contains(steps.package_published.outputs.package_published, 'true') && !contains(github.ref, 'master')"
       run: echo "Package version was already published, overriding version."
 
     - name: 'Publish Info'
-      if: "Boolean(steps.package_published.outputs.package_published) && contains(github.ref, 'master')"
+      if: "contains(steps.package_published.outputs.package_published, 'true') && contains(github.ref, 'master')"
       run: echo "Package version was already published, skipping publish."
 
     - name: 'Publish'
