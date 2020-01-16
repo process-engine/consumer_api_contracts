@@ -47,6 +47,16 @@
         Task HandleBpmnError(IIdentity identity, string workerId, string externalTaskId, string errorCode);
 
         /// <summary>
+        /// Reports a business error in the context of a running external task by ID. The error code must be specified to identify the BPMN error handler.
+        /// </summary>
+        /// <param name="identity">The requesting users identity. Should usually be an auth token.</param>
+        /// <param name="workerId">The ID of the worker that reports the failure. Must match the ID of the worker who has most recently locked the task.</param>
+        /// <param name="externalTaskId">The ID of the external task in which context a BPMN error is reported.</param>
+        /// <param name="errorCode">An error code that indicates the predefined error. Is used to identify the BPMN error handler.</param>
+        /// <param name="errorMessage">A message that describes the error that occured.</param>
+        Task HandleBpmnError(IIdentity identity, string workerId, string externalTaskId, string errorCode, string errorMessage);
+
+        /// <summary>
         /// Reports a failure to execute an external task by ID. A number of retries and a timeout until the task can be retried can be specified. If retries are set to 0, an incident for this task is created.
         /// </summary>
         /// <param name="identity">The requesting users identity. Should usually be an auth token.</param>
@@ -55,6 +65,17 @@
         /// <param name="errorMessage">A message indicating the reason of the failure.</param>
         /// <param name="errorDetails">A detailed error description.</param>
         Task HandleServiceError(IIdentity identity, string workerId, string externalTaskId, string errorMessage, string errorDetails);
+
+        /// <summary>
+        /// Reports a failure to execute an external task by ID. A number of retries and a timeout until the task can be retried can be specified. If retries are set to 0, an incident for this task is created.
+        /// </summary>
+        /// <param name="identity">The requesting users identity. Should usually be an auth token.</param>
+        /// <param name="workerId">The ID of the worker that reports the failure. Must match the ID of the worker who has most recently locked the task.</param>
+        /// <param name="externalTaskId">The ID of the external task to report a failure for.</param>
+        /// <param name="errorMessage">A message indicating the reason of the failure.</param>
+        /// <param name="errorDetails">A detailed error description.</param>
+        /// <param name="errorDetails">A code that describes the error.</param>
+        Task HandleServiceError(IIdentity identity, string workerId, string externalTaskId, string errorMessage, string errorDetails, string errorCode);
 
         /// <summary>
         /// Completes an external task by ID and updates process variables.
