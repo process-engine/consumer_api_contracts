@@ -34,12 +34,14 @@ export interface IExternalTaskConsumerApi {
    * @throws                     403, if the requesting User is forbidden to
    *                             access ExternalTasks.
    */
-  fetchAndLockExternalTasks<TPayloadType>(identity: IIdentity,
+  fetchAndLockExternalTasks<TPayloadType>(
+    identity: IIdentity,
     workerId: string,
     topicName: string,
     maxTasks: number,
     longPollingTimeout: number,
-    lockDuration: number): Promise<Array<ExternalTask<TPayloadType>>>;
+    lockDuration: number,
+  ): Promise<Array<ExternalTask<TPayloadType>>>;
 
   /**
    *

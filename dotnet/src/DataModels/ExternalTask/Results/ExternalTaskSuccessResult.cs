@@ -11,13 +11,13 @@ namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
         public ExternalTaskSuccessResult(string externalTaskId, TResult result)
             :base(externalTaskId)
         {
-            this.result = result;
+            this.Result = result;
         }
 
         /// <summary>
         /// The result with which the ExternalTask has finished.
         /// </summary>
         /// <value></value>
-        public TResult result { get; private set; }
+        public TResult Result { get; private set; }
     }
 }

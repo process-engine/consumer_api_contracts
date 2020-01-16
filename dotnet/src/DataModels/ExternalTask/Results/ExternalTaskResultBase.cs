@@ -9,13 +9,13 @@ namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
         /// </summary>
         /// <param name="externalTaskId"></param>
         public ExternalTaskResultBase(string externalTaskId) {
-            this.externalTaskId = externalTaskId;
+            this.ExternalTaskId = externalTaskId;
         }
 
         /// <summary>
         /// The ID of the ExternalTask to which this result belogns.
         /// </summary>
         /// <value></value>
-        public string externalTaskId { get; private set; }
+        public string ExternalTaskId { get; private set; }
     }
 }

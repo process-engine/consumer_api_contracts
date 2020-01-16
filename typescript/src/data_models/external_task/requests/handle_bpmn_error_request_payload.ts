@@ -5,10 +5,12 @@ export class HandleBpmnErrorRequestPayload {
 
   public readonly workerId: string;
   public readonly errorCode: string;
+  public readonly errorMessage: string;
 
-  constructor(workerId: string, errorCode: string) {
+  constructor(workerId: string, errorCode: string, errorMessage: string) {
     this.workerId = workerId;
     this.errorCode = errorCode;
+    this.errorMessage = errorMessage;
   }
 
 }

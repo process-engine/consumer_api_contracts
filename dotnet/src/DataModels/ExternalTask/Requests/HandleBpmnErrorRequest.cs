@@ -6,9 +6,17 @@ namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
         {
             this.WorkerId = workerId;
             this.ErrorCode = errorCode;
+            this.ErrorMessage = "";
+        }
+        public HandleBpmnErrorRequest(string workerId, string errorCode, string errorMessage)
+        {
+            this.WorkerId = workerId;
+            this.ErrorCode = errorCode;
+            this.ErrorMessage = errorMessage;
         }
 
         public string WorkerId { get; }
         public string ErrorCode { get; }
+        public string ErrorMessage { get; }
     }
 }
