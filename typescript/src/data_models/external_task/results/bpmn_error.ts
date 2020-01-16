@@ -1,5 +1,5 @@
 /**
- * This type can be used to throw an error modeled at an ErrorEndEvent.
+ * This type can be used to throw a BPMN error from an ExternalServiceTaskHandler.
  */
 export class BpmnError extends Error {
 
