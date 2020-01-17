@@ -34,12 +34,14 @@ export interface IExternalTaskConsumerApi {
    * @throws                     403, if the requesting User is forbidden to
    *                             access ExternalTasks.
    */
-  fetchAndLockExternalTasks<TPayloadType>(identity: IIdentity,
+  fetchAndLockExternalTasks<TPayloadType>(
+    identity: IIdentity,
     workerId: string,
     topicName: string,
     maxTasks: number,
     longPollingTimeout: number,
-    lockDuration: number): Promise<Array<ExternalTask<TPayloadType>>>;
+    lockDuration: number,
+  ): Promise<Array<ExternalTask<TPayloadType>>>;
 
   /**
    *
@@ -72,11 +74,18 @@ export interface IExternalTaskConsumerApi {
    *                       error has occured.
    * @param errorCode      An error code that indicates the predefined error.
    *                       This is used to identify the BPMN error handler.
+   * @param errorMessage   Optional: A message to provide with the error.
    * @throws               403, if the requesting User is forbidden to access
    *                       the ExternalTask.
    * @throws               404, if the ExternalTask was not found.
    */
-  handleBpmnError(identity: IIdentity, workerId: string, externalTaskId: string, errorCode: string): Promise<void>;
+  handleBpmnError(
+    identity: IIdentity,
+    workerId: string,
+    externalTaskId: string,
+    errorCode: string,
+    errorMessage?: string,
+  ): Promise<void>;
 
   /**
    *
@@ -90,11 +99,19 @@ export interface IExternalTaskConsumerApi {
    * @param externalTaskId The ID of the ExternalTask to report a failure for.
    * @param errorMessage   A message indicating the reason for the failure.
    * @param errorDetails   A detailed error description.
+   * @param errorMessage   Optional: A code to provide with the error.
    * @throws               403, if the requesting User is forbidden to access
    *                       the ExternalTask.
    * @throws               404, if the ExternalTask was not found.
    */
-  handleServiceError(identity: IIdentity, workerId: string, externalTaskId: string, errorMessage: string, errorDetails: string): Promise<void>;
+  handleServiceError(
+    identity: IIdentity,
+    workerId: string,
+    externalTaskId: string,
+    errorMessage: string,
+    errorDetails: string,
+    errorCode?: string,
+  ): Promise<void>;
 
   /**
    *
