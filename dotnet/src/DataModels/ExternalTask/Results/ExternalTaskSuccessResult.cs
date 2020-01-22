@@ -4,6 +4,7 @@ namespace ProcessEngine.ConsumerAPI.Contracts.DataModel
     /// Contains the result set for an ExternalTask that finished successfully.
     /// </summary>
     public class ExternalTaskSuccessResult<TResult> : ExternalTaskResultBase
+        where TResult : class, new()
     {
         /// <summary></summary>
         /// <param name="externalTaskId"></param>
