@@ -51,7 +51,7 @@ export interface IExternalTaskConsumerApi {
    * @param identity           The requesting users identity.
    * @param workerId           The ID of a worker who is locking the ExternalTask.
    * @param externalTaskId     The ID of the ExternalTask.
-   * @param additionalDuration The additional amount of time by which to extend
+   * @param additionalDuration The additional amount of miliseconds by which to extend
    *                           the lock, based on the current datetime.
    * @throws                   403, if the requesting User is forbidden to access
    *                           the ExternalTask.
