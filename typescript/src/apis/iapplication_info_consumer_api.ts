@@ -3,7 +3,7 @@ import {IIdentity} from '@essential-projects/iam_contracts';
 import {ApplicationInfo} from '../data_models/application_info';
 
 /**
- * The IApplicationInfoConsumerApi is used to retrieve basic information about the running application..
+ * The IApplicationInfoConsumerApi is used to retrieve basic information about the running application.
  */
 export interface IApplicationInfoConsumerApi {
 

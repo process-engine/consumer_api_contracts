@@ -23,6 +23,8 @@ namespace ProcessEngine.ConsumerAPI.Contracts.RestSettings
 
     public static class Paths
     {
+        // Application Info
+        public static string GetApplicationInfo { get { return $"/info"; } }
         // EmptyActivities
         public static string ProcessModelEmptyActivities { get { return $"/process_models/{Params.ProcessModelId}/empty_activities"; } }
         public static string ProcessInstanceEmptyActivities { get { return $"/process_instances/{Params.ProcessInstanceId}/empty_activities"; } }

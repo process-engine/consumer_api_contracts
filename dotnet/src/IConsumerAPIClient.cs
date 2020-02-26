@@ -6,6 +6,7 @@
     /// API for starting and managing BMPN processes.
     /// </summary>
     public interface IConsumerApiClient :
+        IApplicationInfoConsumerApi,
         IEmptyActivityConsumerApi,
         IEventConsumerApi,
         IExternalTaskConsumerApi,
