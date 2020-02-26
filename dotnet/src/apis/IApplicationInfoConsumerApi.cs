@@ -14,7 +14,7 @@ namespace ProcessEngine.ConsumerAPI.Contracts.APIs
         /// Gets the package name and version of the running application.
         /// </summary>
         /// <returns>Some Basic information about the running application..</returns>
-        Task<EmptyActivityList> GetApplicationInfo(IIdentity identity);
+        Task<ApplicationInfo> GetApplicationInfo(IIdentity identity);
 
     }
 
