@@ -24,6 +24,15 @@ const params = {
 };
 
 const paths = {
+  // Application Info
+
+  /*
+   * Gets some basic info about the application.
+   * @tag AppInfo
+   * @method get
+   */
+  getApplicationInfo: '/info',
+
   // EmptyActivities
 
   /*
