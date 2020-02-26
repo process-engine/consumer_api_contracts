@@ -1,3 +1,5 @@
+import {IIdentity} from '@essential-projects/iam_contracts';
+
 import {ApplicationInfo} from '../data_models/application_info';
 
 /**
@@ -11,5 +13,5 @@ export interface IApplicationInfoConsumerApi {
    * @async
    * @returns Some Basic information about the running application.
    */
-  getApplicationInfo(): Promise<ApplicationInfo>;
+  getApplicationInfo(identity: IIdentity): Promise<ApplicationInfo>;
 }
