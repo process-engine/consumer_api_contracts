@@ -1,12 +1,5 @@
 import {APIs} from './apis/index';
-
-/**
- * Contains basic information about the running application.
- */
-export type ApplicationInfo = {
-  name: string;
-  version: string;
-}
+import {ApplicationInfo} from './data_models/application_info';
 
 /**
  * The client provides endpoints for all UseCases the ConsumerAPI employs.

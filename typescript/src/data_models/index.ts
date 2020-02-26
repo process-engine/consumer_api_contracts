@@ -8,9 +8,11 @@ import * as processModels from './process_model/index';
 import * as userTasks from './user_task/index';
 import * as flowNodeInstances from './flow_node_instance/index';
 
+import * as appInfo from './application_info';
 import * as bpmnType from './bpmn_type';
 
 export namespace DataModels {
+  export import ApplicationInfo = appInfo.ApplicationInfo;
   export import BpmnType = bpmnType.BpmnType;
   export import Correlations = correlations;
   export import EmptyActivities = emptyActivities;
