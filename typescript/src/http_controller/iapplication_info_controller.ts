@@ -3,7 +3,7 @@ import {HttpRequestWithIdentity} from '@essential-projects/http_contracts';
 import {Response} from 'express';
 
 /**
- * Describes a HttpController for getting information about the running application.
+ * Describes an HttpController for getting information about the running application.
  */
 export interface IApplicationInfoController {
 
@@ -12,7 +12,7 @@ export interface IApplicationInfoController {
    *
    * @async
    * @param request  The HttpRequest object containing all request infos.
-   * @param response The HttpResponse object to use for sending a Http response.
+   * @param response The HttpResponse object to use for sending an Http response.
    */
   getApplicationInfo(request: HttpRequestWithIdentity, response: Response): Promise<void>;
 }
