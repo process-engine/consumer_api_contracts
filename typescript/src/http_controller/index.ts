@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import * as applicationInfoHttpController from './iapplication_info_controller';
 import * as emptyActivityHttpController from './iempty_activity_http_controller';
 import * as eventHttpController from './ievent_http_controller';
 import * as externalTaskHttpController from './iexternal_task_http_controller';
@@ -9,6 +10,7 @@ import * as flowNodeInstanceHttpController from './iflow_node_instance_http_cont
 import * as swaggerHttpController from './iswagger_http_controller';
 
 export namespace HttpController {
+  export import IApplicationInfoHttpController = applicationInfoHttpController.IApplicationInfoController;
   export import IEmptyActivityHttpController = emptyActivityHttpController.IEmptyActivityHttpController;
   export import IEventHttpController = eventHttpController.IEventHttpController;
   export import IExternalTaskHttpController = externalTaskHttpController.IExternalTaskHttpController;
